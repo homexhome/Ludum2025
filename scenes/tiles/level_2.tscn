@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbhi1icvyo5j2"]
+[gd_scene load_steps=14 format=3 uid="uid://dbhi1icvyo5j2"]
 
 [ext_resource type="PackedScene" uid="uid://b0wqe48ctiv16" path="res://scenes/player.tscn" id="1_qkjyu"]
 [ext_resource type="PackedScene" uid="uid://bfkfp22eap2hu" path="res://scenes/tiles/preset_plane.tscn" id="2_p2cwl"]
 [ext_resource type="PackedScene" uid="uid://duml6l6edul1v" path="res://scenes/tiles/Enemy.tscn" id="3_ndbgx"]
 [ext_resource type="PackedScene" uid="uid://bltg4k1jw2tx3" path="res://scenes/tiles/preset_hall_wide.tscn" id="4_d4qps"]
+[ext_resource type="PackedScene" uid="uid://f0i0sevrtqy1" path="res://scenes/tiles/2x2_cube.tscn" id="5_u7jl3"]
 [ext_resource type="PackedScene" uid="uid://4xbnm260c6t8" path="res://scenes/tiles/preset_ladder_2.tscn" id="6_xq206"]
 
 [sub_resource type="Gradient" id="Gradient_c57a8"]
@@ -460,29 +461,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -54)
 [node name="PresetPlane137" parent="Visuals" instance=ExtResource("2_p2cwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -48)
 
-[node name="PresetPlane138" parent="Visuals" instance=ExtResource("2_p2cwl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -66)
-
 [node name="PresetPlane139" parent="Visuals" instance=ExtResource("2_p2cwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -66)
-
-[node name="PresetPlane140" parent="Visuals" instance=ExtResource("2_p2cwl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -72)
 
 [node name="PresetPlane141" parent="Visuals" instance=ExtResource("2_p2cwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -78)
 
-[node name="PresetPlane142" parent="Visuals" instance=ExtResource("2_p2cwl")]
+[node name="PresetPlane580" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -72)
+
+[node name="PresetPlane581" parent="Visuals" instance=ExtResource("2_p2cwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -78)
+
+[node name="PresetPlane582" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -66)
+
+[node name="PresetPlane583" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -72)
 
 [node name="PresetPlane143" parent="Visuals" instance=ExtResource("2_p2cwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -78)
 
 [node name="PresetPlane144" parent="Visuals" instance=ExtResource("2_p2cwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -72)
-
-[node name="PresetPlane145" parent="Visuals" instance=ExtResource("2_p2cwl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -72)
 
 [node name="PresetPlane146" parent="Visuals" instance=ExtResource("2_p2cwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -66)
@@ -1771,43 +1772,64 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -4)
 [node name="Enemy" parent="Visuals" instance=ExtResource("3_ndbgx")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -11)
 
+[node name="2x2" parent="Visuals" instance=ExtResource("5_u7jl3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, -128)
+
+[node name="2x3" parent="Visuals" instance=ExtResource("5_u7jl3")]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -42.3, 0, -127.8)
+
+[node name="2x4" parent="Visuals" instance=ExtResource("5_u7jl3")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -40.8, 0, -127.2)
+
+[node name="2x5" parent="Visuals" instance=ExtResource("5_u7jl3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -133)
+
+[node name="2x8" parent="Visuals" instance=ExtResource("5_u7jl3")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -41.4, 0, -133.4)
+
+[node name="2x6" parent="Visuals" instance=ExtResource("5_u7jl3")]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -38.3, 0, -132.8)
+
+[node name="2x7" parent="Visuals" instance=ExtResource("5_u7jl3")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -36.8, 0, -132.2)
+
+[node name="PresetPlane142" parent="Visuals" instance=ExtResource("6_xq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0, -10)
+
+[node name="PresetPlane145" parent="Visuals" instance=ExtResource("6_xq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0, -12)
+
+[node name="PresetPlane570" parent="Visuals" instance=ExtResource("6_xq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0, -14)
+
+[node name="PresetPlane571" parent="Visuals" instance=ExtResource("6_xq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0, -130)
+
+[node name="PresetPlane572" parent="Visuals" instance=ExtResource("6_xq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0, -132)
+
+[node name="PresetPlane573" parent="Visuals" instance=ExtResource("6_xq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0, -134)
+
+[node name="PresetPlane574" parent="Visuals" instance=ExtResource("6_xq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, -3, -134)
+
+[node name="PresetPlane575" parent="Visuals" instance=ExtResource("6_xq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, -3, -132)
+
+[node name="PresetPlane576" parent="Visuals" instance=ExtResource("6_xq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, -3, -130)
+
+[node name="PresetPlane577" parent="Visuals" instance=ExtResource("6_xq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, -3, -14)
+
+[node name="PresetPlane578" parent="Visuals" instance=ExtResource("6_xq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, -3, -12)
+
+[node name="PresetPlane579" parent="Visuals" instance=ExtResource("6_xq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, -3, -10)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_c57a8")
 script = SubResource("GDScript_c57a8")
 rotation_speed = 0.3
-
-[node name="PresetPlane" parent="." instance=ExtResource("6_xq206")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0, -10)
-
-[node name="PresetPlane2" parent="." instance=ExtResource("6_xq206")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0, -12)
-
-[node name="PresetPlane3" parent="." instance=ExtResource("6_xq206")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0, -14)
-
-[node name="PresetPlane4" parent="." instance=ExtResource("6_xq206")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0, -130)
-
-[node name="PresetPlane5" parent="." instance=ExtResource("6_xq206")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0, -132)
-
-[node name="PresetPlane12" parent="." instance=ExtResource("6_xq206")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0, -134)
-
-[node name="PresetPlane6" parent="." instance=ExtResource("6_xq206")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, -3, -134)
-
-[node name="PresetPlane7" parent="." instance=ExtResource("6_xq206")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, -3, -132)
-
-[node name="PresetPlane8" parent="." instance=ExtResource("6_xq206")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, -3, -130)
-
-[node name="PresetPlane9" parent="." instance=ExtResource("6_xq206")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, -3, -14)
-
-[node name="PresetPlane10" parent="." instance=ExtResource("6_xq206")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, -3, -12)
-
-[node name="PresetPlane11" parent="." instance=ExtResource("6_xq206")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, -3, -10)
