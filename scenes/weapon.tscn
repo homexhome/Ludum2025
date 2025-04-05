@@ -1264,5 +1264,5 @@ mesh = SubResource("ArrayMesh_ihae7")
 skeleton = NodePath("")
 
 [node name="fire" parent="." instance=ExtResource("4_8fp1k")]
-transform = Transform3D(0.929546, 0.301678, -0.211976, -0.117524, -0.302504, -0.945875, -0.349474, 0.904147, -0.245737, 0.209985, 0.226703, 0.626684)
+transform = Transform3D(0.929548, 0.301674, -0.211976, -0.117526, -0.302503, -0.945875, -0.349469, 0.904149, -0.245737, 0.209985, 0.226703, 0.626684)
 visible = false
