@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn1rrg44tqm3x"]
+
+[ext_resource type="PackedScene" uid="uid://ce6jq3diahs42" path="res://scenes/tiles/2x2.tscn" id="1_tx4g1"]
+[ext_resource type="PackedScene" uid="uid://f0i0sevrtqy1" path="res://scenes/tiles/2x2_cube.tscn" id="2_qq52o"]
+
+[node name="PresetPlane" type="Node3D"]
+
+[node name="Node3D4" parent="." instance=ExtResource("1_tx4g1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="Wall2" parent="." instance=ExtResource("2_qq52o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4)
+
+[node name="Wall3" parent="." instance=ExtResource("2_qq52o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -4)
+
+[node name="Wall5" parent="." instance=ExtResource("2_qq52o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -4)
+
+[node name="Wall7" parent="." instance=ExtResource("2_qq52o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -4)
+
+[node name="Wall8" parent="." instance=ExtResource("2_qq52o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
