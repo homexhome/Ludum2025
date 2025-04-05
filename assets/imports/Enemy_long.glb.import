@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ji38xu68ry26"
-path="res://.godot/imported/enemy (2).glb-e4d207a4d39943eb496b39d8f35d0d8a.scn"
+uid="uid://c6h53cei3bwhf"
+path="res://.godot/imported/Enemy_long.glb-778f6398b6aa86567ae4b2522ff2d30c.scn"
 
 [deps]
 
-source_file="res://assets/imports/enemy (2).glb"
-dest_files=["res://.godot/imported/enemy (2).glb-e4d207a4d39943eb496b39d8f35d0d8a.scn"]
+source_file="res://assets/imports/Enemy_long.glb"
+dest_files=["res://.godot/imported/Enemy_long.glb-778f6398b6aa86567ae4b2522ff2d30c.scn"]
 
 [params]
 

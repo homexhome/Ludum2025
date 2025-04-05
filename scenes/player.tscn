@@ -1,14 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://b0wqe48ctiv16"]
+[gd_scene load_steps=10 format=3 uid="uid://b0wqe48ctiv16"]
 
 [ext_resource type="Script" uid="uid://c2x87b7s57ykp" path="res://scripts/player_movement_controller.gd" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://c7r5f43wpq8f7" path="res://scripts/player.gd" id="1_qlg0r"]
 [ext_resource type="Script" uid="uid://gnlknj32j6df" path="res://scripts/camera_3d.gd" id="2_g2els"]
 [ext_resource type="PackedScene" uid="uid://dx6320js5byu1" path="res://scenes/weapon.tscn" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://sk8fglw1qtcm" path="res://scripts/shooting_controller.gd" id="4_dqkch"]
+[ext_resource type="Shader" uid="uid://cvgyuhtt27ehl" path="res://assets/shaders/pixelate.gdshader" id="6_tuyoq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g2els"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fjrip"]
+shader = ExtResource("6_tuyoq")
+shader_parameter/pixel_size = 6
+shader_parameter/screen_size = Vector2(1280, 720)
 
 [node name="Player" type="CharacterBody3D" groups=["PlayerGroup"]]
 script = ExtResource("1_qlg0r")
@@ -48,5 +54,13 @@ offset_left = -5.0
 offset_top = -5.0
 offset_right = 5.0
 offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Camera3D"]
+material = SubResource("ShaderMaterial_fjrip")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2

@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://bpo4x3o1g1u24"]
+
+[sub_resource type="Gradient" id="Gradient_j8bo8"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1jdk1"]
+noise_type = 4
+seed = 4
+frequency = 0.1056
+fractal_gain = 0.9
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ja66a"]
+width = 10
+height = 10
+seamless = true
+color_ramp = SubResource("Gradient_j8bo8")
+noise = SubResource("FastNoiseLite_1jdk1")
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6p2dc"]
+panorama = SubResource("NoiseTexture2D_ja66a")
+energy_multiplier = 1.7
+
+[sub_resource type="Sky" id="Sky_5csnf"]
+sky_material = SubResource("PanoramaSkyMaterial_6p2dc")
+radiance_size = 0
+
+[sub_resource type="Environment" id="Environment_fmu3g"]
+background_mode = 2
+background_color = Color(0.650128, 0.650128, 0.650128, 1)
+sky = SubResource("Sky_5csnf")
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.415686, 0.74902, 0.776471, 1)
+fog_density = 1.0
+fog_depth_curve = 2.54912
+fog_depth_begin = 0.0
+fog_depth_end = 10.0
+
+[sub_resource type="GDScript" id="GDScript_7ds5r"]
+script/source = "extends WorldEnvironment
+
+@export var rotation_speed : float = 3
+
+func _physics_process(delta: float) -> void:
+	var _rotation = environment.get_sky_rotation()
+	_rotation.y = wrapf(_rotation.y + delta * rotation_speed, 0, 360)
+	environment.set_sky_rotation(_rotation)
+	environment.fog_depth_end = snappedf(Session.get_depth_perceprion(),0.1)
+"
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource("Environment_fmu3g")
+script = SubResource("GDScript_7ds5r")

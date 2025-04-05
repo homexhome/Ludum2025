@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bur18dlyyv4tl"
-path.s3tc="res://.godot/imported/evil_enemy_texture.jpg-334c52bbc881d073619a0932cfe58d07.s3tc.ctex"
+uid="uid://dmf7i84hb5e7w"
+path.s3tc="res://.godot/imported/Enemy_long_texture.jpg-e1881c09a48c32e8e3b9684319c5ea4d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/imports/evil_enemy_texture.jpg"
-dest_files=["res://.godot/imported/evil_enemy_texture.jpg-334c52bbc881d073619a0932cfe58d07.s3tc.ctex"]
+source_file="res://scenes/tiles/Enemy_long_texture.jpg"
+dest_files=["res://.godot/imported/Enemy_long_texture.jpg-e1881c09a48c32e8e3b9684319c5ea4d.s3tc.ctex"]
 
 [params]
 
