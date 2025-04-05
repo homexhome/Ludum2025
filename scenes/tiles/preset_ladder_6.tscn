@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cadys1tuv1a2k"]
+[gd_scene load_steps=3 format=3 uid="uid://b4asdcxod80e7"]
 
 [ext_resource type="PackedScene" uid="uid://ce6jq3diahs42" path="res://scenes/tiles/2x2.tscn" id="1_r2j4t"]
 [ext_resource type="PackedScene" uid="uid://c77cru2eg0vhb" path="res://scenes/tiles/2x2_slope.tscn" id="2_iuacs"]
