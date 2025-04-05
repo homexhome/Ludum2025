@@ -1,9 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://bx1vy31h1n4in"]
+[gd_scene load_steps=11 format=3 uid="uid://bx1vy31h1n4in"]
 
 [ext_resource type="PackedScene" uid="uid://bfkfp22eap2hu" path="res://scenes/tiles/preset_plane.tscn" id="2_h8k3d"]
 [ext_resource type="PackedScene" uid="uid://b0wqe48ctiv16" path="res://scenes/player.tscn" id="2_i18vf"]
 [ext_resource type="PackedScene" uid="uid://f0i0sevrtqy1" path="res://scenes/tiles/2x2_cube.tscn" id="3_h8k3d"]
 [ext_resource type="PackedScene" uid="uid://duml6l6edul1v" path="res://scenes/tiles/Enemy.tscn" id="4_c57a8"]
+
+[sub_resource type="Gradient" id="Gradient_c57a8"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vusma"]
+noise_type = 4
+frequency = 0.0003
+fractal_gain = 0.9
+fractal_weighted_strength = 0.31
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ja66a"]
+width = 10
+height = 10
+seamless = true
+color_ramp = SubResource("Gradient_c57a8")
+noise = SubResource("FastNoiseLite_vusma")
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_g5cnw"]
+panorama = SubResource("NoiseTexture2D_ja66a")
+energy_multiplier = 1.7
+
+[sub_resource type="Sky" id="Sky_5csnf"]
+sky_material = SubResource("PanoramaSkyMaterial_g5cnw")
+radiance_size = 0
+
+[sub_resource type="Environment" id="Environment_c57a8"]
+background_mode = 2
+background_color = Color(0.650128, 0.650128, 0.650128, 1)
+sky = SubResource("Sky_5csnf")
 
 [node name="Level" type="Node3D"]
 
@@ -84,3 +112,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4)
 
 [node name="Node3D" parent="Visuals" instance=ExtResource("4_c57a8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_c57a8")
