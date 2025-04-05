@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cx2jvve6fifkx"]
+[gd_scene load_steps=6 format=3 uid="uid://cx2jvve6fifkx"]
+
+[ext_resource type="Script" uid="uid://c5gpo58jfat4o" path="res://assets/test_assets/visibility_range.gd" id="1_jiy1j"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jiy1j"]
 size = Vector2(1.111, 1)
@@ -17,6 +19,7 @@ size = Vector3(1, 0.0186157, 1)
 [node name="Node3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.896772, 0.442492, 0, -0.442492, 0.896772, 0, 0, 0, 1, 0.000280611, -0.246266, 0)
 mesh = SubResource("PlaneMesh_jiy1j")
+script = ExtResource("1_jiy1j")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Node3D"]
 
@@ -26,6 +29,7 @@ shape = SubResource("BoxShape3D_pf5gc")
 
 [node name="Node3D2" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_epyki")
+script = ExtResource("1_jiy1j")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Node3D2"]
 

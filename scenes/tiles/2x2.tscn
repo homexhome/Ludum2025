@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ce6jq3diahs42"]
+
+[ext_resource type="Script" uid="uid://c5gpo58jfat4o" path="res://assets/test_assets/visibility_range.gd" id="1_avf6f"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jt6s7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x25fb"]
+size = Vector3(2, 0.019, 2)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Node3D2" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_jt6s7")
+script = ExtResource("1_avf6f")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00527954, 0)
+shape = SubResource("BoxShape3D_x25fb")
