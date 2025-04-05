@@ -10,14 +10,18 @@ albedo_color = Color(0.666667, 0, 0, 1)
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0xrg5"]
 
 [node name="Node3D" type="Node3D"]
-
-[node name="Node3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_e3efv")
-surface_material_override/0 = SubResource("StandardMaterial3D_keueg")
 script = ExtResource("1_thn6r")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D2"]
+[node name="Visuals" type="Node3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/StaticBody3D"]
+[node name="Node3D2" type="MeshInstance3D" parent="Visuals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_e3efv")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_keueg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("CapsuleShape3D_0xrg5")

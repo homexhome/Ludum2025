@@ -7,13 +7,17 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_8dc3d"]
 
 [node name="Node3D" type="Node3D"]
-
-[node name="Node3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
-mesh = SubResource("BoxMesh_w6m7d")
 script = ExtResource("1_xivml")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D2"]
+[node name="Visuals" type="Node3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/StaticBody3D"]
+[node name="Node3D2" type="MeshInstance3D" parent="Visuals"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("BoxMesh_w6m7d")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_8dc3d")
