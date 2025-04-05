@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=4 uid="uid://duml6l6edul1v"]
 
 [ext_resource type="Script" uid="uid://cktunc4elmclu" path="res://scripts/enemy.gd" id="1_j5las"]
-[ext_resource type="Script" uid="uid://c5gpo58jfat4o" path="res://scenes/tiles/visibility_range.gd" id="1_thn6r"]
+[ext_resource type="Script" path="res://scenes/tiles/visibility_range.gd" id="1_thn6r"]
 [ext_resource type="Script" uid="uid://c2qsex0ibsyl2" path="res://scripts/entity_resource.gd" id="2_ghrgm"]
 [ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="2_keueg"]
 [ext_resource type="PackedScene" uid="uid://bvihxw1rs6ges" path="res://scenes/health.tscn" id="3_keueg"]
