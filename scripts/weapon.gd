@@ -28,6 +28,7 @@ func attack():
 	_time_between_shots = weapon_resource.time_between_shots
 	shot.emit()
 	animation_player.play("Shoot")
+	Session.change_depth(3)
 
 func special_attack():
 	_time_between_shots = weapon_resource.time_between_shots

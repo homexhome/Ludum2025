@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cx2jvve6fifkx"]
 
-[ext_resource type="Script" uid="uid://c5gpo58jfat4o" path="res://assets/test_assets/visibility_range.gd" id="1_jiy1j"]
+[ext_resource type="Script" uid="uid://c5gpo58jfat4o" path="res://scenes/tiles/visibility_range.gd" id="1_jiy1j"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jiy1j"]
 size = Vector2(1.111, 1)

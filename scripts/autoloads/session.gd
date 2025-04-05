@@ -1,8 +1,8 @@
 extends Node
 
 
-var min_depth : float = 4
-var max_depth : float = 10
+var min_depth : float = 2
+var max_depth : float = 20
 var depth_perception : float = 5 :
 	set(value):
 		depth_perception = clampf(value,min_depth,max_depth)

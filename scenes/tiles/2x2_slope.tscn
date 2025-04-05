@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=4 uid="uid://c77cru2eg0vhb"]
+[gd_scene load_steps=8 format=3 uid="uid://c77cru2eg0vhb"]
 
-[ext_resource type="Script" uid="uid://c5gpo58jfat4o" path="res://assets/test_assets/visibility_range.gd" id="1_u7gbr"]
+[ext_resource type="Script" uid="uid://c5gpo58jfat4o" path="res://scenes/tiles/visibility_range.gd" id="1_u7gbr"]
 [ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="2_rg64e"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_avpbg"]
@@ -8,12 +8,12 @@ _surfaces = [{
 "aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
 "format": 34896613377,
 "index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
 "name": "Material.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }]
 blend_shape_mode = 0
 
@@ -21,16 +21,16 @@ blend_shape_mode = 0
 resource_name = "Floor_GrWeak_Plane"
 _surfaces = [{
 "aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
-"attribute_data": PackedByteArray("Vse2jKfpZWqn6baMVsdlag=="),
+"attribute_data": PackedByteArray(86, 199, 182, 140, 167, 233, 101, 106, 167, 233, 182, 140, 86, 199, 101, 106),
 "format": 34896613399,
 "index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
 "material": ExtResource("2_rg64e"),
 "name": "Material.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAAAA/7////9/////f////3////9/")
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_avpbg")
@@ -40,12 +40,12 @@ _surfaces = [{
 "aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
 "format": 34896613377,
 "index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
 "name": "Material.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }]
 blend_shape_mode = 0
 
@@ -53,114 +53,39 @@ blend_shape_mode = 0
 resource_name = "Floor_GrStrong_Plane"
 _surfaces = [{
 "aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
-"attribute_data": PackedByteArray("1zWZ7ShYSMsoWJnt1zVIyw=="),
+"attribute_data": PackedByteArray(215, 53, 153, 237, 40, 88, 72, 203, 40, 88, 153, 237, 215, 53, 72, 203),
 "format": 34896613399,
 "index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
 "material": ExtResource("2_rg64e"),
 "name": "Material.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAAAA/7////9/////f////3////9/")
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_buio6")
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_bpujl"]
-_surfaces = [{
-"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
-"format": 34896613377,
-"index_count": 12,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIABAACAAUA"),
-"name": "Material.001",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 6,
-"vertex_data": PackedByteArray("AAAAAP9/AAD//wAAAAAAAP//AAD/fwAAAAAAAAAAAAAAAAAA//8AAP//AAD//wAA")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_jquhn"]
-resource_name = "Floor_GrBR_Plane"
-_surfaces = [{
-"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
-"attribute_data": PackedByteArray("1zVw3ChYSMsoWHDc1zVIy9dn74InisZxJ4rvgtdnxnE="),
-"format": 34896613399,
-"index_count": 12,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
-"material": ExtResource("2_rg64e"),
-"name": "Material.001",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("AAAAAP9//7///wAAAAD/v///AAD/f/+/AAAAAAAA/78AAAAA////v///AAD/f/+///8AAP///78AAAAA/3//v////3////9/////f////3////9/////f////3////9/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_bpujl")
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_bu22d"]
-_surfaces = [{
-"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
-"format": 34896613377,
-"index_count": 12,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIABAACAAUA"),
-"name": "Material.001",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 6,
-"vertex_data": PackedByteArray("AAAAAP9/AAD//wAAAAAAAP//AAD/fwAAAAAAAAAAAAAAAAAA//8AAP//AAD//wAA")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_y6wtb"]
-resource_name = "Floor_BR_Plane"
-_surfaces = [{
-"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
-"attribute_data": PackedByteArray("V2eqiqeJgXmniaqKV2eBeddn74InisZxJ4rvgtdnxnE="),
-"format": 34896613399,
-"index_count": 12,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
-"material": ExtResource("2_rg64e"),
-"name": "Material.001",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("AAAAAP9//7///wAAAAD/v///AAD/f/+/AAAAAAAA/78AAAAA////v///AAD/f/+///8AAP///78AAAAA/3//v////3////9/////f////3////9/////f////3////9/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_bu22d")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o5fjl"]
 size = Vector3(2.16406, 0.019, 2)
 
 [node name="Node3D" type="Node3D"]
+transform = Transform3D(1.03414, 0, 0, 0, 1.03709, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_u7gbr")
 
 [node name="Visuals" type="Node3D" parent="."]
 transform = Transform3D(0.896772, 0.442492, 0, -0.442492, 0.896772, 0, 0, 0, 1, 0.000280611, -0.497415, 0)
 
 [node name="Plane" type="MeshInstance3D" parent="Visuals"]
-transform = Transform3D(1.095, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-visible = false
+transform = Transform3D(1.12585, 0, 0, 0, 1.02351, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_o5fjl")
 skeleton = NodePath("")
 
 [node name="Plane2" type="MeshInstance3D" parent="Visuals"]
-transform = Transform3D(1.095, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1.12585, 5.96046e-08, 0, 2.98023e-08, 1.02351, 0, 0, 0, 1, 0, 0, 0)
+visible = false
 mesh = SubResource("ArrayMesh_p73k7")
-skeleton = NodePath("")
-
-[node name="Plane3" type="MeshInstance3D" parent="Visuals"]
-transform = Transform3D(1.095, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-visible = false
-mesh = SubResource("ArrayMesh_jquhn")
-skeleton = NodePath("")
-
-[node name="Plane4" type="MeshInstance3D" parent="Visuals"]
-transform = Transform3D(1.095, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-visible = false
-mesh = SubResource("ArrayMesh_y6wtb")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]

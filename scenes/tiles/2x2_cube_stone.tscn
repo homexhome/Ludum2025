@@ -1,15 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://f0i0sevrtqy1"]
+[gd_scene load_steps=5 format=3 uid="uid://b6w7p8kwml3w5"]
 
-[ext_resource type="Script" uid="uid://c5gpo58jfat4o" path="res://scenes/tiles/visibility_range.gd" id="1_w6m7d"]
-[ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="2_8dc3d"]
+[ext_resource type="Script" uid="uid://c5gpo58jfat4o" path="res://scenes/tiles/visibility_range.gd" id="1_4qegx"]
+[ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="2_0go8k"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_w6m7d"]
-material = ExtResource("2_8dc3d")
+material = ExtResource("2_0go8k")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8dc3d"]
 
-[node name="2x2" type="Node3D"]
-script = ExtResource("1_w6m7d")
+[node name="2x2_Stone" type="Node3D"]
+script = ExtResource("1_4qegx")
 
 [node name="Visuals" type="Node3D" parent="."]
 

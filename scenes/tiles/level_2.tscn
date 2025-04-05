@@ -1,0 +1,1963 @@
+[gd_scene load_steps=16 format=3 uid="uid://dbhi1icvyo5j2"]
+
+[ext_resource type="PackedScene" uid="uid://b0wqe48ctiv16" path="res://scenes/player.tscn" id="1_qkjyu"]
+[ext_resource type="PackedScene" uid="uid://bfkfp22eap2hu" path="res://scenes/tiles/preset_plane.tscn" id="2_p2cwl"]
+[ext_resource type="PackedScene" uid="uid://duml6l6edul1v" path="res://scenes/tiles/Enemy.tscn" id="3_ndbgx"]
+[ext_resource type="PackedScene" uid="uid://bltg4k1jw2tx3" path="res://scenes/tiles/preset_hall_wide.tscn" id="4_d4qps"]
+[ext_resource type="PackedScene" uid="uid://f0i0sevrtqy1" path="res://scenes/tiles/2x2_cube.tscn" id="5_u7jl3"]
+[ext_resource type="PackedScene" uid="uid://4xbnm260c6t8" path="res://scenes/tiles/preset_ladder_2.tscn" id="6_xq206"]
+[ext_resource type="PackedScene" uid="uid://c1t8xwyxdh8aa" path="res://scenes/tiles/2x2_cube_tree.tscn" id="7_n1ahs"]
+[ext_resource type="PackedScene" uid="uid://c2ipn7aslf7uu" path="res://scenes/tiles/2x2_cube_stone.tscn" id="8_ir47q"]
+
+[sub_resource type="Gradient" id="Gradient_c57a8"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vusma"]
+noise_type = 4
+seed = 4
+frequency = 0.1056
+fractal_gain = 0.9
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ja66a"]
+width = 10
+height = 10
+seamless = true
+color_ramp = SubResource("Gradient_c57a8")
+noise = SubResource("FastNoiseLite_vusma")
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_g5cnw"]
+panorama = SubResource("NoiseTexture2D_ja66a")
+energy_multiplier = 1.7
+
+[sub_resource type="Sky" id="Sky_5csnf"]
+sky_material = SubResource("PanoramaSkyMaterial_g5cnw")
+radiance_size = 0
+
+[sub_resource type="Environment" id="Environment_c57a8"]
+background_mode = 2
+background_color = Color(0.650128, 0.650128, 0.650128, 1)
+sky = SubResource("Sky_5csnf")
+
+[sub_resource type="GDScript" id="GDScript_c57a8"]
+script/source = "extends WorldEnvironment
+
+@export var rotation_speed : float = 3
+
+func _physics_process(delta: float) -> void:
+	var _rotation = environment.get_sky_rotation()
+	_rotation.y = wrapf(_rotation.y + delta * rotation_speed, 0, 360)
+	environment.set_sky_rotation(_rotation)
+"
+
+[node name="Level" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_qkjyu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -71)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.134782, 0.990875, 0, 0.412231, -0.0560728, 0.909352, 0.901055, -0.122564, -0.416027, 0, 6.26459, 0)
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="PresetPlane3" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+
+[node name="PresetPlane7" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -12)
+
+[node name="PresetPlane8" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -18)
+
+[node name="PresetPlane22" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -24)
+
+[node name="PresetPlane23" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24)
+
+[node name="PresetPlane24" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -24)
+
+[node name="PresetPlane4" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18)
+
+[node name="PresetPlane5" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -18)
+
+[node name="PresetPlane6" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -12)
+
+[node name="PresetPlane9" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -12)
+
+[node name="PresetPlane10" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -12)
+
+[node name="PresetPlane11" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -18)
+
+[node name="PresetPlane25" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -24)
+
+[node name="PresetPlane26" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -24)
+
+[node name="PresetPlane27" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -24)
+
+[node name="PresetPlane12" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -18)
+
+[node name="PresetPlane13" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -18)
+
+[node name="PresetPlane14" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -12)
+
+[node name="PresetPlane15" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -12)
+
+[node name="PresetPlane16" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -12)
+
+[node name="PresetPlane17" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -18)
+
+[node name="PresetPlane28" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -24)
+
+[node name="PresetPlane29" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -24)
+
+[node name="PresetPlane30" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -24)
+
+[node name="PresetPlane18" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -18)
+
+[node name="PresetPlane19" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -18)
+
+[node name="PresetPlane20" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -12)
+
+[node name="PresetPlane21" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -12)
+
+[node name="PresetPlane31" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -12)
+
+[node name="PresetPlane32" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -18)
+
+[node name="PresetPlane33" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -24)
+
+[node name="PresetPlane34" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -24)
+
+[node name="PresetPlane35" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -24)
+
+[node name="PresetPlane36" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -18)
+
+[node name="PresetPlane37" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -18)
+
+[node name="PresetPlane38" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -12)
+
+[node name="PresetPlane39" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -12)
+
+[node name="PresetPlane40" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, -12)
+
+[node name="PresetPlane41" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, -18)
+
+[node name="PresetPlane42" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, -24)
+
+[node name="PresetPlane43" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -24)
+
+[node name="PresetPlane44" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -24)
+
+[node name="PresetPlane45" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -18)
+
+[node name="PresetPlane46" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -18)
+
+[node name="PresetPlane47" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -12)
+
+[node name="PresetPlane48" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
+
+[node name="PresetPlane49" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -30)
+
+[node name="PresetPlane50" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -36)
+
+[node name="PresetPlane51" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -42)
+
+[node name="PresetPlane52" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -42)
+
+[node name="PresetPlane53" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -42)
+
+[node name="PresetPlane54" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -36)
+
+[node name="PresetPlane55" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -36)
+
+[node name="PresetPlane56" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -30)
+
+[node name="PresetPlane57" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -30)
+
+[node name="PresetPlane58" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -30)
+
+[node name="PresetPlane59" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -36)
+
+[node name="PresetPlane60" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -42)
+
+[node name="PresetPlane61" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -42)
+
+[node name="PresetPlane62" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -42)
+
+[node name="PresetPlane63" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -36)
+
+[node name="PresetPlane64" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -36)
+
+[node name="PresetPlane65" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -30)
+
+[node name="PresetPlane66" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -30)
+
+[node name="PresetPlane67" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -30)
+
+[node name="PresetPlane68" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -36)
+
+[node name="PresetPlane69" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -42)
+
+[node name="PresetPlane70" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -42)
+
+[node name="PresetPlane71" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -42)
+
+[node name="PresetPlane72" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -36)
+
+[node name="PresetPlane73" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -36)
+
+[node name="PresetPlane74" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -30)
+
+[node name="PresetPlane75" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -30)
+
+[node name="PresetPlane76" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -30)
+
+[node name="PresetPlane77" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -36)
+
+[node name="PresetPlane78" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -42)
+
+[node name="PresetPlane79" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -42)
+
+[node name="PresetPlane80" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -42)
+
+[node name="PresetPlane81" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -36)
+
+[node name="PresetPlane82" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -36)
+
+[node name="PresetPlane83" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -30)
+
+[node name="PresetPlane84" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -30)
+
+[node name="PresetPlane85" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, -30)
+
+[node name="PresetPlane86" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, -36)
+
+[node name="PresetPlane87" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, -42)
+
+[node name="PresetPlane88" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -42)
+
+[node name="PresetPlane89" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -42)
+
+[node name="PresetPlane90" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -36)
+
+[node name="PresetPlane91" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -36)
+
+[node name="PresetPlane92" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -30)
+
+[node name="PresetPlane93" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -48)
+
+[node name="PresetPlane94" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -48)
+
+[node name="PresetPlane95" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -54)
+
+[node name="PresetPlane96" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -60)
+
+[node name="PresetPlane97" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -60)
+
+[node name="PresetPlane98" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -60)
+
+[node name="PresetPlane99" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54)
+
+[node name="PresetPlane100" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -54)
+
+[node name="PresetPlane101" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -48)
+
+[node name="PresetPlane102" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -48)
+
+[node name="PresetPlane103" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -48)
+
+[node name="PresetPlane104" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -54)
+
+[node name="PresetPlane105" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -60)
+
+[node name="PresetPlane106" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -60)
+
+[node name="PresetPlane107" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -60)
+
+[node name="PresetPlane108" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -54)
+
+[node name="PresetPlane109" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -54)
+
+[node name="PresetPlane110" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -48)
+
+[node name="PresetPlane111" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -48)
+
+[node name="PresetPlane112" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -48)
+
+[node name="PresetPlane113" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -54)
+
+[node name="PresetPlane114" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -60)
+
+[node name="PresetPlane115" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -60)
+
+[node name="PresetPlane116" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -60)
+
+[node name="PresetPlane117" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -54)
+
+[node name="PresetPlane118" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -54)
+
+[node name="PresetPlane119" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -48)
+
+[node name="PresetPlane120" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -48)
+
+[node name="PresetPlane121" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -48)
+
+[node name="PresetPlane122" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -54)
+
+[node name="PresetPlane123" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -60)
+
+[node name="PresetPlane124" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -60)
+
+[node name="PresetPlane125" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -60)
+
+[node name="PresetPlane126" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -54)
+
+[node name="PresetPlane127" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -54)
+
+[node name="PresetPlane128" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -48)
+
+[node name="PresetPlane129" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -48)
+
+[node name="PresetPlane130" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, -48)
+
+[node name="PresetPlane131" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, -54)
+
+[node name="PresetPlane132" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, -60)
+
+[node name="PresetPlane133" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -60)
+
+[node name="PresetPlane134" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -60)
+
+[node name="PresetPlane135" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -54)
+
+[node name="PresetPlane136" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -54)
+
+[node name="PresetPlane137" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -48)
+
+[node name="PresetPlane139" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -66)
+
+[node name="PresetPlane141" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -78)
+
+[node name="PresetPlane580" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -72)
+
+[node name="PresetPlane581" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -78)
+
+[node name="PresetPlane582" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -66)
+
+[node name="PresetPlane583" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -72)
+
+[node name="PresetPlane143" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -78)
+
+[node name="PresetPlane144" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -72)
+
+[node name="PresetPlane146" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -66)
+
+[node name="PresetPlane147" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -66)
+
+[node name="PresetPlane148" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -66)
+
+[node name="PresetPlane149" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -72)
+
+[node name="PresetPlane150" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -78)
+
+[node name="PresetPlane151" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -78)
+
+[node name="PresetPlane152" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -78)
+
+[node name="PresetPlane153" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -72)
+
+[node name="PresetPlane154" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -72)
+
+[node name="PresetPlane155" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -66)
+
+[node name="PresetPlane156" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -66)
+
+[node name="PresetPlane157" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -66)
+
+[node name="PresetPlane158" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -72)
+
+[node name="PresetPlane159" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -78)
+
+[node name="PresetPlane160" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -78)
+
+[node name="PresetPlane161" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -78)
+
+[node name="PresetPlane162" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -72)
+
+[node name="PresetPlane163" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -72)
+
+[node name="PresetPlane164" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -66)
+
+[node name="PresetPlane165" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -66)
+
+[node name="PresetPlane166" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -66)
+
+[node name="PresetPlane167" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -72)
+
+[node name="PresetPlane168" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -78)
+
+[node name="PresetPlane169" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -78)
+
+[node name="PresetPlane170" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -78)
+
+[node name="PresetPlane171" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -72)
+
+[node name="PresetPlane172" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -72)
+
+[node name="PresetPlane173" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -66)
+
+[node name="PresetPlane174" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -66)
+
+[node name="PresetPlane175" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, -66)
+
+[node name="PresetPlane176" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, -72)
+
+[node name="PresetPlane177" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, -78)
+
+[node name="PresetPlane178" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -78)
+
+[node name="PresetPlane179" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -78)
+
+[node name="PresetPlane180" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -72)
+
+[node name="PresetPlane181" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -72)
+
+[node name="PresetPlane182" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -66)
+
+[node name="PresetPlane183" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -84)
+
+[node name="PresetPlane184" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -84)
+
+[node name="PresetPlane185" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -90)
+
+[node name="PresetPlane186" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -96)
+
+[node name="PresetPlane187" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -96)
+
+[node name="PresetPlane188" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -96)
+
+[node name="PresetPlane189" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -90)
+
+[node name="PresetPlane190" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -90)
+
+[node name="PresetPlane191" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -84)
+
+[node name="PresetPlane192" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -84)
+
+[node name="PresetPlane193" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -84)
+
+[node name="PresetPlane194" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -90)
+
+[node name="PresetPlane195" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -96)
+
+[node name="PresetPlane196" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -96)
+
+[node name="PresetPlane197" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -96)
+
+[node name="PresetPlane198" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -90)
+
+[node name="PresetPlane199" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -90)
+
+[node name="PresetPlane200" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -84)
+
+[node name="PresetPlane201" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -84)
+
+[node name="PresetPlane202" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -84)
+
+[node name="PresetPlane203" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -90)
+
+[node name="PresetPlane204" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -96)
+
+[node name="PresetPlane205" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -96)
+
+[node name="PresetPlane206" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -96)
+
+[node name="PresetPlane207" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -90)
+
+[node name="PresetPlane208" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -90)
+
+[node name="PresetPlane209" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -84)
+
+[node name="PresetPlane210" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -84)
+
+[node name="PresetPlane211" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -84)
+
+[node name="PresetPlane212" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -90)
+
+[node name="PresetPlane213" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -96)
+
+[node name="PresetPlane214" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -96)
+
+[node name="PresetPlane215" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -96)
+
+[node name="PresetPlane216" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -90)
+
+[node name="PresetPlane217" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -90)
+
+[node name="PresetPlane218" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -84)
+
+[node name="PresetPlane219" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -84)
+
+[node name="PresetPlane220" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, -84)
+
+[node name="PresetPlane221" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, -90)
+
+[node name="PresetPlane222" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, -96)
+
+[node name="PresetPlane223" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -96)
+
+[node name="PresetPlane224" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -96)
+
+[node name="PresetPlane225" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -90)
+
+[node name="PresetPlane226" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -90)
+
+[node name="PresetPlane227" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -84)
+
+[node name="PresetPlane228" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -102)
+
+[node name="PresetPlane229" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -102)
+
+[node name="PresetPlane230" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -108)
+
+[node name="PresetPlane231" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -114)
+
+[node name="PresetPlane232" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -114)
+
+[node name="PresetPlane233" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -114)
+
+[node name="PresetPlane234" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -108)
+
+[node name="PresetPlane235" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -108)
+
+[node name="PresetPlane236" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -102)
+
+[node name="PresetPlane237" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -102)
+
+[node name="PresetPlane238" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -102)
+
+[node name="PresetPlane239" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -108)
+
+[node name="PresetPlane240" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -114)
+
+[node name="PresetPlane241" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -114)
+
+[node name="PresetPlane242" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -114)
+
+[node name="PresetPlane243" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -108)
+
+[node name="PresetPlane244" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -108)
+
+[node name="PresetPlane245" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -102)
+
+[node name="PresetPlane246" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -102)
+
+[node name="PresetPlane247" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -102)
+
+[node name="PresetPlane248" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -108)
+
+[node name="PresetPlane249" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -114)
+
+[node name="PresetPlane250" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -114)
+
+[node name="PresetPlane251" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -114)
+
+[node name="PresetPlane252" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -108)
+
+[node name="PresetPlane253" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -108)
+
+[node name="PresetPlane254" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -102)
+
+[node name="PresetPlane255" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -102)
+
+[node name="PresetPlane256" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -102)
+
+[node name="PresetPlane257" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -108)
+
+[node name="PresetPlane258" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -114)
+
+[node name="PresetPlane259" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -114)
+
+[node name="PresetPlane260" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -114)
+
+[node name="PresetPlane261" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -108)
+
+[node name="PresetPlane262" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -108)
+
+[node name="PresetPlane263" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -102)
+
+[node name="PresetPlane264" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -102)
+
+[node name="PresetPlane265" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, -102)
+
+[node name="PresetPlane266" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, -108)
+
+[node name="PresetPlane267" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, -114)
+
+[node name="PresetPlane268" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -114)
+
+[node name="PresetPlane269" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -114)
+
+[node name="PresetPlane270" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -108)
+
+[node name="PresetPlane271" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -108)
+
+[node name="PresetPlane272" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -102)
+
+[node name="PresetPlane273" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -120)
+
+[node name="PresetPlane274" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -120)
+
+[node name="PresetPlane275" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -126)
+
+[node name="PresetPlane276" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -132)
+
+[node name="PresetPlane277" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -132)
+
+[node name="PresetPlane278" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -132)
+
+[node name="PresetPlane279" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -126)
+
+[node name="PresetPlane280" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -126)
+
+[node name="PresetPlane281" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -120)
+
+[node name="PresetPlane282" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -120)
+
+[node name="PresetPlane283" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -120)
+
+[node name="PresetPlane284" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -126)
+
+[node name="PresetPlane285" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -132)
+
+[node name="PresetPlane286" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -132)
+
+[node name="PresetPlane287" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -132)
+
+[node name="PresetPlane288" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -126)
+
+[node name="PresetPlane289" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -126)
+
+[node name="PresetPlane290" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -120)
+
+[node name="PresetPlane291" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -120)
+
+[node name="PresetPlane292" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -120)
+
+[node name="PresetPlane293" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -126)
+
+[node name="PresetPlane294" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -132)
+
+[node name="PresetPlane295" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -132)
+
+[node name="PresetPlane296" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -132)
+
+[node name="PresetPlane297" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -126)
+
+[node name="PresetPlane298" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -126)
+
+[node name="PresetPlane299" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -120)
+
+[node name="PresetPlane300" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -120)
+
+[node name="PresetPlane301" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -120)
+
+[node name="PresetPlane302" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -126)
+
+[node name="PresetPlane303" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -132)
+
+[node name="PresetPlane304" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -132)
+
+[node name="PresetPlane305" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -132)
+
+[node name="PresetPlane306" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -126)
+
+[node name="PresetPlane307" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -126)
+
+[node name="PresetPlane308" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -120)
+
+[node name="PresetPlane318" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 3, -12)
+
+[node name="PresetPlane319" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 3, -12)
+
+[node name="PresetPlane320" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 3, -18)
+
+[node name="PresetPlane321" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 3, -24)
+
+[node name="PresetPlane322" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 3, -24)
+
+[node name="PresetPlane323" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 3, -24)
+
+[node name="PresetPlane324" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 3, -18)
+
+[node name="PresetPlane325" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 3, -18)
+
+[node name="PresetPlane326" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 3, -12)
+
+[node name="PresetPlane327" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 3, -30)
+
+[node name="PresetPlane328" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 3, -30)
+
+[node name="PresetPlane329" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 3, -36)
+
+[node name="PresetPlane330" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 3, -42)
+
+[node name="PresetPlane331" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 3, -42)
+
+[node name="PresetPlane332" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 3, -42)
+
+[node name="PresetPlane333" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 3, -36)
+
+[node name="PresetPlane334" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 3, -36)
+
+[node name="PresetPlane335" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 3, -30)
+
+[node name="PresetPlane336" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 3, -48)
+
+[node name="PresetPlane337" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 3, -48)
+
+[node name="PresetPlane338" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 3, -54)
+
+[node name="PresetPlane339" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 3, -60)
+
+[node name="PresetPlane340" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 3, -60)
+
+[node name="PresetPlane341" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 3, -60)
+
+[node name="PresetPlane342" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 3, -54)
+
+[node name="PresetPlane343" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 3, -54)
+
+[node name="PresetPlane344" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 3, -48)
+
+[node name="PresetPlane345" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 3, -66)
+
+[node name="PresetPlane346" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 3, -66)
+
+[node name="PresetPlane347" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 3, -72)
+
+[node name="PresetPlane348" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 3, -78)
+
+[node name="PresetPlane349" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 3, -78)
+
+[node name="PresetPlane350" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 3, -78)
+
+[node name="PresetPlane351" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 3, -72)
+
+[node name="PresetPlane352" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 3, -72)
+
+[node name="PresetPlane353" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 3, -66)
+
+[node name="PresetPlane354" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 3, -84)
+
+[node name="PresetPlane355" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 3, -84)
+
+[node name="PresetPlane356" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 3, -90)
+
+[node name="PresetPlane357" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 3, -96)
+
+[node name="PresetPlane358" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 3, -96)
+
+[node name="PresetPlane359" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 3, -96)
+
+[node name="PresetPlane360" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 3, -90)
+
+[node name="PresetPlane361" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 3, -90)
+
+[node name="PresetPlane362" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 3, -84)
+
+[node name="PresetPlane363" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 3, -102)
+
+[node name="PresetPlane364" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 3, -102)
+
+[node name="PresetPlane365" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 3, -108)
+
+[node name="PresetPlane366" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 3, -114)
+
+[node name="PresetPlane367" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 3, -114)
+
+[node name="PresetPlane368" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 3, -114)
+
+[node name="PresetPlane369" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 3, -108)
+
+[node name="PresetPlane370" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 3, -108)
+
+[node name="PresetPlane371" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 3, -102)
+
+[node name="PresetPlane372" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 3, -120)
+
+[node name="PresetPlane373" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 3, -120)
+
+[node name="PresetPlane374" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 3, -126)
+
+[node name="PresetPlane375" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 3, -132)
+
+[node name="PresetPlane376" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 3, -132)
+
+[node name="PresetPlane377" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 3, -132)
+
+[node name="PresetPlane378" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 3, -126)
+
+[node name="PresetPlane379" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 3, -126)
+
+[node name="PresetPlane380" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 3, -120)
+
+[node name="PresetPlane381" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82, 3, -12)
+
+[node name="PresetPlane382" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 3, -12)
+
+[node name="PresetPlane383" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 3, -18)
+
+[node name="PresetPlane384" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 3, -24)
+
+[node name="PresetPlane385" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82, 3, -24)
+
+[node name="PresetPlane386" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 3, -24)
+
+[node name="PresetPlane387" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82, 3, -18)
+
+[node name="PresetPlane388" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 3, -18)
+
+[node name="PresetPlane389" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 3, -12)
+
+[node name="PresetPlane390" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82, 3, -30)
+
+[node name="PresetPlane391" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 3, -30)
+
+[node name="PresetPlane392" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 3, -36)
+
+[node name="PresetPlane393" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 3, -42)
+
+[node name="PresetPlane394" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82, 3, -42)
+
+[node name="PresetPlane395" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 3, -42)
+
+[node name="PresetPlane396" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82, 3, -36)
+
+[node name="PresetPlane397" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 3, -36)
+
+[node name="PresetPlane398" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 3, -30)
+
+[node name="PresetPlane399" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82, 3, -48)
+
+[node name="PresetPlane400" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 3, -48)
+
+[node name="PresetPlane401" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 3, -54)
+
+[node name="PresetPlane402" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 3, -60)
+
+[node name="PresetPlane403" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82, 3, -60)
+
+[node name="PresetPlane404" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 3, -60)
+
+[node name="PresetPlane405" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82, 3, -54)
+
+[node name="PresetPlane406" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 3, -54)
+
+[node name="PresetPlane407" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 3, -48)
+
+[node name="PresetPlane408" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82, 3, -66)
+
+[node name="PresetPlane409" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 3, -66)
+
+[node name="PresetPlane410" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 3, -72)
+
+[node name="PresetPlane411" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 3, -78)
+
+[node name="PresetPlane412" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82, 3, -78)
+
+[node name="PresetPlane413" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 3, -78)
+
+[node name="PresetPlane414" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82, 3, -72)
+
+[node name="PresetPlane415" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 3, -72)
+
+[node name="PresetPlane416" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 3, -66)
+
+[node name="PresetPlane417" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82, 3, -84)
+
+[node name="PresetPlane418" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 3, -84)
+
+[node name="PresetPlane419" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 3, -90)
+
+[node name="PresetPlane420" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 3, -96)
+
+[node name="PresetPlane421" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82, 3, -96)
+
+[node name="PresetPlane422" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 3, -96)
+
+[node name="PresetPlane423" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82, 3, -90)
+
+[node name="PresetPlane424" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 3, -90)
+
+[node name="PresetPlane425" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 3, -84)
+
+[node name="PresetPlane426" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82, 3, -102)
+
+[node name="PresetPlane427" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 3, -102)
+
+[node name="PresetPlane428" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 3, -108)
+
+[node name="PresetPlane429" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 3, -114)
+
+[node name="PresetPlane430" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82, 3, -114)
+
+[node name="PresetPlane431" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 3, -114)
+
+[node name="PresetPlane432" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82, 3, -108)
+
+[node name="PresetPlane433" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 3, -108)
+
+[node name="PresetPlane434" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 3, -102)
+
+[node name="PresetPlane435" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82, 3, -120)
+
+[node name="PresetPlane436" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 3, -120)
+
+[node name="PresetPlane437" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 3, -126)
+
+[node name="PresetPlane438" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 3, -132)
+
+[node name="PresetPlane439" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82, 3, -132)
+
+[node name="PresetPlane440" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 3, -132)
+
+[node name="PresetPlane441" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82, 3, -126)
+
+[node name="PresetPlane442" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 3, -126)
+
+[node name="PresetPlane443" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 3, -120)
+
+[node name="PresetPlane444" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, -3, -12)
+
+[node name="PresetPlane445" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -3, -12)
+
+[node name="PresetPlane446" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -3, -18)
+
+[node name="PresetPlane447" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -3, -24)
+
+[node name="PresetPlane448" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, -3, -24)
+
+[node name="PresetPlane449" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, -3, -24)
+
+[node name="PresetPlane450" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, -3, -18)
+
+[node name="PresetPlane451" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, -3, -18)
+
+[node name="PresetPlane452" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, -3, -12)
+
+[node name="PresetPlane453" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, -3, -30)
+
+[node name="PresetPlane454" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -3, -30)
+
+[node name="PresetPlane455" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -3, -36)
+
+[node name="PresetPlane456" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -3, -42)
+
+[node name="PresetPlane457" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, -3, -42)
+
+[node name="PresetPlane458" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, -3, -42)
+
+[node name="PresetPlane459" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, -3, -36)
+
+[node name="PresetPlane460" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, -3, -36)
+
+[node name="PresetPlane461" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, -3, -30)
+
+[node name="PresetPlane462" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, -3, -48)
+
+[node name="PresetPlane463" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -3, -48)
+
+[node name="PresetPlane464" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -3, -54)
+
+[node name="PresetPlane465" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -3, -60)
+
+[node name="PresetPlane466" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, -3, -60)
+
+[node name="PresetPlane467" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, -3, -60)
+
+[node name="PresetPlane468" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, -3, -54)
+
+[node name="PresetPlane469" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, -3, -54)
+
+[node name="PresetPlane470" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, -3, -48)
+
+[node name="PresetPlane471" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, -3, -66)
+
+[node name="PresetPlane472" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -3, -66)
+
+[node name="PresetPlane473" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -3, -72)
+
+[node name="PresetPlane474" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -3, -78)
+
+[node name="PresetPlane475" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, -3, -78)
+
+[node name="PresetPlane476" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, -3, -78)
+
+[node name="PresetPlane477" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, -3, -72)
+
+[node name="PresetPlane478" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, -3, -72)
+
+[node name="PresetPlane479" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, -3, -66)
+
+[node name="PresetPlane480" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, -3, -84)
+
+[node name="PresetPlane481" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -3, -84)
+
+[node name="PresetPlane482" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -3, -90)
+
+[node name="PresetPlane483" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -3, -96)
+
+[node name="PresetPlane484" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, -3, -96)
+
+[node name="PresetPlane485" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, -3, -96)
+
+[node name="PresetPlane486" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, -3, -90)
+
+[node name="PresetPlane487" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, -3, -90)
+
+[node name="PresetPlane488" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, -3, -84)
+
+[node name="PresetPlane489" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, -3, -102)
+
+[node name="PresetPlane490" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -3, -102)
+
+[node name="PresetPlane491" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -3, -108)
+
+[node name="PresetPlane492" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -3, -114)
+
+[node name="PresetPlane493" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, -3, -114)
+
+[node name="PresetPlane494" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, -3, -114)
+
+[node name="PresetPlane495" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, -3, -108)
+
+[node name="PresetPlane496" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, -3, -108)
+
+[node name="PresetPlane497" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, -3, -102)
+
+[node name="PresetPlane498" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, -3, -120)
+
+[node name="PresetPlane499" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -3, -120)
+
+[node name="PresetPlane500" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -3, -126)
+
+[node name="PresetPlane501" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -3, -132)
+
+[node name="PresetPlane502" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, -3, -132)
+
+[node name="PresetPlane503" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, -3, -132)
+
+[node name="PresetPlane504" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, -3, -126)
+
+[node name="PresetPlane505" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, -3, -126)
+
+[node name="PresetPlane506" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, -3, -120)
+
+[node name="PresetPlane507" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, -3, -12)
+
+[node name="PresetPlane508" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, -3, -12)
+
+[node name="PresetPlane509" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, -3, -18)
+
+[node name="PresetPlane510" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, -3, -24)
+
+[node name="PresetPlane511" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, -3, -24)
+
+[node name="PresetPlane512" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, -3, -24)
+
+[node name="PresetPlane513" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, -3, -18)
+
+[node name="PresetPlane514" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, -3, -18)
+
+[node name="PresetPlane515" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, -3, -12)
+
+[node name="PresetPlane516" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, -3, -30)
+
+[node name="PresetPlane517" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, -3, -30)
+
+[node name="PresetPlane518" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, -3, -36)
+
+[node name="PresetPlane519" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, -3, -42)
+
+[node name="PresetPlane520" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, -3, -42)
+
+[node name="PresetPlane521" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, -3, -42)
+
+[node name="PresetPlane522" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, -3, -36)
+
+[node name="PresetPlane523" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, -3, -36)
+
+[node name="PresetPlane524" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, -3, -30)
+
+[node name="PresetPlane525" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, -3, -48)
+
+[node name="PresetPlane526" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, -3, -48)
+
+[node name="PresetPlane527" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, -3, -54)
+
+[node name="PresetPlane528" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, -3, -60)
+
+[node name="PresetPlane529" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, -3, -60)
+
+[node name="PresetPlane530" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, -3, -60)
+
+[node name="PresetPlane531" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, -3, -54)
+
+[node name="PresetPlane532" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, -3, -54)
+
+[node name="PresetPlane533" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, -3, -48)
+
+[node name="PresetPlane534" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, -3, -66)
+
+[node name="PresetPlane535" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, -3, -66)
+
+[node name="PresetPlane536" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, -3, -72)
+
+[node name="PresetPlane537" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, -3, -78)
+
+[node name="PresetPlane538" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, -3, -78)
+
+[node name="PresetPlane539" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, -3, -78)
+
+[node name="PresetPlane540" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, -3, -72)
+
+[node name="PresetPlane541" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, -3, -72)
+
+[node name="PresetPlane542" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, -3, -66)
+
+[node name="PresetPlane543" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, -3, -84)
+
+[node name="PresetPlane544" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, -3, -84)
+
+[node name="PresetPlane545" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, -3, -90)
+
+[node name="PresetPlane546" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, -3, -96)
+
+[node name="PresetPlane547" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, -3, -96)
+
+[node name="PresetPlane548" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, -3, -96)
+
+[node name="PresetPlane549" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, -3, -90)
+
+[node name="PresetPlane550" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, -3, -90)
+
+[node name="PresetPlane551" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, -3, -84)
+
+[node name="PresetPlane552" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, -3, -102)
+
+[node name="PresetPlane553" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, -3, -102)
+
+[node name="PresetPlane554" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, -3, -108)
+
+[node name="PresetPlane555" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, -3, -114)
+
+[node name="PresetPlane556" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, -3, -114)
+
+[node name="PresetPlane557" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, -3, -114)
+
+[node name="PresetPlane558" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, -3, -108)
+
+[node name="PresetPlane559" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, -3, -108)
+
+[node name="PresetPlane560" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, -3, -102)
+
+[node name="PresetPlane561" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, -3, -120)
+
+[node name="PresetPlane562" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, -3, -120)
+
+[node name="PresetPlane563" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, -3, -126)
+
+[node name="PresetPlane564" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, -3, -132)
+
+[node name="PresetPlane565" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, -3, -132)
+
+[node name="PresetPlane566" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, -3, -132)
+
+[node name="PresetPlane567" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, -3, -126)
+
+[node name="PresetPlane568" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, -3, -126)
+
+[node name="PresetPlane569" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, -3, -120)
+
+[node name="PresetPlane309" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -120)
+
+[node name="PresetPlane310" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, -120)
+
+[node name="PresetPlane311" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, -126)
+
+[node name="PresetPlane312" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, -132)
+
+[node name="PresetPlane313" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -132)
+
+[node name="PresetPlane314" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -132)
+
+[node name="PresetPlane315" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -126)
+
+[node name="PresetPlane316" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -126)
+
+[node name="PresetPlane317" parent="Visuals" instance=ExtResource("2_p2cwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -120)
+
+[node name="Node3D" parent="Visuals" instance=ExtResource("3_ndbgx")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -23)
+
+[node name="PresetHall" parent="Visuals" instance=ExtResource("4_d4qps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+
+[node name="PresetHall2" parent="Visuals" instance=ExtResource("4_d4qps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -8)
+
+[node name="PresetHall3" parent="Visuals" instance=ExtResource("4_d4qps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -4)
+
+[node name="Enemy" parent="Visuals" instance=ExtResource("3_ndbgx")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -11)
+
+[node name="2x2" parent="Visuals" instance=ExtResource("5_u7jl3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, -128)
+
+[node name="2x3" parent="Visuals" instance=ExtResource("5_u7jl3")]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -42.3, 0, -127.8)
+
+[node name="2x4" parent="Visuals" instance=ExtResource("5_u7jl3")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -40.8, 0, -127.2)
+
+[node name="2x5" parent="Visuals" instance=ExtResource("5_u7jl3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -133)
+
+[node name="2x8" parent="Visuals" instance=ExtResource("5_u7jl3")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -41.4, 0, -133.4)
+
+[node name="2x6" parent="Visuals" instance=ExtResource("5_u7jl3")]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -38.3, 0, -132.8)
+
+[node name="2x7" parent="Visuals" instance=ExtResource("5_u7jl3")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -36.8, 0, -132.2)
+
+[node name="PresetPlane142" parent="Visuals" instance=ExtResource("6_xq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0, -10)
+
+[node name="PresetPlane145" parent="Visuals" instance=ExtResource("6_xq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0, -12)
+
+[node name="PresetPlane570" parent="Visuals" instance=ExtResource("6_xq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0, -14)
+
+[node name="PresetPlane571" parent="Visuals" instance=ExtResource("6_xq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0, -130)
+
+[node name="PresetPlane572" parent="Visuals" instance=ExtResource("6_xq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0, -132)
+
+[node name="PresetPlane573" parent="Visuals" instance=ExtResource("6_xq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0, -134)
+
+[node name="PresetPlane574" parent="Visuals" instance=ExtResource("6_xq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, -3, -134)
+
+[node name="PresetPlane575" parent="Visuals" instance=ExtResource("6_xq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, -3, -132)
+
+[node name="PresetPlane576" parent="Visuals" instance=ExtResource("6_xq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, -3, -130)
+
+[node name="PresetPlane577" parent="Visuals" instance=ExtResource("6_xq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, -3, -14)
+
+[node name="PresetPlane578" parent="Visuals" instance=ExtResource("6_xq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, -3, -12)
+
+[node name="PresetPlane579" parent="Visuals" instance=ExtResource("6_xq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, -3, -10)
+
+[node name="2x2_tree" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -71)
+
+[node name="2x2_tree2" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -116)
+
+[node name="2x2_tree3" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -118)
+
+[node name="2x2_tree4" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -118)
+
+[node name="2x2_tree5" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -120)
+
+[node name="2x2_tree6" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -120)
+
+[node name="2x2_tree7" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -122)
+
+[node name="2x2_tree8" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -122)
+
+[node name="2x2_tree9" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -124)
+
+[node name="2x2_tree10" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -124)
+
+[node name="2x2_tree11" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -126)
+
+[node name="2x2_tree12" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -126)
+
+[node name="2x2_tree13" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -128)
+
+[node name="2x2_tree18" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -130)
+
+[node name="2x2_tree19" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -132)
+
+[node name="2x2_tree20" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -134)
+
+[node name="2x2_tree14" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -128)
+
+[node name="2x2_tree15" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -130)
+
+[node name="2x2_tree16" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -132)
+
+[node name="2x2_tree17" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -134)
+
+[node name="2x2_tree21" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8.28216e-07, 0, -27.9474)
+
+[node name="2x2_tree22" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2, 0, -25.9474)
+
+[node name="2x2_tree23" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 0, -25.9474)
+
+[node name="2x2_tree24" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4, 0, -23.9474)
+
+[node name="2x2_tree25" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4, 0, -23.9474)
+
+[node name="2x2_tree26" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6, 0, -21.9474)
+
+[node name="2x2_tree27" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 0, -21.9474)
+
+[node name="2x2_tree28" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8, 0, -19.9474)
+
+[node name="2x2_tree29" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8, 0, -19.9474)
+
+[node name="2x2_tree30" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10, 0, -17.9474)
+
+[node name="2x2_tree31" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 10, 0, -17.9474)
+
+[node name="2x2_tree32" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0, -15.9474)
+
+[node name="2x2_tree33" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 14, 0, -13.9474)
+
+[node name="2x2_tree34" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 16, 0, -11.9474)
+
+[node name="2x2_tree35" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 18, 0, -9.94737)
+
+[node name="2x2_tree36" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -12, 0, -15.9474)
+
+[node name="2x2_tree37" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14, 0, -13.9474)
+
+[node name="2x2_tree38" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -16, 0, -11.9474)
+
+[node name="2x2_tree39" parent="Visuals" instance=ExtResource("7_n1ahs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18, 0, -9.94737)
+
+[node name="2x2_Stone" parent="Visuals" instance=ExtResource("8_ir47q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63, 3, -131)
+
+[node name="2x2_Stone2" parent="Visuals" instance=ExtResource("8_ir47q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71, 3, -128)
+
+[node name="2x2_Stone3" parent="Visuals" instance=ExtResource("8_ir47q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79, 3, -122)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_c57a8")
+script = SubResource("GDScript_c57a8")
+rotation_speed = 0.3
