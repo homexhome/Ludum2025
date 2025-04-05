@@ -1,7 +1,7 @@
 extends Node
 
 
-var min_depth : float = 5
+var min_depth : float = 2
 var max_depth : float = 20
 var depth_perception : float = 5 :
 	set(value):

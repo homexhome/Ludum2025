@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bx1vy31h1n4in"]
+[gd_scene load_steps=25 format=3 uid="uid://bx1vy31h1n4in"]
 
 [ext_resource type="PackedScene" uid="uid://bfkfp22eap2hu" path="res://scenes/tiles/preset_plane.tscn" id="2_h8k3d"]
 [ext_resource type="PackedScene" uid="uid://b0wqe48ctiv16" path="res://scenes/player.tscn" id="2_i18vf"]
@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" path="res://scenes/tiles/preset_ladder_6.tscn" id="15_xigqs"]
 [ext_resource type="PackedScene" uid="uid://f0i0sevrtqy1" path="res://scenes/tiles/2x2_cube.tscn" id="16_ty2v8"]
 [ext_resource type="PackedScene" uid="uid://cwmp4ofo1kh3j" path="res://scenes/tiles/2x1_cube.tscn" id="17_p3lx0"]
-[ext_resource type="Shader" uid="uid://db46ugsehp5rh" path="res://assets/shaders/viewport.gdshader" id="17_vmsj3"]
 
 [sub_resource type="Gradient" id="Gradient_c57a8"]
 
@@ -57,15 +56,6 @@ func _physics_process(delta: float) -> void:
 	_rotation.y = wrapf(_rotation.y + delta * rotation_speed, 0, 360)
 	environment.set_sky_rotation(_rotation)
 "
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jwtfa"]
-shader = ExtResource("17_vmsj3")
-shader_parameter/change_color_depth = false
-shader_parameter/target_color_depth = 2
-shader_parameter/dithering = true
-shader_parameter/scale_resolution = true
-shader_parameter/target_resolution_scale = 9
-shader_parameter/enable_recolor = false
 
 [node name="Level" type="Node3D"]
 
@@ -310,12 +300,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 4, -59)
 [node name="2x3" parent="." instance=ExtResource("17_p3lx0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41, 4, -62)
 
-[node name="SubViewport" type="SubViewportContainer" parent="."]
-material = SubResource("ShaderMaterial_jwtfa")
-
-[node name="SubViewport" type="SubViewport" parent="SubViewport"]
-handle_input_locally = false
-size = Vector2i(1280, 720)
-render_target_update_mode = 4
-
-[node name="Player" parent="SubViewport/SubViewport" instance=ExtResource("2_i18vf")]
+[node name="Player" parent="." instance=ExtResource("2_i18vf")]
