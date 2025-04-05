@@ -10,7 +10,7 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g2els"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["PlayerGroup"]]
 script = ExtResource("1_qlg0r")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

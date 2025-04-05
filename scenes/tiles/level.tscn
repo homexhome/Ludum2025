@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bx1vy31h1n4in"]
+[gd_scene load_steps=12 format=3 uid="uid://bx1vy31h1n4in"]
 
 [ext_resource type="PackedScene" uid="uid://bfkfp22eap2hu" path="res://scenes/tiles/preset_plane.tscn" id="2_h8k3d"]
 [ext_resource type="PackedScene" uid="uid://b0wqe48ctiv16" path="res://scenes/player.tscn" id="2_i18vf"]
@@ -11,7 +11,6 @@
 noise_type = 4
 frequency = 0.0003
 fractal_gain = 0.9
-fractal_weighted_strength = 0.31
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ja66a"]
 width = 10
@@ -32,6 +31,17 @@ radiance_size = 0
 background_mode = 2
 background_color = Color(0.650128, 0.650128, 0.650128, 1)
 sky = SubResource("Sky_5csnf")
+
+[sub_resource type="GDScript" id="GDScript_c57a8"]
+script/source = "extends WorldEnvironment
+
+@export var rotation_speed : float = 3
+
+func _physics_process(delta: float) -> void:
+	var _rotation = environment.get_sky_rotation()
+	_rotation.y = wrapf(_rotation.y + delta * rotation_speed, 0, 360)
+	environment.set_sky_rotation(_rotation)
+"
 
 [node name="Level" type="Node3D"]
 
@@ -115,3 +125,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_c57a8")
+script = SubResource("GDScript_c57a8")
