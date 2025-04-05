@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjorx1di5n5b2"]
+[gd_scene load_steps=4 format=3 uid="uid://dys1num476md3"]
 
-[ext_resource type="Script" uid="uid://c5gpo58jfat4o" path="res://assets/test_assets/visibility_range.gd" id="1_xivml"]
+[ext_resource type="Script" uid="uid://c5gpo58jfat4o" path="res://assets/test_assets/visibility_range.gd" id="1_u1tqc"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_w6m7d"]
 
@@ -9,9 +9,9 @@
 [node name="Node3D" type="Node3D"]
 
 [node name="Node3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("BoxMesh_w6m7d")
-script = ExtResource("1_xivml")
+script = ExtResource("1_u1tqc")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Node3D2"]
 

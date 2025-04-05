@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bx1vy31h1n4in"]
+[gd_scene load_steps=20 format=3 uid="uid://bx1vy31h1n4in"]
 
 [ext_resource type="PackedScene" uid="uid://bfkfp22eap2hu" path="res://scenes/tiles/preset_plane.tscn" id="2_h8k3d"]
 [ext_resource type="PackedScene" uid="uid://b0wqe48ctiv16" path="res://scenes/player.tscn" id="2_i18vf"]
@@ -9,12 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://tb5idq852q6f" path="res://scenes/tiles/preset_ladder_4.tscn" id="7_woof0"]
 [ext_resource type="PackedScene" uid="uid://co838gh6flxfb" path="res://scenes/tiles/preset_plane_2.tscn" id="8_0qvti"]
 [ext_resource type="PackedScene" uid="uid://sf8g0dibgt2u" path="res://scenes/tiles/preset_plane_1.tscn" id="9_yftik"]
+[ext_resource type="PackedScene" uid="uid://g6a5mrdyi28b" path="res://scenes/tiles/preset_ladder_1.tscn" id="10_0qvti"]
+[ext_resource type="PackedScene" uid="uid://py2al4eiexuh" path="res://scenes/tiles/Preset_tree.tscn" id="10_dciv5"]
+[ext_resource type="PackedScene" uid="uid://cq7cry20hp8aj" path="res://scenes/tiles/Preset_stone.tscn" id="12_6rycw"]
 
 [sub_resource type="Gradient" id="Gradient_c57a8"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_vusma"]
 noise_type = 4
-frequency = 0.0003
+seed = 4
+frequency = 0.1056
 fractal_gain = 0.9
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ja66a"]
@@ -108,8 +112,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 2, -10)
 [node name="PresetPlane13" parent="Visuals" instance=ExtResource("2_h8k3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 2, -10)
 
+[node name="PresetPlane20" parent="Visuals" instance=ExtResource("2_h8k3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 2, -10)
+
 [node name="PresetPlane14" parent="Visuals" instance=ExtResource("2_h8k3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 2, -4)
+
+[node name="PresetPlane19" parent="Visuals" instance=ExtResource("2_h8k3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 2, -4)
 
 [node name="PresetPlane15" parent="Visuals" instance=ExtResource("7_woof0")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -21, 2, 0)
@@ -123,9 +133,46 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 4, 4)
 [node name="PresetPlane18" parent="Visuals" instance=ExtResource("9_yftik")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -42, 4, 4)
 
-[node name="Node3D2" parent="Visuals" instance=ExtResource("4_c57a8")]
+[node name="Enemy" parent="Visuals" instance=ExtResource("4_c57a8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
+
+[node name="Enemy2" parent="Visuals" instance=ExtResource("4_c57a8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 2, -3)
+
+[node name="Enemy5" parent="Visuals" instance=ExtResource("4_c57a8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 2, -6)
+
+[node name="Enemy4" parent="Visuals" instance=ExtResource("4_c57a8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 4, 2)
+
+[node name="Enemy3" parent="Visuals" instance=ExtResource("4_c57a8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 2, -9)
+
+[node name="Node3D3" parent="Visuals" instance=ExtResource("10_dciv5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 2, -9)
+
+[node name="Node3D4" parent="Visuals" instance=ExtResource("10_dciv5")]
+transform = Transform3D(0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766044, -31, 2, -5)
+
+[node name="Node3D5" parent="Visuals" instance=ExtResource("10_dciv5")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -38, 2, -9)
+
+[node name="Node3D6" parent="Visuals" instance=ExtResource("10_dciv5")]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -35, 2, -9)
+
+[node name="Node3D7" parent="Visuals" instance=ExtResource("10_dciv5")]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -40.9, 2, -9)
+
+[node name="PresetPlane21" parent="Visuals" instance=ExtResource("10_0qvti")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -46, 3, 2)
+
+[node name="Node3D8" parent="Visuals" instance=ExtResource("12_6rycw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 2, -1)
+
+[node name="Node3D9" parent="Visuals" instance=ExtResource("12_6rycw")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -31, 2, -1.2)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_c57a8")
 script = SubResource("GDScript_c57a8")
+rotation_speed = 0.3
