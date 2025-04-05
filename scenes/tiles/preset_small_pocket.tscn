@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpppupkgdwjdu"]
+
+[ext_resource type="PackedScene" uid="uid://ce6jq3diahs42" path="res://scenes/tiles/2x2.tscn" id="1_4frlg"]
+[ext_resource type="PackedScene" uid="uid://f0i0sevrtqy1" path="res://scenes/tiles/2x2_cube.tscn" id="2_5ofkn"]
+
+[node name="PresetHall" type="Node3D"]
+
+[node name="Plane1" parent="." instance=ExtResource("1_4frlg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="Plane" parent="." instance=ExtResource("1_4frlg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="Plane2" parent="." instance=ExtResource("1_4frlg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 2)
+
+[node name="Plane3" parent="." instance=ExtResource("1_4frlg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Wall" parent="." instance=ExtResource("2_5ofkn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="Wall2" parent="." instance=ExtResource("2_5ofkn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)
+
+[node name="Wall3" parent="." instance=ExtResource("2_5ofkn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 2)
+
+[node name="Wall4" parent="." instance=ExtResource("2_5ofkn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="Wall5" parent="." instance=ExtResource("2_5ofkn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 4)
+
+[node name="Wall6" parent="." instance=ExtResource("2_5ofkn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 4)
+
+[node name="Wall7" parent="." instance=ExtResource("2_5ofkn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Wall8" parent="." instance=ExtResource("2_5ofkn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 4)
