@@ -15,6 +15,8 @@ func _physics_process(delta: float) -> void:
 		player.velocity += player.get_gravity() * delta
 
 	# Handle jump.
+	if Session.get_if_paused(): return
+
 	if Input.is_action_just_pressed("ui_accept") and player.is_on_floor():
 		player.velocity.y = JUMP_VELOCITY
 

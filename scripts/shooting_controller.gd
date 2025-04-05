@@ -3,10 +3,11 @@ extends Node3D
 @export var camera : Camera3D
 @onready var player : Player = get_parent()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	if Session.get_if_paused(): return
 	if player.current_weapon == null: return
 	
-	if player.current_weapon._time_between_shots == 0.0 and Input.is_action_pressed("attack"):
+	if player.current_weapon._time_between_shots == 0.0 and Input.is_action_pressed("attack") and player.current_weapon.reloading == false:
 		player.current_weapon.attack()
 		
 		var query = PhysicsRayQueryParameters3D.create(camera.global_position, camera.global_position - camera.global_transform.basis.z * 100 ,3,[player.get_rid()])

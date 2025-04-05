@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Ludum2025"
-run/main_scene="uid://c4dubwj5ogkac"
+run/main_scene="uid://dts8lh7xli6qj"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

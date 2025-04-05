@@ -2,12 +2,12 @@ extends Node3D
 class_name Weapon
 
 signal shot
-signal special_shot
 
 @export var weapon_resource : WeaponResource
 var _time_between_shots : float = 0.0
 
 @export var max_ammo : int = 2
+@export var amount_of_depth_change : float = 5
 var ammo : int = 0
 var reloading : bool = false
 
@@ -25,10 +25,14 @@ func _process(delta: float) -> void:
 		animation_player.play("Idle")
 		
 func attack():
+	if ammo <= 0:
+		reload()
+		return
+	ammo -= 1
 	_time_between_shots = weapon_resource.time_between_shots
 	shot.emit()
 	animation_player.play("Shoot")
-	Session.change_depth(3)
+	Session.change_depth(amount_of_depth_change)
 
 func special_attack():
 	_time_between_shots = weapon_resource.time_between_shots
@@ -43,6 +47,7 @@ func reload():
 	animation_player.stop()
 	animation_player.play("Reload")
 	await animation_player.animation_finished
+	ammo = max_ammo
 	_time_between_shots = 0.0
 	animation_player.play("Idle")
 	

@@ -16,8 +16,10 @@ shader = ExtResource("6_tuyoq")
 shader_parameter/pixel_size = 6
 shader_parameter/screen_size = Vector2(1280, 720)
 
-[node name="Player" type="CharacterBody3D" groups=["PlayerGroup"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("gun_place") groups=["PlayerGroup"]]
 script = ExtResource("1_qlg0r")
+gun_scene = ExtResource("3_qhqgy")
+gun_place = NodePath("Camera3D/GunPlace")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -41,8 +43,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 fov = 65.0
 script = ExtResource("2_g2els")
 
-[node name="Weapon" parent="Camera3D" instance=ExtResource("3_qhqgy")]
-transform = Transform3D(-1, 0, 8.74228e-08, 8.15429e-09, 0.99564, 0.0932742, -8.70417e-08, 0.0932742, -0.99564, 0.546504, -0.434494, -1.02701)
+[node name="GunPlace" type="Node3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.546504, -0.434494, -1.02701)
 
 [node name="ColorRect" type="ColorRect" parent="Camera3D"]
 anchors_preset = 8
@@ -56,6 +58,7 @@ offset_right = 5.0
 offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="ColorRect2" type="ColorRect" parent="Camera3D"]
 material = SubResource("ShaderMaterial_fjrip")
@@ -64,3 +67,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
