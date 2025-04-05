@@ -1,13 +1,13 @@
 [gd_scene load_steps=24 format=4 uid="uid://dx6320js5byu1"]
 
-[ext_resource type="Script" path="res://scripts/weapon.gd" id="1_uxn4k"]
-[ext_resource type="Script" path="res://scripts/weapon_resource.gd" id="2_bmw2d"]
-[ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="3_8fp1k"]
+[ext_resource type="Script" uid="uid://dau251exialbd" path="res://scripts/weapon.gd" id="1_uxn4k"]
+[ext_resource type="Script" uid="uid://cqcn353up7djs" path="res://scripts/weapon_resource.gd" id="2_bmw2d"]
+[ext_resource type="Material" uid="uid://ca4qpc5t6tp4p" path="res://assets/gun_mat.tres" id="3_cjr6y"]
 
 [sub_resource type="Resource" id="Resource_8fp1k"]
 script = ExtResource("2_bmw2d")
 damage = 10.0
-time_between_shots = 0.3
+time_between_shots = 0.5
 metadata/_custom_type_script = "uid://cqcn353up7djs"
 
 [sub_resource type="Animation" id="Animation_bmw2d"]
@@ -860,7 +860,7 @@ _surfaces = [{
 "index_count": 72,
 "index_data": PackedByteArray("AAAMAAIAAgAMAA0AAgANAAMAAAAOAAwABwAOAAAAAwAPAAcABwAPAA4AAwANAA8ADgAIAAwADAAKAA0ADAAIAAoADQALAA8ADQAKAAsADwAJAA4ADgAJAAgADwALAAkACAAFAAoACgAFAAYACgAGAAsACAABAAUACQABAAgACwAGAAQACQAEAAEACwAEAAkA"),
 "lods": [0.0167435, PackedByteArray("AAAIAAIAAgAIAAMAAAAJAAgABwAJAAAACQABAAgACAABAAUACQAEAAEACAAFAAoACAAKAAMACgAFAAYAAwALAAcAAwAKAAsABwALAAkACgAGAAsACwAEAAkACwAGAAQA"), 0.126219, PackedByteArray("AAABAAIAAgABAAMAAAAEAAEAAQAFAAMABgAEAAAAAwAFAAYABwAGAAAAAwAGAAcA")],
-"material": ExtResource("3_8fp1k"),
+"material": ExtResource("3_cjr6y"),
 "name": "Material.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -894,7 +894,7 @@ _surfaces = [{
 "index_count": 36,
 "index_data": PackedByteArray("CgABAAsAAgALAAEAAAALAAIAAAAKAAsAAgABAAMABQAKAAAACgAEAAEABQAEAAoAAwABAAQAAwAEAAUABgAHAAgABgAJAAcA"),
 "lods": [0.217071, PackedByteArray("AAABAAIAAgABAAMAAAAEAAEAAwABAAQABQAEAAAAAwAEAAUABgAHAAgABgAJAAcA")],
-"material": ExtResource("3_8fp1k"),
+"material": ExtResource("3_cjr6y"),
 "name": "Material.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -928,7 +928,7 @@ _surfaces = [{
 "index_count": 60,
 "index_data": PackedByteArray("CQAKAAsADAAJAAsACQADAAoAAwAAAAoAAwAEAAAACQAFAAMABAANAAcABAAGAA0ABQACAAYAAgANAAYACQACAAUAAgAIAA0AAgAJAA4ADAAOAAkADAACAA4ADAABAAIADwAQABEAEAAPABIAEgAPABMAEAASABQA"),
 "lods": [0.172984, PackedByteArray("AAABAAIAAgADAAAAAwAEAAAAAwACAAUABQACAAYABAAGAAcAAgAHAAYAAgAIAAcA")],
-"material": ExtResource("3_8fp1k"),
+"material": ExtResource("3_cjr6y"),
 "name": "Material.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -949,7 +949,7 @@ _surfaces = [{
 "index_count": 60,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAQAAYABAARABAAEQAIABAAEQASAAgAEgATAAgAEgAJABMACQAUABMACQAVABQAFQAHABQAFQAFAAcAFgAKAAsACgAWABcAFwAWAAwACgAXABgAGQANAA4ADQAZABoAGgAZAA8ADQAaABsA"),
 "lods": [0.0450534, PackedByteArray("AAABAAIAAAADAAEABAAIAAYABAAJAAgACQAHAAgACQAFAAcACgALAAwADQAOAA8A"), 0.0939503, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABQAHAAYA")],
-"material": ExtResource("3_8fp1k"),
+"material": ExtResource("3_cjr6y"),
 "name": "Material.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -972,7 +972,7 @@ _surfaces = [{
 "index_count": 60,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAQAAYABAARABAAEQAIABAAEQASAAgAEgATAAgAEgAJABMACQAUABMACQAVABQAFQAHABQAFQAFAAcAFgAKAAsACgAWABcAFwAWAAwACgAXABgAGQANAA4ADQAZABoAGgAZAA8ADQAaABsA"),
 "lods": [0.0450534, PackedByteArray("AAABAAIAAAADAAEABAAIAAYABAAJAAgACQAHAAgACQAFAAcACgALAAwADQAOAA8A"), 0.0939503, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABQAHAAYA")],
-"material": ExtResource("3_8fp1k"),
+"material": ExtResource("3_cjr6y"),
 "name": "Material.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -995,7 +995,7 @@ _surfaces = [{
 "index_count": 132,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAcAAYABAAdABwAHQAeABwAHQAqAB4AKgAgAB4AKgAfACAAHwArACAAHwAhACsAIQAHACsAIQAFAAcAIgAjACQAIwAiACUAJQAiACYAIwAlACwACAAJAAoACAAtAAkACgAJAAwACAAKACcACAAnAAsACgAuACcACgAMAA0ACgANAC4ADQAMAC8ADQAoAC4ADQAvAA4ADQAOACgADgAvADAADgApACgADgAwABAADgAQACkAEAAwADEAEAAPACkAEAAxABEAEAARAA8AEgATABQAEgAVABMAEgAyABUAEgAzADIAFgAXABgAFwAWABkAGQAWABoAFwAZABsA"),
 "lods": [0.0302263, PackedByteArray("AAABAAIAAAADAAEABAAcAAYABAAdABwAHQAeABwAHQAfAB4AHwAgAB4AHwAHACAAHwAhAAcAIQAFAAcAIgAjACQAIwAiACUAJQAiACYACAAJAAoACgAJAAwACAAKACcACAAnAAsACgAoACcACgAMAA0ACgANACgADQAMAA4ADQAOACgADgApACgADgAQACkAEAAPACkAEAARAA8AEgATABQAEgAVABMAFgAXABgAFwAWABkAGQAWABoAFwAZABsA"), 0.0725705, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABQAHAAYACAAJAAoACAAKAAsACgAJAAwACgAMAA0ADQAMAA4ACgAPAAsACgANAA8ADQAOAA8ADgAQAA8AEAARAA8AEgATABQAEgAVABMAFgAXABgAFwAWABkAGQAWABoAFwAZABsA")],
-"material": ExtResource("3_8fp1k"),
+"material": ExtResource("3_cjr6y"),
 "name": "Material.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -1018,7 +1018,7 @@ _surfaces = [{
 "index_count": 132,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAcAAYABAAdABwAHQAeABwAHQAqAB4AKgAgAB4AKgAfACAAHwArACAAHwAhACsAIQAHACsAIQAFAAcAIgAjACQAIwAiACUAJQAiACYAIwAlACwACAAJAAoACAAtAAkACgAJAAwACAAKACcACAAnAAsACgAuACcACgAMAA0ACgANAC4ADQAMAC8ADQAoAC4ADQAvAA4ADQAOACgADgAvADAADgApACgADgAwABAADgAQACkAEAAwADEAEAAPACkAEAAxABEAEAARAA8AEgATABQAEgAVABMAEgAyABUAEgAzADIAFgAXABgAFwAWABkAGQAWABoAFwAZABsA"),
 "lods": [0.0302263, PackedByteArray("AAABAAIAAAADAAEABAAcAAYABAAdABwAHQAeABwAHQAfAB4AHwAgAB4AHwAHACAAHwAhAAcAIQAFAAcAIgAjACQAIwAiACUAJQAiACYACAAJAAoACgAJAAwACAAKACcACAAnAAsACgAoACcACgAMAA0ACgANACgADQAMAA4ADQAOACgADgApACgADgAQACkAEAAPACkAEAARAA8AEgATABQAEgAVABMAFgAXABgAFwAWABkAGQAWABoAFwAZABsA"), 0.0725705, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABQAHAAYACAAJAAoACAAKAAsACgAJAAwACgAMAA0ADQAMAA4ACgAPAAsACgANAA8ADQAOAA8ADgAQAA8AEAARAA8AEgATABQAEgAVABMAFgAXABgAFwAWABkAGQAWABoAFwAZABsA")],
-"material": ExtResource("3_8fp1k"),
+"material": ExtResource("3_cjr6y"),
 "name": "Material.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -1052,7 +1052,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 60,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIABAACAAUABgAHAAgABgAJAAcACQAKAAcACQALAAoADAANAA4ADAAPAA0AEAARABIAEAATABEAEwAUABEAEwAVABQAFgAXABgAFgAZABcAGgAbABwAGgAdABsAHgAfACAAHgAhAB8A"),
-"material": ExtResource("3_8fp1k"),
+"material": ExtResource("3_cjr6y"),
 "name": "Material.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -1084,7 +1084,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 96,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAFAAkACAAJAAoACwAMAA0ACwAOAAwADwAQABEADwASABAAEwAUABUAEwAWABQAFwAYABkAGAAXABoAGgAXABsAGAAaABwAHQAeAB8AHQAgAB4AIQAiACMAIQAkACIAJQAmACcAJQAoACYAKQAqACsAKQAsACoAKwAqAC0AKwAtAC4ALwAwADEALwAyADAAMwA0ADUANAAzADYANgAzADcANAA2ADgA"),
-"material": ExtResource("3_8fp1k"),
+"material": ExtResource("3_cjr6y"),
 "name": "Material.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -1108,10 +1108,12 @@ autoplay = "Idle"
 [node name="Gun2" type="Node3D" parent="."]
 
 [node name="Gun" type="MeshInstance3D" parent="Gun2"]
+sorting_offset = 5.0
 mesh = SubResource("ArrayMesh_xrduv")
 skeleton = NodePath("")
 
 [node name="Cube_001" type="MeshInstance3D" parent="Gun2/Gun"]
+sorting_offset = 1.0
 mesh = SubResource("ArrayMesh_5csnh")
 skeleton = NodePath("")
 
@@ -1120,21 +1122,25 @@ mesh = SubResource("ArrayMesh_naoe1")
 skeleton = NodePath("")
 
 [node name="Cylinder" type="MeshInstance3D" parent="Gun2/Gun/Cube_002"]
+sorting_offset = 2.0
 mesh = SubResource("ArrayMesh_234bu")
 skeleton = NodePath("")
 "blend_shapes/Key 1" = 0.0
 
 [node name="Cylinder_001" type="MeshInstance3D" parent="Gun2/Gun/Cube_002"]
+sorting_offset = 2.0
 mesh = SubResource("ArrayMesh_bmw2d")
 skeleton = NodePath("")
 "blend_shapes/Key 1" = 0.0
 
 [node name="Патрон_Л" type="MeshInstance3D" parent="Gun2/Gun/Cube_002"]
+sorting_offset = -1.0
 mesh = SubResource("ArrayMesh_8fp1k")
 skeleton = NodePath("")
 "blend_shapes/Key 1" = 0.0
 
 [node name="Патрон_П" type="MeshInstance3D" parent="Gun2/Gun/Cube_002"]
+sorting_offset = -1.0
 mesh = SubResource("ArrayMesh_cjr6y")
 skeleton = NodePath("")
 "blend_shapes/Key 1" = 0.0
@@ -1144,5 +1150,6 @@ mesh = SubResource("ArrayMesh_b2wdv")
 skeleton = NodePath("")
 
 [node name="Cylinder_003" type="MeshInstance3D" parent="Gun2/Gun"]
+sorting_offset = 3.0
 mesh = SubResource("ArrayMesh_ihae7")
 skeleton = NodePath("")

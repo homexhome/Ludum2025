@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ca4qpc5t6tp4p"]
+
+[ext_resource type="Texture2D" uid="uid://bkj64qj1n7eqc" path="res://assets/texture.jpg" id="1_byl3a"]
+
+[resource]
+render_priority = -1
+no_depth_test = true
+shading_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_byl3a")
+metallic_specular = 0.0
+roughness = 0.0
+texture_filter = 2
+texture_repeat = false

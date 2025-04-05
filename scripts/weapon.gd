@@ -21,7 +21,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_time_between_shots = clampf(_time_between_shots - delta, 0.0, weapon_resource.time_between_shots)
-	if _time_between_shots == 0.0 and animation_player.current_animation != "Idle":
+	if _time_between_shots == 0.0 and animation_player.current_animation != "Idle" and reloading == false:
 		animation_player.play("Idle")
 		
 func attack():
@@ -37,7 +37,9 @@ func special_attack():
 
 func reload():
 	if reloading: return
+	if _time_between_shots > 0 : return
 	reloading = true
+	animation_player.stop()
 	animation_player.play("Reload")
 	await animation_player.animation_finished
 	_time_between_shots = 0.0

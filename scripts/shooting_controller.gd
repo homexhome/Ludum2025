@@ -17,3 +17,5 @@ func _process(delta: float) -> void:
 			var collider = result["collider"]
 			if collider.has_method("take_damage"):
 				collider.take_damage(player.current_weapon.weapon_resource.damage, result["position"])
+	elif Input.is_action_pressed("reload"):
+		player.current_weapon.reload()
