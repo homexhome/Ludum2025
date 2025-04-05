@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bx1vy31h1n4in"]
+[gd_scene load_steps=26 format=3 uid="uid://bx1vy31h1n4in"]
 
 [ext_resource type="PackedScene" uid="uid://bfkfp22eap2hu" path="res://scenes/tiles/preset_plane.tscn" id="2_h8k3d"]
 [ext_resource type="PackedScene" uid="uid://b0wqe48ctiv16" path="res://scenes/player.tscn" id="2_i18vf"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cpppupkgdwjdu" path="res://scenes/tiles/preset_small_pocket.tscn" id="13_w05bq"]
 [ext_resource type="PackedScene" path="res://scenes/tiles/preset_plane_3.tscn" id="14_ty2v8"]
 [ext_resource type="PackedScene" path="res://scenes/tiles/preset_ladder_6.tscn" id="15_xigqs"]
+[ext_resource type="PackedScene" uid="uid://bhfrtsb4njtdq" path="res://scenes/tiles/2x2_tree.tscn" id="16_p3lx0"]
 [ext_resource type="PackedScene" uid="uid://f0i0sevrtqy1" path="res://scenes/tiles/2x2_cube.tscn" id="16_ty2v8"]
 [ext_resource type="PackedScene" uid="uid://cwmp4ofo1kh3j" path="res://scenes/tiles/2x1_cube.tscn" id="17_p3lx0"]
 
@@ -279,6 +280,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47, 3, -61)
 
 [node name="2x7" parent="Visuals" instance=ExtResource("16_ty2v8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 3, -63)
+
+[node name="Node3D2" parent="Visuals" instance=ExtResource("16_p3lx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_c57a8")
