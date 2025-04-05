@@ -3,21 +3,21 @@
 [ext_resource type="PackedScene" uid="uid://bfkfp22eap2hu" path="res://scenes/tiles/preset_plane.tscn" id="2_h8k3d"]
 [ext_resource type="PackedScene" uid="uid://b0wqe48ctiv16" path="res://scenes/player.tscn" id="2_i18vf"]
 [ext_resource type="PackedScene" uid="uid://duml6l6edul1v" path="res://scenes/tiles/Enemy.tscn" id="4_c57a8"]
-[ext_resource type="PackedScene" path="res://scenes/tiles/preset_hall_wide.tscn" id="4_ja66a"]
-[ext_resource type="PackedScene" path="res://scenes/tiles/preset_ladder_3.tscn" id="5_g5cnw"]
-[ext_resource type="PackedScene" path="res://scenes/tiles/preset_ladder_2.tscn" id="6_5csnf"]
-[ext_resource type="PackedScene" path="res://scenes/tiles/preset_ladder_4.tscn" id="7_woof0"]
-[ext_resource type="PackedScene" path="res://scenes/tiles/preset_plane_2.tscn" id="8_0qvti"]
-[ext_resource type="PackedScene" path="res://scenes/tiles/preset_plane_1.tscn" id="9_yftik"]
-[ext_resource type="PackedScene" path="res://scenes/tiles/preset_ladder_1.tscn" id="10_0qvti"]
+[ext_resource type="PackedScene" uid="uid://bltg4k1jw2tx3" path="res://scenes/tiles/preset_hall_wide.tscn" id="4_ja66a"]
+[ext_resource type="PackedScene" uid="uid://cqcq0ffsvfly8" path="res://scenes/tiles/preset_ladder_3.tscn" id="5_g5cnw"]
+[ext_resource type="PackedScene" uid="uid://4xbnm260c6t8" path="res://scenes/tiles/preset_ladder_2.tscn" id="6_5csnf"]
+[ext_resource type="PackedScene" uid="uid://tb5idq852q6f" path="res://scenes/tiles/preset_ladder_4.tscn" id="7_woof0"]
+[ext_resource type="PackedScene" uid="uid://co838gh6flxfb" path="res://scenes/tiles/preset_plane_2.tscn" id="8_0qvti"]
+[ext_resource type="PackedScene" uid="uid://sf8g0dibgt2u" path="res://scenes/tiles/preset_plane_1.tscn" id="9_yftik"]
+[ext_resource type="PackedScene" uid="uid://g6a5mrdyi28b" path="res://scenes/tiles/preset_ladder_1.tscn" id="10_0qvti"]
 [ext_resource type="PackedScene" path="res://scenes/tiles/preset_ladder_5.tscn" id="11_obl40"]
 [ext_resource type="PackedScene" uid="uid://t107mu5jtl6s" path="res://scenes/tiles/preset_hall.tscn" id="12_xigqs"]
 [ext_resource type="PackedScene" uid="uid://cpppupkgdwjdu" path="res://scenes/tiles/preset_small_pocket.tscn" id="13_w05bq"]
 [ext_resource type="PackedScene" path="res://scenes/tiles/preset_plane_3.tscn" id="14_ty2v8"]
-[ext_resource type="PackedScene" path="res://scenes/tiles/preset_ladder_6.tscn" id="15_xigqs"]
+[ext_resource type="PackedScene" uid="uid://b4asdcxod80e7" path="res://scenes/tiles/preset_ladder_6.tscn" id="15_xigqs"]
 [ext_resource type="PackedScene" uid="uid://bhfrtsb4njtdq" path="res://scenes/tiles/2x2_tree.tscn" id="16_p3lx0"]
 [ext_resource type="PackedScene" uid="uid://f0i0sevrtqy1" path="res://scenes/tiles/2x2_cube.tscn" id="16_ty2v8"]
-[ext_resource type="PackedScene" path="res://scenes/tiles/2x1_cube.tscn" id="17_p3lx0"]
+[ext_resource type="PackedScene" uid="uid://cwmp4ofo1kh3j" path="res://scenes/tiles/2x1_cube.tscn" id="17_p3lx0"]
 
 [sub_resource type="Gradient" id="Gradient_c57a8"]
 
@@ -27,7 +27,7 @@ seed = 4
 frequency = 0.1056
 fractal_gain = 0.9
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ja66a"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_p3lx0"]
 width = 10
 height = 10
 seamless = true
@@ -35,17 +35,17 @@ color_ramp = SubResource("Gradient_c57a8")
 noise = SubResource("FastNoiseLite_vusma")
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_g5cnw"]
-panorama = SubResource("NoiseTexture2D_ja66a")
+panorama = SubResource("NoiseTexture2D_p3lx0")
 energy_multiplier = 1.7
 
-[sub_resource type="Sky" id="Sky_5csnf"]
+[sub_resource type="Sky" id="Sky_vmsj3"]
 sky_material = SubResource("PanoramaSkyMaterial_g5cnw")
 radiance_size = 0
 
 [sub_resource type="Environment" id="Environment_c57a8"]
 background_mode = 2
 background_color = Color(0.650128, 0.650128, 0.650128, 1)
-sky = SubResource("Sky_5csnf")
+sky = SubResource("Sky_vmsj3")
 
 [sub_resource type="GDScript" id="GDScript_c57a8"]
 script/source = "extends WorldEnvironment

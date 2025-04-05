@@ -1,12 +1,12 @@
 [gd_scene load_steps=6 format=4 uid="uid://dmiibhy7kbdxc"]
 
-[ext_resource type="Script" path="res://scenes/tiles/visibility_range.gd" id="1_eql7l"]
+[ext_resource type="Script" uid="uid://c5gpo58jfat4o" path="res://scenes/tiles/visibility_range.gd" id="1_eql7l"]
 [ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="2_15d6x"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_i2vs4"]
 points = PackedVector3Array(0, 0, 0, -2, -1, 2, -2, 0, 0, -1, -1, 0, 0, 0, 2)
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_bpy50"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_15d6x"]
 _surfaces = [{
 "aabb": AABB(-1, 0, -1, 2, 1, 2),
 "format": 34896613377,
@@ -36,7 +36,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAD/////49L//wAAAADj0v///////+PSAAD/////JsIAAP//AAAmwv//AAAAACbC////f////3////9/8dZ4a/HWeGvx1nhr")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_bpy50")
+shadow_mesh = SubResource("ArrayMesh_15d6x")
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_eql7l")

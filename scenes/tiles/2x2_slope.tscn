@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://c77cru2eg0vhb"]
 
-[ext_resource type="Script" path="res://scenes/tiles/visibility_range.gd" id="1_u7gbr"]
+[ext_resource type="Script" uid="uid://c5gpo58jfat4o" path="res://scenes/tiles/visibility_range.gd" id="1_u7gbr"]
 [ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="2_rg64e"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_avpbg"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_035jp"]
 _surfaces = [{
 "aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
 "format": 34896613377,
@@ -33,7 +33,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_avpbg")
+shadow_mesh = SubResource("ArrayMesh_035jp")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_buio6"]
 _surfaces = [{
