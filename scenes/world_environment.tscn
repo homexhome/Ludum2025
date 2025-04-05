@@ -32,19 +32,19 @@ fog_mode = 1
 fog_light_color = Color(0.415686, 0.74902, 0.776471, 1)
 fog_density = 1.0
 fog_depth_curve = 2.54912
-fog_depth_begin = 0.0
-fog_depth_end = 10.0
 
 [sub_resource type="GDScript" id="GDScript_7ds5r"]
 script/source = "extends WorldEnvironment
 
 @export var rotation_speed : float = 3
 
+func _ready() -> void:
+	Session.set_environment(self)
+
 func _physics_process(delta: float) -> void:
 	var _rotation = environment.get_sky_rotation()
 	_rotation.y = wrapf(_rotation.y + delta * rotation_speed, 0, 360)
 	environment.set_sky_rotation(_rotation)
-	environment.fog_depth_end = snappedf(Session.get_depth_perceprion(),0.1)
 "
 
 [node name="WorldEnvironment" type="WorldEnvironment"]
