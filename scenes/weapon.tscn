@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=4 uid="uid://dx6320js5byu1"]
 
-[ext_resource type="Script" uid="uid://dau251exialbd" path="res://scripts/weapon.gd" id="1_uxn4k"]
-[ext_resource type="Script" uid="uid://cqcn353up7djs" path="res://scripts/weapon_resource.gd" id="2_bmw2d"]
+[ext_resource type="Script" path="res://scripts/weapon.gd" id="1_uxn4k"]
+[ext_resource type="Script" path="res://scripts/weapon_resource.gd" id="2_bmw2d"]
 [ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="3_8fp1k"]
 
 [sub_resource type="Resource" id="Resource_8fp1k"]
