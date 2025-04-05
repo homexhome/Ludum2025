@@ -22,10 +22,21 @@ script = ExtResource("1_3vyb7")
 player = NodePath("..")
 camera = NodePath("../Camera3D")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_g2els")
+
+[node name="ShootingController" type="Node3D" parent="." node_paths=PackedStringArray("camera")]
+script = ExtResource("4_dqkch")
+camera = NodePath("../Camera3D")
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 fov = 65.0
 script = ExtResource("2_g2els")
+
+[node name="Weapon" parent="Camera3D" instance=ExtResource("3_qhqgy")]
+transform = Transform3D(-1, 0, 8.74228e-08, 8.15429e-09, 0.99564, 0.0932742, -8.70417e-08, 0.0932742, -0.99564, 0.546504, -0.434494, -1.02701)
 
 [node name="ColorRect" type="ColorRect" parent="Camera3D"]
 anchors_preset = 8
@@ -39,14 +50,3 @@ offset_right = 5.0
 offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Weapon" parent="Camera3D" instance=ExtResource("3_qhqgy")]
-transform = Transform3D(-1, 0, 8.74228e-08, 8.15429e-09, 0.99564, 0.0932742, -8.70417e-08, 0.0932742, -0.99564, 0.546504, -0.434494, -1.02701)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_g2els")
-
-[node name="ShootingController" type="Node3D" parent="." node_paths=PackedStringArray("camera")]
-script = ExtResource("4_dqkch")
-camera = NodePath("../Camera3D")
