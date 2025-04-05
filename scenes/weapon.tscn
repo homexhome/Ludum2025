@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx6320js5byu1"]
+
+[ext_resource type="Script" uid="uid://dau251exialbd" path="res://scripts/weapon.gd" id="1_uxn4k"]
+[ext_resource type="Script" uid="uid://cqcn353up7djs" path="res://scripts/weapon_resource.gd" id="2_bmw2d"]
+
+[sub_resource type="Resource" id="Resource_8fp1k"]
+script = ExtResource("2_bmw2d")
+damage = 10.0
+time_between_shots = 0.3
+metadata/_custom_type_script = "uid://cqcn353up7djs"
+
+[sub_resource type="BoxMesh" id="BoxMesh_uxn4k"]
+size = Vector3(0.1, 0.1, 1.45)
+
+[node name="Weapon" type="Node3D" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("1_uxn4k")
+weapon_resource = SubResource("Resource_8fp1k")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_uxn4k")
