@@ -2,8 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://bfkfp22eap2hu" path="res://scenes/tiles/preset_plane.tscn" id="2_h8k3d"]
 [ext_resource type="PackedScene" uid="uid://b0wqe48ctiv16" path="res://scenes/player.tscn" id="2_i18vf"]
-[ext_resource type="PackedScene" uid="uid://f0i0sevrtqy1" path="res://scenes/tiles/2x2_cube.tscn" id="3_h8k3d"]
 [ext_resource type="PackedScene" uid="uid://duml6l6edul1v" path="res://scenes/tiles/Enemy.tscn" id="4_c57a8"]
+[ext_resource type="PackedScene" uid="uid://bltg4k1jw2tx3" path="res://scenes/tiles/preset_hall_wide.tscn" id="4_ja66a"]
+[ext_resource type="PackedScene" uid="uid://cqcq0ffsvfly8" path="res://scenes/tiles/preset_ladder_3.tscn" id="5_g5cnw"]
+[ext_resource type="PackedScene" uid="uid://4xbnm260c6t8" path="res://scenes/tiles/preset_ladder_2.tscn" id="6_5csnf"]
+[ext_resource type="PackedScene" uid="uid://tb5idq852q6f" path="res://scenes/tiles/preset_ladder_4.tscn" id="7_woof0"]
+[ext_resource type="PackedScene" uid="uid://co838gh6flxfb" path="res://scenes/tiles/preset_plane_2.tscn" id="8_0qvti"]
+[ext_resource type="PackedScene" uid="uid://sf8g0dibgt2u" path="res://scenes/tiles/preset_plane_1.tscn" id="9_yftik"]
 
 [sub_resource type="Gradient" id="Gradient_c57a8"]
 
@@ -52,13 +57,14 @@ transform = Transform3D(0.134782, 0.990875, 0, 0.412231, -0.0560728, 0.909352, 0
 
 [node name="Visuals" type="Node3D" parent="."]
 
-[node name="PresetPlane" parent="Visuals" instance=ExtResource("2_h8k3d")]
-
-[node name="PresetPlane2" parent="Visuals" instance=ExtResource("2_h8k3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
-
 [node name="PresetPlane3" parent="Visuals" instance=ExtResource("2_h8k3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+
+[node name="PresetPlane7" parent="Visuals" instance=ExtResource("2_h8k3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -12)
+
+[node name="PresetPlane8" parent="Visuals" instance=ExtResource("2_h8k3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -18)
 
 [node name="PresetPlane4" parent="Visuals" instance=ExtResource("2_h8k3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18)
@@ -69,53 +75,53 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -18)
 [node name="PresetPlane6" parent="Visuals" instance=ExtResource("2_h8k3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -12)
 
-[node name="Cube1" parent="Visuals" instance=ExtResource("3_h8k3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -8)
+[node name="Node3D" parent="Visuals" instance=ExtResource("4_c57a8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
 
-[node name="Cube2" parent="Visuals" instance=ExtResource("3_h8k3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -6)
+[node name="PresetHall" parent="Visuals" instance=ExtResource("4_ja66a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
 
-[node name="Cube3" parent="Visuals" instance=ExtResource("3_h8k3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)
+[node name="PresetHall2" parent="Visuals" instance=ExtResource("4_ja66a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -8)
 
-[node name="Cube4" parent="Visuals" instance=ExtResource("3_h8k3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -2)
+[node name="PresetHall3" parent="Visuals" instance=ExtResource("4_ja66a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -4)
 
-[node name="Cube5" parent="Visuals" instance=ExtResource("3_h8k3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+[node name="PresetPlane" parent="Visuals" instance=ExtResource("5_g5cnw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10, 1, -12)
 
-[node name="Cube6" parent="Visuals" instance=ExtResource("3_h8k3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2)
+[node name="PresetPlane2" parent="Visuals" instance=ExtResource("6_5csnf")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 18, 0, -15)
 
-[node name="Cube7" parent="Visuals" instance=ExtResource("3_h8k3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -8)
+[node name="PresetPlane9" parent="Visuals" instance=ExtResource("2_h8k3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 2, -10)
 
-[node name="Cube8" parent="Visuals" instance=ExtResource("3_h8k3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -6)
+[node name="PresetPlane10" parent="Visuals" instance=ExtResource("2_h8k3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 2, -4)
 
-[node name="Cube9" parent="Visuals" instance=ExtResource("3_h8k3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
+[node name="PresetPlane11" parent="Visuals" instance=ExtResource("2_h8k3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 2, -4)
 
-[node name="Cube10" parent="Visuals" instance=ExtResource("3_h8k3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2)
+[node name="PresetPlane12" parent="Visuals" instance=ExtResource("2_h8k3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 2, -10)
 
-[node name="Cube11" parent="Visuals" instance=ExtResource("3_h8k3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+[node name="PresetPlane13" parent="Visuals" instance=ExtResource("2_h8k3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 2, -10)
 
-[node name="Cube12" parent="Visuals" instance=ExtResource("3_h8k3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
+[node name="PresetPlane14" parent="Visuals" instance=ExtResource("2_h8k3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 2, -4)
 
-[node name="Cube13" parent="Visuals" instance=ExtResource("3_h8k3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
+[node name="PresetPlane15" parent="Visuals" instance=ExtResource("7_woof0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -21, 2, 0)
 
-[node name="Cube14" parent="Visuals" instance=ExtResource("3_h8k3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+[node name="PresetPlane16" parent="Visuals" instance=ExtResource("8_0qvti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 4, 4)
 
-[node name="Cube15" parent="Visuals" instance=ExtResource("3_h8k3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+[node name="PresetPlane17" parent="Visuals" instance=ExtResource("8_0qvti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 4, 4)
 
-[node name="Cube16" parent="Visuals" instance=ExtResource("3_h8k3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4)
+[node name="PresetPlane18" parent="Visuals" instance=ExtResource("9_yftik")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -42, 4, 4)
 
 [node name="Cube17" parent="Visuals" instance=ExtResource("3_h8k3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4)

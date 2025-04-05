@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://tb5idq852q6f"]
+
+[ext_resource type="PackedScene" uid="uid://ce6jq3diahs42" path="res://scenes/tiles/2x2.tscn" id="1_idamu"]
+[ext_resource type="PackedScene" uid="uid://c77cru2eg0vhb" path="res://scenes/tiles/2x2_slope.tscn" id="2_r02ep"]
+[ext_resource type="PackedScene" uid="uid://f0i0sevrtqy1" path="res://scenes/tiles/2x2_cube.tscn" id="3_r02ep"]
+
+[node name="PresetPlane" type="Node3D"]
+
+[node name="Plane1" parent="." instance=ExtResource("1_idamu")]
+transform = Transform3D(0.00320018, 0.0055372, -0.99998, -0.000363948, 0.999985, 0.00553606, 0.999995, 0.000346233, 0.00320214, 4, 2, 5)
+
+[node name="Plane8" parent="." instance=ExtResource("1_idamu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Plane4" parent="." instance=ExtResource("1_idamu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 1)
+
+[node name="Slope" parent="." instance=ExtResource("2_r02ep")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 4, 2, 3)
+
+[node name="Slope2" parent="." instance=ExtResource("2_r02ep")]
+transform = Transform3D(-1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 2, 1, 1)
+
+[node name="Node3D" parent="." instance=ExtResource("3_r02ep")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 1)
+
+[node name="Node3D2" parent="." instance=ExtResource("3_r02ep")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -1)
+
+[node name="Node3D3" parent="." instance=ExtResource("3_r02ep")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -1)
