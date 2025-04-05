@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://c4dubwj5ogkac"]
 
 [ext_resource type="MeshLibrary" uid="uid://o0cyi1eyon7h" path="res://new_mesh_lib.tres" id="1_1fhj5"]
-[ext_resource type="Script" uid="uid://bjq1y2wsxubh5" path="res://scripts/level.gd" id="1_j8bo8"]
-[ext_resource type="PackedScene" uid="uid://bw7rvlv40o23f" path="res://scenes/tiles/Enemy_long.tscn" id="3_j8bo8"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_j8bo8"]
+[ext_resource type="PackedScene" path="res://scenes/tiles/Enemy_long.tscn" id="3_j8bo8"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_j8bo8"]
 
