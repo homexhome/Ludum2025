@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyscgbtrskaty"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_epyki"]
+size = Vector2(1, 1)
+
+[node name="Node3D" type="MeshInstance3D"]
+mesh = SubResource("PlaneMesh_epyki")
