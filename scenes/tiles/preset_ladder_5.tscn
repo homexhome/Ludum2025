@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://ceuwta4la7yrn"]
+
+[ext_resource type="PackedScene" uid="uid://ce6jq3diahs42" path="res://scenes/tiles/2x2.tscn" id="1_jxp6f"]
+[ext_resource type="PackedScene" uid="uid://c77cru2eg0vhb" path="res://scenes/tiles/2x2_slope.tscn" id="2_cwhcc"]
+
+[node name="PresetPlane" type="Node3D"]
+
+[node name="Plane1" parent="." instance=ExtResource("1_jxp6f")]
+transform = Transform3D(0.00320018, 0.0055372, -0.99998, -0.000363948, 0.999985, 0.00553606, 0.999995, 0.000346233, 0.00320214, 4, 2, 7)
+
+[node name="Plane2" parent="." instance=ExtResource("1_jxp6f")]
+transform = Transform3D(0.00320018, 0.0055372, -0.99998, -0.000363948, 0.999985, 0.00553606, 0.999995, 0.000346233, 0.00320214, 6, 2, 7)
+
+[node name="Plane8" parent="." instance=ExtResource("1_jxp6f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Plane9" parent="." instance=ExtResource("1_jxp6f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Plane4" parent="." instance=ExtResource("1_jxp6f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 1)
+
+[node name="Plane5" parent="." instance=ExtResource("1_jxp6f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 3)
+
+[node name="Plane6" parent="." instance=ExtResource("1_jxp6f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 3)
+
+[node name="Plane7" parent="." instance=ExtResource("1_jxp6f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 1)
+
+[node name="Slope" parent="." instance=ExtResource("2_cwhcc")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 4, 2, 5)
+
+[node name="Slope4" parent="." instance=ExtResource("2_cwhcc")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 6, 2, 5)
+
+[node name="Slope2" parent="." instance=ExtResource("2_cwhcc")]
+transform = Transform3D(-1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 2, 1, 1)
+
+[node name="Slope3" parent="." instance=ExtResource("2_cwhcc")]
+transform = Transform3D(-1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 2, 1, 3)
