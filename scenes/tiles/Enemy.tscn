@@ -1,7 +1,24 @@
-[gd_scene load_steps=6 format=4 uid="uid://duml6l6edul1v"]
+[gd_scene load_steps=12 format=4 uid="uid://duml6l6edul1v"]
 
-[ext_resource type="Script" uid="uid://c5gpo58jfat4o" path="res://assets/test_assets/visibility_range.gd" id="1_thn6r"]
+[ext_resource type="Script" uid="uid://cktunc4elmclu" path="res://scripts/enemy.gd" id="1_j5las"]
+[ext_resource type="Script" uid="uid://c5gpo58jfat4o" path="res://scenes/tiles/visibility_range.gd" id="1_thn6r"]
+[ext_resource type="Script" uid="uid://c2qsex0ibsyl2" path="res://scripts/entity_resource.gd" id="2_ghrgm"]
 [ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="2_keueg"]
+[ext_resource type="PackedScene" uid="uid://bvihxw1rs6ges" path="res://scenes/health.tscn" id="3_keueg"]
+
+[sub_resource type="Resource" id="Resource_edx6k"]
+script = ExtResource("2_ghrgm")
+max_health = 100.0
+speed = 3.0
+metadata/_custom_type_script = "uid://c2qsex0ibsyl2"
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0xrg5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0xrg5"]
+size = Vector3(2.95404, 1.5665, 1.62582)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j5las"]
+size = Vector3(0.980087, 2.80876, 1.54608)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ftjo7"]
 _surfaces = [{
@@ -56,20 +73,32 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ftjo7")
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0xrg5"]
-
-[node name="Node3D" type="Node3D"]
-script = ExtResource("1_thn6r")
-
-[node name="Visuals" type="Node3D" parent="."]
-
-[node name="Plane_004" type="MeshInstance3D" parent="Visuals"]
-transform = Transform3D(0.16896, -0.177282, -0.242999, -0.295885, -0.0478057, -0.170855, 0.0541238, 0.29208, -0.175456, 1.39004, 2.28562, 0)
-mesh = SubResource("ArrayMesh_j5las")
-skeleton = NodePath("")
+[node name="Node3D" type="CharacterBody3D"]
+script = ExtResource("1_j5las")
+entity_resource = SubResource("Resource_edx6k")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("CapsuleShape3D_0xrg5")
+
+[node name="Area3D" parent="." instance=ExtResource("3_keueg")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0640564, 0.794522, 0.0243683)
+shape = SubResource("BoxShape3D_0xrg5")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05782, 1.41565, 0.0642395)
+shape = SubResource("BoxShape3D_j5las")
+
+[node name="Node3D" type="Node3D" parent="."]
+script = ExtResource("1_thn6r")
+
+[node name="Visuals" type="Node3D" parent="Node3D"]
+
+[node name="Plane_004" type="MeshInstance3D" parent="Node3D/Visuals"]
+transform = Transform3D(0.16896, -0.177282, -0.242999, -0.295885, -0.0478057, -0.170855, 0.0541238, 0.29208, -0.175456, 1.39004, 2.28562, 0)
+mesh = SubResource("ArrayMesh_j5las")
+skeleton = NodePath("")

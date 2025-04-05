@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcha6s2ao51b8"]
+[gd_scene load_steps=4 format=3 uid="uid://dslgf26acpfa3"]
 
 [ext_resource type="PackedScene" uid="uid://ce6jq3diahs42" path="res://scenes/tiles/2x2.tscn" id="1_7c5t2"]
 [ext_resource type="PackedScene" uid="uid://c77cru2eg0vhb" path="res://scenes/tiles/2x2_slope.tscn" id="2_m7x2e"]
+[ext_resource type="PackedScene" uid="uid://d3wd4gtjnevt8" path="res://scenes/tiles/2x2_45.tscn" id="3_qusck"]
 
 [node name="PresetPlane" type="Node3D"]
 
@@ -37,3 +38,15 @@ transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 1, 2)
 
 [node name="Node3D11" parent="." instance=ExtResource("2_m7x2e")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2, 1, 0)
+
+[node name="Node3D4" parent="." instance=ExtResource("3_qusck")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0, -2)
+
+[node name="Node3D6" parent="." instance=ExtResource("3_qusck")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2, 0, -2)
+
+[node name="Node3D8" parent="." instance=ExtResource("3_qusck")]
+transform = Transform3D(-4.47035e-08, 0, 1, 0, 1, 0, -1, 0, -4.47035e-08, 2, 0, 1.99945)
+
+[node name="Node3D15" parent="." instance=ExtResource("3_qusck")]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -2, 0, 1.99945)
