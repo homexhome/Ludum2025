@@ -1,7 +1,8 @@
-[gd_scene load_steps=35 format=4 uid="uid://bob4cono2210x"]
+[gd_scene load_steps=36 format=4 uid="uid://bob4cono2210x"]
 
 [ext_resource type="Script" uid="uid://buyxwg18seq7k" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://cpupwhky1dhdp" path="res://assets/imports/Button atlas.jpg" id="2_flqon"]
+[ext_resource type="Texture2D" uid="uid://bie4sefrojm5b" path="res://assets/Постеризация 1.png" id="2_rcqid"]
 [ext_resource type="MeshLibrary" uid="uid://o0cyi1eyon7h" path="res://new_mesh_lib.tres" id="3_bqqt6"]
 [ext_resource type="AudioStream" uid="uid://df3fpjyu8fjqf" path="res://assets/music/главтема_демка2.mp3" id="3_flqon"]
 [ext_resource type="Shader" uid="uid://cvgyuhtt27ehl" path="res://assets/shaders/pixelate.gdshader" id="3_wu84c"]
@@ -545,6 +546,20 @@ _data = {
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_l6cm7")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -507.0
+offset_top = -309.0
+offset_right = 443.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rcqid")
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -563,9 +578,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -165.0
-offset_top = 95.0
+offset_top = 184.0
 offset_right = 165.0
-offset_bottom = 234.0
+offset_bottom = 323.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = SubResource("AtlasTexture_rcqid")

@@ -6,10 +6,15 @@ var current_weapon : Weapon
 @export var gun_scene : PackedScene
 @export var gun_place : Node3D
 
-var health : int = 5
+@export var camera : Camera3D
+var health : int = 5 : 
+	set(value):
+		health = value
+		health_changed.emit()
 var max_health : int = 5
 
 signal died
+signal health_changed
 
 func _ready() -> void:
 	if is_instance_valid(current_weapon): 

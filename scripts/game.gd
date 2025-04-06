@@ -36,10 +36,16 @@ func end_game():
 	god.show()
 	god.health.dead.connect(really_end_game)
 	Session.pause_player()
-	var needed_transfrom = player.global_transform.looking_at(god.look_pos.global_position)
-	while player.global_transform.is_equal_approx(needed_transfrom) == false:
-		player.global_transform = lerp(player.global_transform,needed_transfrom,get_process_delta_time() * 3)
+	var cam = player.camera
+	var needed_transfrom = cam.global_transform.looking_at(god.look_pos.global_position)
+	var time : float = 0.0
+	while cam.global_transform.is_equal_approx(needed_transfrom) == false:
+		cam.global_transform = lerp(cam.global_transform,needed_transfrom,get_process_delta_time() * 3)
+		time += get_process_delta_time()
+		if time >= 3.0:
+			break
 		await get_tree().process_frame
+	#await get_tree().create_timer(2.0).timeout
 	Session.resume_player()
 	Session.environment.environment.fog_enabled = false
 	$TextureRect.show()
@@ -47,7 +53,7 @@ func end_game():
 	god.health.monitorable = true
 
 func really_end_game():
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.0).timeout
 	get_tree().call_deferred("change_scene_to_file","res://scenes/main_menu.tscn")
 
 func go_back_to_menu():

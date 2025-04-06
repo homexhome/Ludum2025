@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b0wqe48ctiv16"]
+[gd_scene load_steps=19 format=3 uid="uid://b0wqe48ctiv16"]
 
 [ext_resource type="Script" uid="uid://c2x87b7s57ykp" path="res://scripts/player_movement_controller.gd" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://c7r5f43wpq8f7" path="res://scripts/player.gd" id="1_qlg0r"]
@@ -6,13 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://dx6320js5byu1" path="res://scenes/weapon.tscn" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://d3aiwdky5ljjx" path="res://scenes/ammo.tscn" id="3_ur7pv"]
 [ext_resource type="Script" uid="uid://sk8fglw1qtcm" path="res://scripts/shooting_controller.gd" id="4_dqkch"]
+[ext_resource type="Script" uid="uid://cmwva2qha5p0" path="res://scripts/health_sprite.gd" id="5_d2wvv"]
 [ext_resource type="Shader" uid="uid://cvgyuhtt27ehl" path="res://assets/shaders/pixelate.gdshader" id="6_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://c38scv4txnty2" path="res://assets/music/step2.ogg" id="7_fjrip"]
 [ext_resource type="AudioStream" uid="uid://bblmiv31vprgn" path="res://assets/music/hero_death_scream2.ogg" id="8_smehm"]
+[ext_resource type="Texture2D" uid="uid://wvbf6amjvra3" path="res://assets/health.png" id="10_y4r1p"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g2els"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
+atlas = ExtResource("10_y4r1p")
+region = Rect2(-20, 0, 309, 515)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fjrip"]
 shader = ExtResource("6_tuyoq")
@@ -319,12 +325,13 @@ func reload():
 	play()
 "
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("gun_place") groups=["PlayerGroup"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("gun_place", "camera") groups=["PlayerGroup"]]
 collision_layer = 9
 collision_mask = 9
 script = ExtResource("1_qlg0r")
 gun_scene = ExtResource("3_qhqgy")
 gun_place = NodePath("Camera3D/GunPlace")
+camera = NodePath("Camera3D")
 empty_ammo = ExtResource("3_ur7pv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -351,6 +358,28 @@ script = ExtResource("2_g2els")
 
 [node name="GunPlace" type="Node3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.546504, -0.434494, -1.02701)
+
+[node name="Health" type="TextureRect" parent="Camera3D" node_paths=PackedStringArray("player")]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -601.0
+offset_top = 135.0
+offset_right = -476.0
+offset_bottom = 323.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_ur7pv")
+expand_mode = 1
+script = ExtResource("5_d2wvv")
+player = NodePath("../..")
+first_x = -20.0
+second_x = 287.0
+third_x = 562.105
+fourth_x = 835.0
+fifth_x = 1104.0
 
 [node name="ColorRect" type="ColorRect" parent="Camera3D"]
 anchors_preset = 8
