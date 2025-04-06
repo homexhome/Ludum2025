@@ -396,7 +396,7 @@ transform = Transform3D(-0.245, 0, 3.6994e-08, 0, 0.245, 0, -3.6994e-08, 0, -0.2
 [node name="Armature" type="Node3D" parent="olen_Ran"]
 
 [node name="Skeleton3D" type="Skeleton3D" parent="olen_Ran/Armature"]
-transform = Transform3D(1, -4.74316e-08, -7.64319e-09, 4.74316e-08, 0.949382, 0.314125, -7.64314e-09, -0.314125, 0.949382, 0, 34.6398, 0)
+transform = Transform3D(1, -4.74316e-08, -7.6432e-09, 4.74316e-08, 0.949382, 0.314125, -7.64314e-09, -0.314125, 0.949382, 0, 34.6398, 0)
 bones/0/name = "Bone"
 bones/0/parent = -1
 bones/0/rest = Transform3D(0.996047, -0.0242925, 0.0854377, 0.0888173, 0.260388, -0.961409, 0.00110805, 0.965199, 0.261516, 0.0814813, 1.99028, -2.23372)
