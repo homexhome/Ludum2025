@@ -7,7 +7,7 @@ var current_health : float = 30
 @export var damaged_particle : PackedScene
 
 signal dead
-
+signal damaged
 
 func _ready() -> void:
 	max_health = get_parent().entity_resource.max_health
@@ -27,9 +27,10 @@ func take_damage(damage : float, hit_position : Vector3):
 	if !is_alive():
 		print(get_parent(), " died!")
 		dead.emit()
-		Session.change_depth(5.0)
+		Session.change_depth(Session.kill_amount)
 	else:
-		Session.change_depth(3.0)
+		damaged.emit()
+		Session.change_depth(Session.damage_amound)
 
 func is_alive():
 	return current_health > 0 

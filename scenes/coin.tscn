@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://ce8d3avgfra34"]
+[gd_scene load_steps=12 format=4 uid="uid://ce8d3avgfra34"]
 
 [ext_resource type="Script" uid="uid://bpp0t13frgt7x" path="res://scripts/coin.gd" id="1_rwqht"]
 [ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="2_i64fm"]
+[ext_resource type="AudioStream" uid="uid://baajo35jp264n" path="res://assets/music/coin_collect2.ogg" id="3_11l1o"]
+[ext_resource type="AudioStream" uid="uid://dion0r18rbuof" path="res://assets/music/coin_far.ogg" id="4_d14el"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kahox"]
 size = Vector3(1.36322, 1.18677, 1.29834)
@@ -96,6 +98,14 @@ _data = {
 &"Spin": SubResource("Animation_i64fm")
 }
 
+[sub_resource type="GDScript" id="GDScript_d14el"]
+script/source = "extends AudioStreamPlayer3D
+
+func _play():
+	pitch_scale = randf_range(0.8,1.1)
+	play()
+"
+
 [node name="Coin" type="Node3D"]
 script = ExtResource("1_rwqht")
 
@@ -116,5 +126,17 @@ skeleton = NodePath("")
 libraries = {
 &"": SubResource("AnimationLibrary_d14el")
 }
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_11l1o")
+script = SubResource("GDScript_d14el")
+
+[node name="PassiveSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_d14el")
+volume_db = -10.77
+unit_size = 20.0
+autoplay = true
+emission_angle_enabled = true
+script = SubResource("GDScript_d14el")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

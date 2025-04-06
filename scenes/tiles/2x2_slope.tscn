@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://c77cru2eg0vhb"]
 
-[ext_resource type="Script" path="res://scenes/tiles/visibility_range.gd" id="1_u7gbr"]
+[ext_resource type="Script" uid="uid://c5gpo58jfat4o" path="res://scenes/tiles/visibility_range.gd" id="1_u7gbr"]
 [ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="2_rg64e"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_035jp"]

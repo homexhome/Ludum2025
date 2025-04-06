@@ -4,11 +4,14 @@ extends Node
 @export var level_scene : PackedScene
 @export var player_scene : PackedScene
 
+
+@export var god : Node3D
 var level : Level
 var player : Player
 
 func _ready() -> void:
 	start_game()
+	Session.end_game.connect(end_game)
 
 func start_game():
 	Session.stop_fog()
@@ -20,7 +23,7 @@ func start_game():
 	player.global_position = level.get_player_spawn()
 	Session.resume_player()
 
-	await get_tree().create_timer(5.0).timeout
+	await get_tree().create_timer(8.0).timeout
 	Session.start_fog()
 
 	await Session.fog_on
@@ -28,6 +31,24 @@ func start_game():
 	
 	player.give_gun()
 	player.died.connect(go_back_to_menu)
+
+func end_game():
+	god.show()
+	god.health.dead.connect(really_end_game)
+	Session.pause_player()
+	var needed_transfrom = player.global_transform.looking_at(god.look_pos.global_position)
+	while player.global_transform.is_equal_approx(needed_transfrom) == false:
+		player.global_transform = lerp(player.global_transform,needed_transfrom,get_process_delta_time() * 3)
+		await get_tree().process_frame
+	Session.resume_player()
+	Session.environment.environment.fog_enabled = false
+	$TextureRect.show()
+	god.health.monitoring = true
+	god.health.monitorable = true
+
+func really_end_game():
+	await get_tree().create_timer(2.0).timeout
+	get_tree().call_deferred("change_scene_to_file","res://scenes/main_menu.tscn")
 
 func go_back_to_menu():
 	get_tree().call_deferred("change_scene_to_file","res://scenes/main_menu.tscn")

@@ -29,6 +29,9 @@ func take_damage():
 	health -= 1
 	if health <= 0:
 		await death()
+	else:
+		$DeathSound.pitch_scale = randf_range(0.5,0.8)
+		$DeathSound.play()
 	
 
 func regenerate():
@@ -39,8 +42,22 @@ func death():
 	Session.pause_player()
 	if is_instance_valid(current_weapon): 
 		current_weapon.queue_free()
+	$DeathSound.pitch_scale = 1.5
 	$DeathSound.play()
 	while rotation_degrees.x <= 90:
 		rotation_degrees.x += get_process_delta_time() * 10
 		await get_tree().process_frame
 	died.emit()
+
+@export var empty_ammo : PackedScene
+func spawn_ammo():
+	var pos = global_position
+	var query = PhysicsRayQueryParameters3D.create(global_position + Vector3.UP, global_position - Vector3.DOWN * 100, 1, [get_rid()])
+	var dir_space = get_world_3d().direct_space_state
+	var result = dir_space.intersect_ray(query)
+	if result.has("position"):
+		pos = result["position"]
+	
+	var _ammo = empty_ammo.instantiate()
+	get_parent().add_child(_ammo)
+	_ammo.global_position = pos
