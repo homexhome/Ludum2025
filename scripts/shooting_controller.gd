@@ -9,6 +9,7 @@ func _process(_delta: float) -> void:
 	
 	if player.current_weapon._time_between_shots == 0.0 and Input.is_action_pressed("attack") and player.current_weapon.reloading == false:
 		player.current_weapon.attack()
+		if player.current_weapon.reloading: return
 		
 		var query = PhysicsRayQueryParameters3D.create(camera.global_position, camera.global_position - camera.global_transform.basis.z * 100 ,3,[player.get_rid()])
 		query.collide_with_areas = true

@@ -39,6 +39,7 @@ func death():
 	Session.pause_player()
 	if is_instance_valid(current_weapon): 
 		current_weapon.queue_free()
+	$DeathSound.play()
 	while rotation_degrees.x <= 90:
 		rotation_degrees.x += get_process_delta_time() * 10
 		await get_tree().process_frame
