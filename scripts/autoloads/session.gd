@@ -2,12 +2,12 @@ extends Node
 
 
 var min_depth : float = 7
-var max_depth : float = 30
+var max_depth : float = 35
 var depth_perception : float = 7 :
 	set(value):
 		depth_perception = clampf(value,min_depth,max_depth)
 		
-var speed_of_depth : float = 2
+var speed_of_depth : float = 4
 var player : CharacterBody3D
 
 var environment : WorldEnvironment
@@ -22,8 +22,8 @@ var fog : FOG_STATE = FOG_STATE.STOP
 
 
 var shot_amount : int = 2
-var damage_amound : int = 5
-var kill_amount : int = 10
+var damage_amound : int = 4
+var kill_amount : int = 8
 
 signal fog_on
 signal end_game
