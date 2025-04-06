@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cktunc4elmclu" path="res://scripts/enemy.gd" id="1_j5las"]
 [ext_resource type="Script" uid="uid://c2qsex0ibsyl2" path="res://scripts/entity_resource.gd" id="2_ghrgm"]
 [ext_resource type="PackedScene" uid="uid://bvihxw1rs6ges" path="res://scenes/health.tscn" id="3_keueg"]
-[ext_resource type="Texture2D" uid="uid://xefcunpemby3" path="res://assets/imports/olen_Ran_texture.jpg" id="4_0xrg5"]
+[ext_resource type="Texture2D" uid="uid://dhexpx55qvbbt" path="res://enemy_texture.jpg" id="4_0xrg5"]
 [ext_resource type="PackedScene" uid="uid://cpkpu723k1j3g" path="res://scenes/blood_particles.tscn" id="4_x0smi"]
 [ext_resource type="Animation" uid="uid://t35xg3ov53x5" path="res://anims/enemy_0_dash.res" id="5_edx6k"]
 [ext_resource type="Animation" uid="uid://dvs6npwuuqnj0" path="res://anims/enemy_0_reset.res" id="6_6lryg"]
