@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c4dubwj5ogkac"]
+[gd_scene load_steps=15 format=3 uid="uid://c4dubwj5ogkac"]
 
 [ext_resource type="MeshLibrary" uid="uid://o0cyi1eyon7h" path="res://new_mesh_lib.tres" id="1_1fhj5"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_j8bo8"]
@@ -9,7 +9,8 @@
 [ext_resource type="PackedScene" path="res://scenes/tiles/prop_watertank.tscn" id="10_ra6nl"]
 [ext_resource type="PackedScene" path="res://scenes/tiles/prop_bush_0.tscn" id="11_gxey3"]
 [ext_resource type="PackedScene" path="res://scenes/tiles/prop_bush_1.tscn" id="12_4hpui"]
-[ext_resource type="PackedScene" path="res://scenes/tiles/prop_flowers.tscn" id="13_g005c"]
+[ext_resource type="PackedScene" uid="uid://cqt46dtniv857" path="res://scenes/god.glb" id="12_833wy"]
+[ext_resource type="PackedScene" uid="uid://bkj0bo25nmbqj" path="res://scenes/tiles/prop_flowers.tscn" id="13_g005c"]
 [ext_resource type="PackedScene" path="res://scenes/tiles/prop_flowers_1.tscn" id="14_dhf26"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_j8bo8"]
@@ -111,3 +112,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 1, -10)
 
 [node name="Node3D13" parent="." instance=ExtResource("14_dhf26")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 1, -9)
+
+[node name="god" parent="." instance=ExtResource("12_833wy")]
+transform = Transform3D(0.999999, -0.00105779, 0.000593436, 0.00121264, 0.881612, -0.471972, -2.3935e-05, 0.471973, 0.881613, -18.9573, 65.8666, -30.5014)
