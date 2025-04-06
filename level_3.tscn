@@ -607,3 +607,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 133, 0.4, -131)
 
 [node name="Coin16" parent="NavigationRegion3D" instance=ExtResource("17_ra6nl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126, 0.4, -22)
+
+[node name="Node3D3" parent="." instance=ExtResource("12_4hpui")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -66, 0.3, 97)
+
+[node name="Node3D4" parent="." instance=ExtResource("12_4hpui")]
+transform = Transform3D(0.517638, 0, 1.93185, 0, 2, 0, -1.93185, 0, 0.517638, -63, 0.3, 99)
+
+[node name="Node3D5" parent="." instance=ExtResource("12_4hpui")]
+transform = Transform3D(-1, 0, 1.73205, 0, 2, 0, -1.73205, 0, -1, -60, 0.3, 99)
+
+[node name="Node3D6" parent="." instance=ExtResource("12_4hpui")]
+transform = Transform3D(-1.93185, 0, -0.517638, 0, 2, 0, 0.517638, 0, -1.93185, -58, 0.3, 96)
+
+[node name="Node3D9" parent="." instance=ExtResource("12_4hpui")]
+transform = Transform3D(-1.93185, 0, 0.517638, 0, 2, 0, -0.517638, 0, -1.93185, -57, 0.3, 93)
+
+[node name="Node3D7" parent="." instance=ExtResource("12_4hpui")]
+transform = Transform3D(-1.93185, 0, 0.517638, 0, 2, 0, -0.517638, 0, -1.93185, -66, 0.3, 93)
+
+[node name="Node3D8" parent="." instance=ExtResource("12_4hpui")]
+transform = Transform3D(-0.517638, 0, 1.93185, 0, 2, 0, -1.93185, 0, -0.517638, -63, 0.3, 92)
+
+[node name="Node3D10" parent="." instance=ExtResource("11_gxey3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 1, 90.4)
+
+[node name="Node3D11" parent="." instance=ExtResource("11_gxey3")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -58, 1, 89.4)
+
+[node name="Node3D12" parent="." instance=ExtResource("11_gxey3")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -59, 1, 88.4)
+
+[node name="Node3D13" parent="." instance=ExtResource("11_gxey3")]
+transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, -60, 1, 87.4)
+
+[node name="Node3D14" parent="." instance=ExtResource("11_gxey3")]
+transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, -61.4, 1, 87.4)
