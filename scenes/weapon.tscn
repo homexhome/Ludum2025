@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://dx6320js5byu1"]
+[gd_scene load_steps=35 format=4 uid="uid://dx6320js5byu1"]
 
 [ext_resource type="Script" uid="uid://dau251exialbd" path="res://scripts/weapon.gd" id="1_uxn4k"]
 [ext_resource type="Script" uid="uid://cqcn353up7djs" path="res://scripts/weapon_resource.gd" id="2_bmw2d"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://byydtq5afaky7" path="res://fire.glb" id="4_8fp1k"]
 [ext_resource type="AudioStream" uid="uid://ble8hio8nafea" path="res://assets/music/shot3_bassboosted.ogg" id="5_cjr6y"]
 [ext_resource type="AudioStream" uid="uid://cw8labdmfaly3" path="res://assets/music/reload.ogg" id="6_xrduv"]
+[ext_resource type="Texture2D" uid="uid://bm5viureutu5p" path="res://smoke_texture.jpg" id="7_5csnh"]
 
 [sub_resource type="Resource" id="Resource_8fp1k"]
 script = ExtResource("2_bmw2d")
@@ -939,8 +940,49 @@ tracks/7/keys = {
 "values": [Vector3(1, 1, 1), Vector3(6.588, 5.081, 4.4)]
 }
 
+[sub_resource type="Animation" id="Animation_5csnh"]
+resource_name = "CheckThisOut"
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gun2/Gun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gun2/Gun:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.275, 0.71, 0.99),
+"transitions": PackedFloat32Array(1, 1.62451, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.244974, -5.65933e-10, -0.269653), Vector3(0.244974, -5.65933e-10, -0.269653), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Gun2/Gun/Cube_002:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.245, 0.725, 0.99),
+"transitions": PackedFloat32Array(1, 1.56917, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.680783, 2.50789e-08, 7.08087e-08), Vector3(0.680783, 2.50789e-08, 7.08087e-08), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5csnh"]
 _data = {
+&"CheckThisOut": SubResource("Animation_5csnh"),
 &"Idle": SubResource("Animation_bmw2d"),
 &"RESET": SubResource("Animation_xrduv"),
 &"Reload": SubResource("Animation_cjr6y"),
@@ -1221,6 +1263,104 @@ func reload():
 	play()
 "
 
+[sub_resource type="Animation" id="Animation_tfbqc"]
+resource_name = "Smoke"
+length = 1.25
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.548382, 0.408145, -0.0666076, 0.666667, 1, -0.548382, 0.408145, -0.0666076, 0.7, 1, -0.529531, 0.394115, -0.064318, 0.733333, 1, -0.487545, 0.362867, -0.0592183, 0.766667, 1, -0.427566, 0.318226, -0.0519331, 0.8, 1, -0.354734, 0.264019, -0.0430868, 0.866667, 1, -0.193647, 0.144126, -0.0235208, 0.9, 1, -0.120815, 0.0899196, -0.0146745, 0.933333, 1, -0.0608361, 0.0452786, -0.00738928, 0.966667, 1, -0.0188506, 0.01403, -0.00228964, 1, 1, 0, 0, 0, 1.03333, 1, -0.0505483, 0.330433, -0.0328051, 1.06667, 1, -0.157964, 1.0326, -0.102516, 1.1, 1, -0.30329, 1.98259, -0.19683, 1.16667, 1, -0.631853, 4.13041, -0.410063, 1.2, 1, -0.758224, 4.95649, -0.492076, 1.23333, 1, -0.827728, 5.41083, -0.537183, 1.25, 1, -0.853002, 5.57605, -0.553585)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.00193718, -0.0149663, -0.10766, 0.994073, 0.666667, 1, 0.00193718, -0.0149663, -0.10766, 0.994073, 0.7, 1, 0.00181771, -0.0144564, -0.103974, 0.994473, 0.733333, 1, 0.00156861, -0.0133186, -0.0957581, 0.995314, 0.766667, 1, 0.00124387, -0.0116893, -0.0840095, 0.996396, 0.8, 1, 0.000893907, -0.00970609, -0.0697268, 0.997519, 0.866667, 1, 0.000324318, -0.00530405, -0.0380869, 0.99926, 0.9, 1, 0.000159507, -0.0033097, -0.023766, 0.999712, 0.933333, 1, 6.06386e-05, -0.00166659, -0.0119682, 0.999927, 0.966667, 1, 1.34584e-05, -0.000516342, -0.00370856, 0.999993, 1, 1, 0, 0, 0, 1, 1.25, 1, 0, 0, 0, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cube")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 0.123266, 1, 1, 1, 1, 0.123266, 1.03333, 1, 0.940466, 0.940466, 0.115927, 1.06667, 1, 0.813957, 0.813957, 0.100333, 1.1, 1, 0.642798, 0.642798, 0.0792351, 1.16667, 1, 0.255829, 0.255829, 0.031535, 1.2, 1, 0.106995, 0.106995, 0.0131889, 1.23333, 1, 0.0251366, 0.0251366, 0.00309849, 1.25, 1, -0.00463021, -0.00463021, -0.000570747)
+tracks/3/type = "blend_shape"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cube:1")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0.0416667, 1, 0, 0.0833333, 1, 0.0342936, 0.125, 1, 0.1262, 0.166667, 1, 0.259259, 0.208333, 1, 0.41701, 0.25, 1, 0.58299, 0.291667, 1, 0.740741, 0.333333, 1, 0.8738, 0.375, 1, 0.965706, 0.416667, 1, 1, 1.25, 1, 1)
+tracks/4/type = "blend_shape"
+tracks/4/imported = true
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cube:2")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0.0416667, 1, 0, 0.416667, 1, 0, 0.458333, 1, 0.0740741, 0.5, 1, 0.259259, 0.583333, 1, 0.740741, 0.625, 1, 0.925926, 0.666667, 1, 1, 1.25, 1, 1)
+tracks/5/type = "blend_shape"
+tracks/5/imported = true
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cube:3")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0.0416667, 1, 0, 0.666667, 1, 0, 0.708333, 1, 0.0429688, 0.75, 1, 0.15625, 0.791667, 1, 0.316406, 0.875, 1, 0.683594, 0.916667, 1, 0.84375, 0.958333, 1, 0.957031, 1, 1, 1, 1.25, 1, 1)
+tracks/6/type = "blend_shape"
+tracks/6/imported = true
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cube:4")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0.0416667, 1, 1)
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cube:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.39, 0.39, 0.048)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_36myx"]
+_data = {
+&"Smoke": SubResource("Animation_tfbqc")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2s7cw"]
+resource_name = "Material.002"
+cull_mode = 2
+albedo_texture = ExtResource("7_5csnh")
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8aap5"]
+resource_name = "smoke_Cube_013"
+_blend_shape_names = PackedStringArray("1", "2", "3", "4")
+_surfaces = [{
+"aabb": AABB(-1.37272, -0.0347537, -12.6096, 2.04142, 4.48705, 19.7454),
+"attribute_data": PackedByteArray("gl51P1C5BT98oXg//GP4PnyheD9QuQU/gl51P/xj+D6CXnU//GP4PnyheD9WVeU+fKF4P/xj+D6CXnU/VlXlPoJedT9WVeU+fKF4P7BG0j58oXg/VlXlPoJedT+wRtI+gl51P7BG0j58oXg/Cji/PnyheD+wRtI+gl51Pwo4vz6FG3I/VlXlPoJedT+wRtI+gl51P1ZV5T6FG3I/sEbSPnyheD9WVeU+eeR7P7BG0j555Hs/VlXlPnyheD+wRtI+"),
+"blend_shapes": PackedByteArray("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"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_2s7cw"),
+"name": "Material.002",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("pczQvuYAgz5X40lA1hDavt44lT9XaPzATmvSvp6fmz/6xLfAWdG/vrHJPT7aYM0/WdG/vrHJPT7aYM0/knweP72AsD/IhuPA1hDavt44lT9XaPzAveOJPuBZDr1CYxM/veOJPuBZDr1CYxM/0i8rP9V8rj/+xZLAknweP72AsD/IhuPAN2yAPgDI4bqSWRdAN2yAPgDI4bqSWRdATmvSvp6fmz/6xLfA0i8rP9V8rj/+xZLApczQvuYAgz5X40lAWdG/vrHJPT7aYM0/N2yAPgDI4bqSWRdAveOJPuBZDr1CYxM/pczQvuYAgz5X40lAknweP72AsD/IhuPATmvSvp6fmz/6xLfA1hDavt44lT9XaPzA0i8rP9V8rj/+xZLA5wa4eAoM1P/nBrh4VwzS/+cGuHhqDNH/5wa4ePcL1f/lbb0C1/Ae/uVtvQKqD9T/5W29AqUPvv/lbb0C/fCb/QHibGHP6zH9AeJsYQTtYv0B4mxhDO1j/QHibGHG6zD9f4N87JzvxP9/g3zsaPA4/X+DfOyB8Oj8f4N87I3v8v/NYKMhYu+Els1goyF97geYzWCjIQXwcpXNYKMh2+0WmWJt7+3WCgCgYm3v7SgK351ibe/tUguGoWJt7+23CXqc")
+}]
+blend_shape_mode = 0
+metadata/extras = {
+"targetNames": ["1", "2", "3", "4"]
+}
+
 [node name="Weapon" type="Node3D" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_uxn4k")
 weapon_resource = SubResource("Resource_8fp1k")
@@ -1297,6 +1437,28 @@ script = SubResource("GDScript_cjr6y")
 stream = ExtResource("6_xrduv")
 pitch_scale = 1.45
 script = SubResource("GDScript_xrduv")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_36myx")
+}
+autoplay = "Smoke"
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.389862, 0, 0, 0, 0.389862, 0, 0, 0, 0.047983, -0.853002, 5.57605, -0.553585)
+visible = false
+mesh = SubResource("ArrayMesh_8aap5")
+skeleton = NodePath("")
+blend_shapes/1 = 1.0
+blend_shapes/2 = 1.0
+blend_shapes/3 = 1.0
+blend_shapes/4 = 1.0
+
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_36myx")
+}
+autoplay = "Smoke"
 
 [connection signal="_reload" from="." to="AudioStreamPlayer3D2" method="reload"]
 [connection signal="shot" from="." to="AudioStreamPlayer3D" method="shot"]
