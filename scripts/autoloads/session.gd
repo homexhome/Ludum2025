@@ -15,7 +15,7 @@ var environment : WorldEnvironment
 enum STATE {PAUSE, PLAY}
 var session_state : STATE = STATE.PAUSE
 
-var gold : int = 0
+var gold : int = 4
 
 enum FOG_STATE {OK, STOP}
 var fog : FOG_STATE = FOG_STATE.STOP

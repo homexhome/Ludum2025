@@ -152,6 +152,7 @@ collision_mask = 3
 monitoring = false
 monitorable = false
 script = ExtResource("2_grik1")
+override_take_damage = true
 metadata/_custom_type_script = "uid://b6wbswryy17gh"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Health"]

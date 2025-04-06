@@ -55,7 +55,8 @@ func end_game():
 
 func really_end_game():
 	await get_tree().create_timer(1.0).timeout
-	get_tree().call_deferred("change_scene_to_file","res://scenes/main_menu.tscn")
+	if is_inside_tree():
+		get_tree().call_deferred("change_scene_to_file","res://scenes/main_menu.tscn")
 
 func go_back_to_menu():
 	get_tree().call_deferred("change_scene_to_file","res://scenes/main_menu.tscn")

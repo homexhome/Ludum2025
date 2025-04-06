@@ -4,6 +4,7 @@ extends Area3D
 var max_health : float = 30
 var current_health : float = 30
 
+@export var override_take_damage : bool = false
 @export var damaged_particle : PackedScene
 
 signal dead
@@ -14,6 +15,7 @@ func _ready() -> void:
 	current_health = max_health
 	
 func take_damage(damage : float, hit_position : Vector3):
+	if override_take_damage: dead.emit()
 	if !is_alive(): return
 	current_health -= damage
 	
