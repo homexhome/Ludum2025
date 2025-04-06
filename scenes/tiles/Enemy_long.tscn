@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://bw7rvlv40o23f"]
+[gd_scene load_steps=27 format=4 uid="uid://bw7rvlv40o23f"]
 
 [ext_resource type="Script" uid="uid://cktunc4elmclu" path="res://scripts/enemy.gd" id="1_he2j3"]
 [ext_resource type="Script" uid="uid://c2qsex0ibsyl2" path="res://scripts/entity_resource.gd" id="2_pqdpk"]
@@ -7,11 +7,13 @@
 [ext_resource type="Script" uid="uid://dnsovarylc1o0" path="res://scripts/enemy_movement_controller.gd" id="6_fumkg"]
 [ext_resource type="Script" uid="uid://p54n3twald30" path="res://scripts/damaging_area.gd" id="7_fumkg"]
 [ext_resource type="AudioStream" uid="uid://d4d5j01q85qe2" path="res://assets/music/monster_far1.ogg" id="9_o7584"]
+[ext_resource type="Script" uid="uid://c5gpo58jfat4o" path="res://scenes/tiles/visibility_range.gd" id="10_ptd1w"]
 [ext_resource type="AudioStream" uid="uid://csvlyabtig2a8" path="res://assets/music/monster_attack2.ogg" id="10_qan0s"]
 [ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="10_y3c3e"]
 [ext_resource type="Animation" uid="uid://dly6kioovw2cf" path="res://assets/imports/ArmatureAction.res" id="11_xofv6"]
 [ext_resource type="AudioStream" uid="uid://dyseoku1y3pkj" path="res://assets/music/monster_death_scream3.ogg" id="11_y3c3e"]
 [ext_resource type="PackedScene" uid="uid://1w5xp2t1omqv" path="res://shade.tscn" id="12_xofv6"]
+[ext_resource type="AudioStream" uid="uid://biilr38jgaagf" path="res://assets/music/monster_gethit3.ogg" id="14_1os0h"]
 
 [sub_resource type="Resource" id="Resource_edx6k"]
 script = ExtResource("2_pqdpk")
@@ -265,6 +267,14 @@ _data = {
 &"Run": ExtResource("11_xofv6")
 }
 
+[sub_resource type="GDScript" id="GDScript_ptd1w"]
+script/source = "extends AudioStreamPlayer3D
+
+func _play():
+	pitch_scale = randf_range(0.8,1.2)
+	play()
+"
+
 [node name="Node3D2" type="CharacterBody3D"]
 script = ExtResource("1_he2j3")
 entity_resource = SubResource("Resource_edx6k")
@@ -316,17 +326,24 @@ autoplay = true
 [node name="CloseSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("10_qan0s")
 unit_size = 5.0
+pitch_scale = 0.2
 
 [node name="DeathSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("11_y3c3e")
 unit_size = 5.0
 
+[node name="DamageSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_qan0s")
+unit_size = 5.0
+
 [node name="dlini_olen" type="Node3D" parent="."]
 transform = Transform3D(-0.27, 0, 2.36041e-08, 0, 0.27, 0, -2.36041e-08, 0, -0.27, 1.95027e-08, 0.00999775, -0.576719)
 
-[node name="Armature" type="Node3D" parent="dlini_olen"]
+[node name="Armature" type="Node3D" parent="dlini_olen" node_paths=PackedStringArray("__mesh")]
+script = ExtResource("10_ptd1w")
+__mesh = NodePath("Skeleton3D/olen_001/olen_001")
 
-[node name="Skeleton3D" type="Skeleton3D" parent="dlini_olen/Armature"]
+[node name="Skeleton3D" type="Skeleton3D" parent="dlini_olen/Armature" node_paths=PackedStringArray("__mesh")]
 bones/0/name = "Bone"
 bones/0/parent = -1
 bones/0/rest = Transform3D(0.967964, -0.0650299, -0.242522, -0.216627, 0.272093, -0.937571, 0.126959, 0.960071, 0.24929, 0.178918, 7.3737, -4.22551)
@@ -439,9 +456,11 @@ bones/15/enabled = true
 bones/15/position = Vector3(0, 0, 0)
 bones/15/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
 bones/15/scale = Vector3(1, 1, 1)
+script = ExtResource("10_ptd1w")
+__mesh = NodePath("olen")
 
 [node name="olen_001" type="BoneAttachment3D" parent="dlini_olen/Armature/Skeleton3D"]
-transform = Transform3D(1, -7.1153e-07, -8.25152e-07, 9.46224e-07, 0.966832, 0.255412, 6.30505e-07, -0.255411, 0.966833, 3.8147e-06, 0.420728, 2.73963)
+transform = Transform3D(1, -4.13507e-07, -8.32602e-07, 6.37025e-07, 0.955087, 0.296325, 6.64964e-07, -0.296325, 0.955087, 8.56817e-07, 0.516012, 2.36308)
 bone_name = "olen.001"
 bone_idx = 4
 
@@ -460,5 +479,11 @@ libraries = {
 
 [node name="shade2" parent="." instance=ExtResource("12_xofv6")]
 
+[node name="DamageSound2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("14_1os0h")
+unit_size = 5.0
+script = SubResource("GDScript_ptd1w")
+
+[connection signal="damaged" from="Health" to="DamageSound2" method="_play"]
 [connection signal="dead" from="Health" to="MovementController" method="dead"]
 [connection signal="timeout" from="Timer" to="MovementController" method="update_position"]

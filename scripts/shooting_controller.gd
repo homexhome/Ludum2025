@@ -11,7 +11,8 @@ func _process(_delta: float) -> void:
 		player.current_weapon.attack()
 		if player.current_weapon.reloading: return
 		
-		var query = PhysicsRayQueryParameters3D.create(camera.global_position, camera.global_position - camera.global_transform.basis.z * 100 ,3,[player.get_rid()])
+		player.spawn_ammo()
+		var query = PhysicsRayQueryParameters3D.create(camera.global_position, camera.global_position - camera.global_transform.basis.z * 10000 ,3,[player.get_rid()])
 		query.collide_with_areas = true
 		var space_state = get_world_3d().direct_space_state
 		var result = space_state.intersect_ray(query)

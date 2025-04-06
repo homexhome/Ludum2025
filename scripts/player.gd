@@ -48,3 +48,16 @@ func death():
 		rotation_degrees.x += get_process_delta_time() * 10
 		await get_tree().process_frame
 	died.emit()
+
+@export var empty_ammo : PackedScene
+func spawn_ammo():
+	var pos = global_position
+	var query = PhysicsRayQueryParameters3D.create(global_position + Vector3.UP, global_position - Vector3.DOWN * 100, 1, [get_rid()])
+	var dir_space = get_world_3d().direct_space_state
+	var result = dir_space.intersect_ray(query)
+	if result.has("position"):
+		pos = result["position"]
+	
+	var _ammo = empty_ammo.instantiate()
+	get_parent().add_child(_ammo)
+	_ammo.global_position = pos

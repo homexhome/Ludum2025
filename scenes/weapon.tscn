@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://dx6320js5byu1"]
+[gd_scene load_steps=41 format=4 uid="uid://dx6320js5byu1"]
 
 [ext_resource type="Script" uid="uid://dau251exialbd" path="res://scripts/weapon.gd" id="1_uxn4k"]
 [ext_resource type="Script" uid="uid://cqcn353up7djs" path="res://scripts/weapon_resource.gd" id="2_bmw2d"]
@@ -805,6 +805,42 @@ tracks/32/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("Gun2:position")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("Gun2:quaternion")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Quaternion(0, 1, 0, -7.54979e-08)]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("AudioStreamPlayer3D3:playing")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_cjr6y"]
 resource_name = "Reload"
@@ -1208,6 +1244,45 @@ tracks/6/keys = {
 "values": [0.0, 0.0, 2.0, 2.0]
 }
 
+[sub_resource type="Animation" id="Animation_b2wdv"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gun2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.51),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.671737, -0.368203), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gun2:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.51),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Quaternion(3.34769e-08, 0.896316, -0.443415, -6.767e-08), Quaternion(0, 1, 0, -7.54979e-08)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer3D3:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5csnh"]
 _data = {
 &"CheckThisOut": SubResource("Animation_5csnh"),
@@ -1216,7 +1291,8 @@ _data = {
 &"Idle": SubResource("Animation_bmw2d"),
 &"RESET": SubResource("Animation_xrduv"),
 &"Reload": SubResource("Animation_cjr6y"),
-&"Shoot": SubResource("Animation_8fp1k")
+&"Shoot": SubResource("Animation_8fp1k"),
+&"start": SubResource("Animation_b2wdv")
 }
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pcjxp"]
@@ -1599,10 +1675,11 @@ r_ammo = NodePath("Gun2/Gun/Cube_002/Патрон_П")
 libraries = {
 &"": SubResource("AnimationLibrary_5csnh")
 }
-autoplay = "Idle"
+autoplay = "start"
 
 [node name="Gun2" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
+rotation_edit_mode = 1
 
 [node name="Gun" type="MeshInstance3D" parent="Gun2"]
 sorting_offset = 5.0

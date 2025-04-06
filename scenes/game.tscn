@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1wtx7bgy33k7"]
+[gd_scene load_steps=8 format=3 uid="uid://b1wtx7bgy33k7"]
 
 [ext_resource type="Script" uid="uid://bg363lyt3gcdc" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://c4dubwj5ogkac" path="res://level_3.tscn" id="2_yqjtg"]
@@ -6,12 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://bpo4x3o1g1u24" path="res://scenes/world_environment.tscn" id="4_lbhrr"]
 [ext_resource type="AudioStream" uid="uid://c5805xqshp2v7" path="res://assets/music/ambient1.ogg" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://wuxi16vfjtwu" path="res://scenes/god.tscn" id="5_p57ef"]
+[ext_resource type="Texture2D" uid="uid://d0qc8hyokxe71" path="res://assets/imports/kill god.png" id="7_u5sy4"]
 
-[node name="Game" type="Node" node_paths=PackedStringArray("loader_place")]
+[node name="Game" type="Node" node_paths=PackedStringArray("loader_place", "god")]
 script = ExtResource("1_uwrxv")
 loader_place = NodePath("LoaderPlace")
 level_scene = ExtResource("2_yqjtg")
 player_scene = ExtResource("3_lnu2h")
+god = NodePath("God")
 
 [node name="LoaderPlace" type="Node3D" parent="."]
 
@@ -25,3 +27,13 @@ transform = Transform3D(20, 0, 0, 0, 12.5122, -15.6027, 0, 15.6027, 12.5122, 0, 
 visible = false
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("4_lbhrr")]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_u5sy4")

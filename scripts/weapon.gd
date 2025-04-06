@@ -19,13 +19,21 @@ var reloading : bool = false
 
 func _ready() -> void:
 	ammo = max_ammo
+	animation_player.stop()
+	animation_player.play("start")
 	while Session.get_player() == null:
 		await get_tree().process_frame
 	Session.get_player().current_weapon = self
+	if animation_player.current_animation == "start":
+		await animation_player.animation_finished
+	animation_player.play("Idle")
 
 
 
 func _process(delta: float) -> void:
+	if animation_player.current_animation == "start":
+		return
+		
 	_time_between_shots = clampf(_time_between_shots - delta, 0.0, weapon_resource.time_between_shots)
 	if _time_between_shots == 0.0 and animation_player.current_animation != "Idle" and reloading == false:
 		animation_player.play("Idle")
@@ -35,6 +43,9 @@ func _process(delta: float) -> void:
 		end_right_click()
 
 func attack():
+	if animation_player.current_animation == "start":
+		return
+		
 	if ammo <= 0:
 		reload()
 		return
@@ -42,7 +53,7 @@ func attack():
 	_time_between_shots = weapon_resource.time_between_shots
 	shot.emit()
 	animation_player.play("Shoot")
-	Session.change_depth(amount_of_depth_change)
+	Session.change_depth(Session.shot_amount)
 
 func special_attack():
 	_time_between_shots = weapon_resource.time_between_shots
@@ -73,6 +84,8 @@ func end_right_click():
 	reloading = false
 
 func reload():
+	if animation_player.current_animation == "start":
+		return
 	if reloading: return
 	if _time_between_shots > 0 : return
 	reloading = true

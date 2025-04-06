@@ -1,7 +1,8 @@
-[gd_scene load_steps=31 format=4 uid="uid://bob4cono2210x"]
+[gd_scene load_steps=35 format=4 uid="uid://bob4cono2210x"]
 
 [ext_resource type="Script" uid="uid://buyxwg18seq7k" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="AudioStream" uid="uid://rfypht13otg3" path="res://assets/music/theme.mp3" id="2_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://cpupwhky1dhdp" path="res://assets/imports/Button atlas.jpg" id="2_flqon"]
 [ext_resource type="MeshLibrary" uid="uid://o0cyi1eyon7h" path="res://new_mesh_lib.tres" id="3_bqqt6"]
 [ext_resource type="Shader" uid="uid://cvgyuhtt27ehl" path="res://assets/shaders/pixelate.gdshader" id="3_wu84c"]
 [ext_resource type="PackedScene" uid="uid://cpkpu723k1j3g" path="res://scenes/blood_particles.tscn" id="5_8ln24"]
@@ -10,7 +11,19 @@
 [ext_resource type="Texture2D" uid="uid://cxtpcm3xnpdxr" path="res://assets/grass_texture.jpg" id="7_tbmy8"]
 [ext_resource type="PackedScene" uid="uid://bkj0bo25nmbqj" path="res://scenes/tiles/prop_flowers.tscn" id="9_jk1qb"]
 [ext_resource type="PackedScene" uid="uid://bhfrtsb4njtdq" path="res://scenes/tiles/2x2_tree.tscn" id="10_5dd4i"]
-[ext_resource type="PackedScene" path="res://scenes/tiles/prop_tree_1.tscn" id="11_lgwnu"]
+[ext_resource type="PackedScene" uid="uid://cjd26gw0064g1" path="res://scenes/tiles/prop_tree_1.tscn" id="11_lgwnu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcqid"]
+atlas = ExtResource("2_flqon")
+region = Rect2(662, 0, 330, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ajci"]
+atlas = ExtResource("2_flqon")
+region = Rect2(0, 0, 330, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7b55j"]
+atlas = ExtResource("2_flqon")
+region = Rect2(331, 0, 330, 0)
 
 [sub_resource type="Curve3D" id="Curve3D_bqqt6"]
 closed = true
@@ -541,7 +554,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="Button" type="Button" parent="Control"]
+[node name="Button" type="TextureButton" parent="Control"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 1
 anchors_preset = 8
@@ -549,13 +562,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "New Game"
+texture_normal = SubResource("AtlasTexture_rcqid")
+texture_pressed = SubResource("AtlasTexture_1ajci")
+texture_hover = SubResource("AtlasTexture_7b55j")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_ekxnf")

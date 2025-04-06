@@ -1,9 +1,9 @@
 extends Node
 
 
-var min_depth : float = 5
-var max_depth : float = 20
-var depth_perception : float = 5 :
+var min_depth : float = 7
+var max_depth : float = 30
+var depth_perception : float = 7 :
 	set(value):
 		depth_perception = clampf(value,min_depth,max_depth)
 		
@@ -19,6 +19,11 @@ var gold : int = 0
 
 enum FOG_STATE {OK, STOP}
 var fog : FOG_STATE = FOG_STATE.STOP
+
+
+var shot_amount : int = 2
+var damage_amound : int = 5
+var kill_amount : int = 10
 
 signal fog_on
 signal end_game
@@ -85,4 +90,4 @@ func add_gold():
 
 			print(environment.environment.fog_depth_end, " ", environment.environment.fog_depth_begin)
 			await get_tree().process_frame
-	end_game.emit()
+		end_game.emit()

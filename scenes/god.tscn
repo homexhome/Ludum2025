@@ -1,12 +1,22 @@
-[gd_scene load_steps=7 format=4 uid="uid://wuxi16vfjtwu"]
+[gd_scene load_steps=11 format=4 uid="uid://wuxi16vfjtwu"]
 
 [ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="1_n5rnk"]
+[ext_resource type="Script" uid="uid://c2qsex0ibsyl2" path="res://scripts/entity_resource.gd" id="1_wk2p8"]
+[ext_resource type="Script" uid="uid://b6wbswryy17gh" path="res://scripts/health.gd" id="2_grik1"]
 
 [sub_resource type="GDScript" id="GDScript_n5rnk"]
 script/source = "extends Node3D
 
 @export var look_pos : Node3D
+@export var health : Health
+@export var entity_resource : EntityResource
 "
+
+[sub_resource type="Resource" id="Resource_nostd"]
+script = ExtResource("1_wk2p8")
+max_health = 1.0
+speed = 3.0
+metadata/_custom_type_script = "uid://c2qsex0ibsyl2"
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_swfv4"]
 _surfaces = [{
@@ -118,9 +128,14 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_hxwwx")
 
-[node name="God" type="Node3D" node_paths=PackedStringArray("look_pos")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_grik1"]
+size = Vector3(54.6052, 48.46, 20.522)
+
+[node name="God" type="Node3D" node_paths=PackedStringArray("look_pos", "health")]
 script = SubResource("GDScript_n5rnk")
 look_pos = NodePath("Cylinder")
+health = NodePath("Health")
+entity_resource = SubResource("Resource_nostd")
 
 [node name="Cylinder" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_grik1")
@@ -130,3 +145,15 @@ skeleton = NodePath("")
 transform = Transform3D(1.89324, 0.496476, 0.410135, 0.463511, -0.166424, -1.93817, -0.447053, 1.92999, -0.272634, -6.25977, -1.7724, -7.35792)
 mesh = SubResource("ArrayMesh_wk2p8")
 skeleton = NodePath("")
+
+[node name="Health" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+monitoring = false
+monitorable = false
+script = ExtResource("2_grik1")
+metadata/_custom_type_script = "uid://b6wbswryy17gh"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Health"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.873657, -3.48486, -9.76099)
+shape = SubResource("BoxShape3D_grik1")
