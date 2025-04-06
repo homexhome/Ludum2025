@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=4 uid="uid://1w5xp2t1omqv"]
+
+[ext_resource type="PackedScene" uid="uid://t1u5tycvb8ey" path="res://scenes/shade.glb" id="1_52wot"]
+[ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="2_rrgv5"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_nhn00"]
+_surfaces = [{
+"aabb": AABB(-1.24902, 0, -2.05014, 2.78422, 1e-05, 3.75971),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("CgAFAAYACgAIAAUABwAIAAoABwAJAAgABAAHAAoACwAKAAYABAAKAAsAAwAEAAsACwAGAAEAAwALAAAAAAALAAEAAAABAAIA"),
+"lods": [1e-10, PackedByteArray("AAABAAIAAwABAAAAAwAEAAEABAAFAAEAAQAFAAYABAAHAAUABwAIAAUABwAJAAgA")],
+"name": "Material.002",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("13IAAP//AAD//wAAfKUAAMnOAACuzwAAgSEAAK7PAAACBwAAfKUAAFDmAACgKgAA//gAALB2AAAAAAAAF3gAANdyAAAAAAAAtBsAAKAqAADzcwAADEoAAI50AACPnAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_g0ht3"]
+resource_name = "shade_Plane"
+_surfaces = [{
+"aabb": AABB(-1.24902, 0, -2.05014, 2.78422, 1e-05, 3.75971),
+"attribute_data": PackedByteArray("Lx15L0Im2SlCJnkvGxR5LxsU2SlCJlIdQibMIxsUzCMvHVIdGxRSHS8dzCMvHdkp"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("CgAFAAYACgAIAAUABwAIAAoABwAJAAgABAAHAAoACwAKAAYABAAKAAsAAwAEAAsACwAGAAEAAwALAAAAAAALAAEAAAABAAIA"),
+"lods": [1e-10, PackedByteArray("AAABAAIAAwABAAAAAwAEAAEABAAFAAEAAQAFAAYABAAHAAUABwAIAAUABwAJAAgA")],
+"material": ExtResource("2_rrgv5"),
+"name": "Material.002",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("13IAAP//MsH//wAAfKUEwMnOAACuz8LDgSEAAK7P3MACBwAAfKV/wFDmAACgKu7B//gAALB2y8AAAAAAF3iIwtdyAAAAAP+/tBsAAKAqX8PzcwAADEoAwI50AACPnEHA7t6HkHT6xIIU5ypO5+KLjlH0o2h/2L+Ty+MZjj3qfVSb/zd/+OfzT0z9WIFX7tOI")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_nhn00")
+
+[node name="shade" instance=ExtResource("1_52wot")]
+
+[node name="Plane" parent="." index="0"]
+mesh = SubResource("ArrayMesh_g0ht3")

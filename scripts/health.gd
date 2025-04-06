@@ -27,6 +27,9 @@ func take_damage(damage : float, hit_position : Vector3):
 	if !is_alive():
 		print(get_parent(), " died!")
 		dead.emit()
+		Session.change_depth(5.0)
+	else:
+		Session.change_depth(3.0)
 
 func is_alive():
 	return current_health > 0 

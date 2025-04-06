@@ -1352,6 +1352,7 @@ metadata/extras = {
 [node name="Weapon" type="Node3D" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_uxn4k")
 weapon_resource = SubResource("Resource_8fp1k")
+amount_of_depth_change = 1.5
 animation_player = NodePath("AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
