@@ -268,8 +268,6 @@ _data = {
 [node name="Node3D2" type="CharacterBody3D"]
 script = ExtResource("1_he2j3")
 entity_resource = SubResource("Resource_edx6k")
-MAX_STEP_UP = 1.0
-MAX_STEP_DOWN = -1.0
 
 [node name="Health" parent="." instance=ExtResource("3_fumkg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.98645e-06, 0, -0.130547)

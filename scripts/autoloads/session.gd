@@ -21,18 +21,14 @@ enum FOG_STATE {OK, STOP}
 var fog : FOG_STATE = FOG_STATE.STOP
 
 signal fog_on
+signal end_game
 
 func start_fog():
 	while environment.environment.fog_depth_end > max_depth:
 		environment.environment.fog_depth_end -= 1
 		if environment.environment.fog_depth_begin > 0:
-			environment.environment.fog_depth_begin = clampf(environment.environment.fog_depth_begin - 0.1, 0.0, 100)
-
-		#print(environment.environment.fog_depth_end, " ", environment.environment.fog_depth_begin)
+			environment.environment.fog_depth_begin = clampf(environment.environment.fog_depth_begin - 0.15, 0.0, 100)
 		await get_tree().process_frame
-	while environment.environment.fog_depth_begin > 0:
-			environment.environment.fog_depth_begin = clampf(environment.environment.fog_depth_begin - 0.1, 0.0, 100)
-			await get_tree().process_frame
 	fog = FOG_STATE.OK
 	fog_on.emit()
 	environment.environment.fog_depth_begin = 0
@@ -89,3 +85,4 @@ func add_gold():
 
 			print(environment.environment.fog_depth_end, " ", environment.environment.fog_depth_begin)
 			await get_tree().process_frame
+	end_game.emit()
