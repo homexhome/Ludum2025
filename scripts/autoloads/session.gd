@@ -15,6 +15,8 @@ var environment : WorldEnvironment
 enum STATE {PAUSE, PLAY}
 var session_state : STATE = STATE.PAUSE
 
+var gold : int = 0
+
 enum FOG_STATE {OK, STOP}
 var fog : FOG_STATE = FOG_STATE.STOP
 
@@ -49,6 +51,7 @@ func flush_session():
 	session_state = STATE.PAUSE
 	fog = FOG_STATE.STOP
 	environment = null
+	gold = 0
 
 func _physics_process(delta: float) -> void:
 	if fog == FOG_STATE.STOP: return
@@ -72,3 +75,14 @@ func set_environment(env : WorldEnvironment):
 
 func get_environment() -> WorldEnvironment:
 	return environment
+
+func add_gold():
+	gold += 1
+	if gold >= 5:
+		pause_player()
+		stop_fog()
+		while environment.environment.fog_depth_end < max_depth * 3:
+			environment.environment.fog_depth_end += 1
+
+			print(environment.environment.fog_depth_end, " ", environment.environment.fog_depth_begin)
+			await get_tree().process_frame
