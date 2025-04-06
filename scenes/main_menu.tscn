@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bob4cono2210x"]
+[gd_scene load_steps=3 format=3 uid="uid://bob4cono2210x"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://buyxwg18seq7k" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="AudioStream" uid="uid://rfypht13otg3" path="res://assets/music/theme.mp3" id="2_ekxnf"]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_l6cm7")
@@ -29,5 +30,10 @@ offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "New Game"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ekxnf")
+volume_db = -15.0
+autoplay = true
 
 [connection signal="pressed" from="Control/Button" to="." method="start_game"]

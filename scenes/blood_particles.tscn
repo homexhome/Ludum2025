@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpkpu723k1j3g"]
+
+[ext_resource type="Material" uid="uid://b1tpp6tdehmy6" path="res://scenes/blood_particles_1.tres" id="1_4enpv"]
+[ext_resource type="Material" uid="uid://wjbvssfug57d" path="res://scenes/blood_particles.tres" id="2_n323q"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_hjwtm"]
+material = ExtResource("2_n323q")
+size = Vector2(0.3, 0.3)
+
+[node name="GPUParticles3D" type="GPUParticles3D"]
+emitting = false
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = ExtResource("1_4enpv")
+draw_pass_1 = SubResource("QuadMesh_hjwtm")

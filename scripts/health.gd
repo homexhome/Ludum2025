@@ -1,3 +1,4 @@
+class_name Health
 extends Area3D
 
 var max_health : float = 30

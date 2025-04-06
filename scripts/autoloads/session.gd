@@ -18,6 +18,8 @@ var session_state : STATE = STATE.PAUSE
 enum FOG_STATE {OK, STOP}
 var fog : FOG_STATE = FOG_STATE.STOP
 
+signal fog_on
+
 func start_fog():
 	while environment.environment.fog_depth_end > max_depth:
 		environment.environment.fog_depth_end -= 1
@@ -27,6 +29,7 @@ func start_fog():
 		print(environment.environment.fog_depth_end, " ", environment.environment.fog_depth_begin)
 		await get_tree().process_frame
 	fog = FOG_STATE.OK
+	fog_on.emit()
 	environment.environment.fog_depth_begin = 0
 
 func stop_fog():
@@ -42,7 +45,10 @@ func get_if_paused() -> bool:
 	return session_state == STATE.PAUSE
 
 func flush_session():
-	pass
+	player = null
+	session_state = STATE.PAUSE
+	fog = FOG_STATE.STOP
+	environment = null
 
 func _physics_process(delta: float) -> void:
 	if fog == FOG_STATE.STOP: return

@@ -1,12 +1,18 @@
-[gd_scene load_steps=17 format=4 uid="uid://duml6l6edul1v"]
+[gd_scene load_steps=24 format=4 uid="uid://duml6l6edul1v"]
 
 [ext_resource type="Script" uid="uid://cktunc4elmclu" path="res://scripts/enemy.gd" id="1_j5las"]
 [ext_resource type="Script" uid="uid://c2qsex0ibsyl2" path="res://scripts/entity_resource.gd" id="2_ghrgm"]
 [ext_resource type="PackedScene" uid="uid://bvihxw1rs6ges" path="res://scenes/health.tscn" id="3_keueg"]
 [ext_resource type="Texture2D" uid="uid://xefcunpemby3" path="res://assets/imports/olen_Ran_texture.jpg" id="4_0xrg5"]
+[ext_resource type="PackedScene" uid="uid://cpkpu723k1j3g" path="res://scenes/blood_particles.tscn" id="4_x0smi"]
 [ext_resource type="Animation" uid="uid://t35xg3ov53x5" path="res://anims/enemy_0_dash.res" id="5_edx6k"]
 [ext_resource type="Animation" uid="uid://dvs6npwuuqnj0" path="res://anims/enemy_0_reset.res" id="6_6lryg"]
 [ext_resource type="Animation" uid="uid://cigusm54vao3q" path="res://anims/enemy_0_run.res" id="7_yghby"]
+[ext_resource type="Script" uid="uid://dnsovarylc1o0" path="res://scripts/enemy_movement_controller.gd" id="8_6lryg"]
+[ext_resource type="Script" uid="uid://p54n3twald30" path="res://scripts/damaging_area.gd" id="9_yghby"]
+[ext_resource type="AudioStream" uid="uid://v45bam6vf1hl" path="res://assets/music/monster_far2.ogg" id="11_x24w0"]
+[ext_resource type="AudioStream" uid="uid://byi643f5tem7j" path="res://assets/music/monster_attack3.ogg" id="12_t8150"]
+[ext_resource type="AudioStream" uid="uid://bg1tbqku27w5h" path="res://assets/music/monster_death_scream1.ogg" id="13_iqg3s"]
 
 [sub_resource type="Resource" id="Resource_edx6k"]
 script = ExtResource("2_ghrgm")
@@ -136,6 +142,9 @@ _data = {
 &"Run": ExtResource("7_yghby")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_6lryg"]
+size = Vector3(1, 1.3, 1)
+
 [node name="Node3D" type="CharacterBody3D"]
 script = ExtResource("1_j5las")
 entity_resource = SubResource("Resource_edx6k")
@@ -143,6 +152,7 @@ entity_resource = SubResource("Resource_edx6k")
 [node name="Area3D" parent="." instance=ExtResource("3_keueg")]
 collision_layer = 3
 collision_mask = 0
+damaged_particle = ExtResource("4_x0smi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.078808, 0.917545, 0.0243683)
@@ -279,7 +289,7 @@ bones/16/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
 bones/16/scale = Vector3(1, 1, 1)
 
 [node name="olen_001" type="BoneAttachment3D" parent="olen_Ran/Armature/Skeleton3D"]
-transform = Transform3D(0.986129, -0.0745061, -0.148319, 0.165082, 0.533115, 0.829779, 0.0172475, -0.842756, 0.538021, 0.314191, 0.654973, 2.66345)
+transform = Transform3D(0.986129, -0.0745059, -0.148319, 0.165082, 0.533114, 0.829779, 0.0172475, -0.842755, 0.538021, 0.314191, 0.654975, 2.66344)
 bone_name = "olen.001"
 bone_idx = 3
 
@@ -295,3 +305,43 @@ skin = SubResource("Skin_im0gm")
 libraries = {
 &"enemy_0": SubResource("AnimationLibrary_x0smi")
 }
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="MovementController" type="Node3D" parent="." node_paths=PackedStringArray("nav_agent", "animation_player", "health")]
+script = ExtResource("8_6lryg")
+nav_agent = NodePath("../NavigationAgent3D")
+anim_name_dash = "enemy_0/Dash"
+anim_name_run = "enemy_0/Run"
+animation_player = NodePath("../olen_Ran/AnimationPlayer")
+health = NodePath("../Area3D")
+
+[node name="Area3D2" type="Area3D" parent="." node_paths=PackedStringArray("movemet_controller", "health")]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("9_yghby")
+movemet_controller = NodePath("../MovementController")
+health = NodePath("../Area3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -0.6)
+shape = SubResource("BoxShape3D_6lryg")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="FarSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("11_x24w0")
+unit_size = 5.0
+autoplay = true
+
+[node name="CloseSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("12_t8150")
+unit_size = 5.0
+
+[node name="DeathSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("13_iqg3s")
+unit_size = 5.0
+
+[connection signal="dead" from="Area3D" to="MovementController" method="dead"]
+[connection signal="timeout" from="Timer" to="MovementController" method="update_position"]

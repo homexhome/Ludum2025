@@ -22,5 +22,12 @@ func start_game():
 
 	await get_tree().create_timer(5.0).timeout
 	Session.start_fog()
+
+	await Session.fog_on
 	await get_tree().create_timer(1.0).timeout
+	
 	player.give_gun()
+	player.died.connect(go_back_to_menu)
+
+func go_back_to_menu():
+	get_tree().call_deferred("change_scene_to_file","res://scenes/main_menu.tscn")

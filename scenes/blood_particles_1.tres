@@ -1,0 +1,18 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://b1tpp6tdehmy6"]
+
+[sub_resource type="Gradient" id="Gradient_h4vwx"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c61b1"]
+gradient = SubResource("Gradient_h4vwx")
+
+[resource]
+emission_shape = 1
+emission_sphere_radius = 0.28
+angle_min = -42.6
+angle_max = 58.1
+spread = 90.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, -5, 0)
+color = Color(0.856494, 3.65794e-06, 8.66354e-07, 1)
+color_ramp = SubResource("GradientTexture1D_c61b1")

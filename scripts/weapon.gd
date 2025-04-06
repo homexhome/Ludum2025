@@ -2,6 +2,7 @@ extends Node3D
 class_name Weapon
 
 signal shot
+signal _reload
 
 @export var weapon_resource : WeaponResource
 var _time_between_shots : float = 0.0
@@ -44,12 +45,12 @@ func reload():
 	if reloading: return
 	if _time_between_shots > 0 : return
 	reloading = true
+	_reload.emit()
 	animation_player.stop()
 	animation_player.play("Reload")
 	await animation_player.animation_finished
 	ammo = max_ammo
 	_time_between_shots = 0.0
 	animation_player.play("Idle")
-	
 	reloading = false
 	
