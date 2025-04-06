@@ -663,6 +663,9 @@ autoplay = "Action"
 [node name="Butt_1" type="Node3D" parent="."]
 transform = Transform3D(0.160027, 0, 0, 0, 0.210089, 0, 0, 0, 0.114533, -1.34653, 0, 0)
 
+[node name="Node3D6" parent="Butt_1" instance=ExtResource("11_lgwnu")]
+transform = Transform3D(6.24893, 0, 0, 0, 4.75987, 0, 0, 0, 8.73112, 25.9318, -2.89062, 27.7648)
+
 [node name="Node3D3" parent="Butt_1" instance=ExtResource("9_jk1qb")]
 transform = Transform3D(-0.307205, 0, -0.468031, 0, 0.439106, 0, 0.515619, 0, -0.27859, 17.9491, -2.2922, 16.5446)
 
@@ -676,7 +679,7 @@ transform = Transform3D(-0.184019, 0, 0.247086, 0, 0.476711, 0, -0.341055, 0, -0
 transform = Transform3D(0.65, 0, 0, 0, 0.495, 0, 0, 0, 0.908, 16.0535, -2.30693, -5.40257)
 
 [node name="Cube" type="MeshInstance3D" parent="Butt_1"]
-transform = Transform3D(0.0293285, 0.74221, 0.015943, -0.0309919, 0.63232, 0.314547, 0.00977848, -0.222027, 0.949108, -0.262794, 0.415932, -0.46741)
+transform = Transform3D(0.0261646, 0.765662, 0.237728, -0.0350321, 0.587607, 0.119524, -0.00210889, -0.261687, 0.963949, -0.177781, 0.279367, -0.449067)
 mesh = SubResource("ArrayMesh_tbmy8")
 skeleton = NodePath("")
 
@@ -702,8 +705,5 @@ autoplay = "Action"
 
 [node name="Node3D5" parent="Butt_1" instance=ExtResource("10_5dd4i")]
 transform = Transform3D(6.24893, 0, 0, 0, 4.75988, 0, 0, 0, 8.73113, -10.597, -3.9928, -27.8815)
-
-[node name="Node3D6" parent="Butt_1" instance=ExtResource("11_lgwnu")]
-transform = Transform3D(6.24893, 0, 0, 0, 4.75987, 0, 0, 0, 8.73112, 25.9318, -2.89062, 27.7648)
 
 [connection signal="pressed" from="Control/Button" to="." method="start_game"]
