@@ -397,5 +397,9 @@ script = SubResource("GDScript_smehm")
 stream = ExtResource("8_smehm")
 unit_size = 5.0
 
+[node name="DamageSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_smehm")
+unit_size = 5.0
+
 [connection signal="step" from="MovementController" to="AudioStreamPlayer3D" method="reload"]
 [connection signal="timeout" from="Timer" to="." method="regenerate"]

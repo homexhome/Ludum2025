@@ -20,7 +20,7 @@ func start_game():
 	player.global_position = level.get_player_spawn()
 	Session.resume_player()
 
-	await get_tree().create_timer(5.0).timeout
+	await get_tree().create_timer(8.0).timeout
 	Session.start_fog()
 
 	await Session.fog_on
