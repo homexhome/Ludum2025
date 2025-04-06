@@ -1,9 +1,9 @@
 [gd_scene load_steps=35 format=4 uid="uid://bob4cono2210x"]
 
 [ext_resource type="Script" uid="uid://buyxwg18seq7k" path="res://scripts/main_menu.gd" id="1_l6cm7"]
-[ext_resource type="AudioStream" uid="uid://rfypht13otg3" path="res://assets/music/theme.mp3" id="2_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://cpupwhky1dhdp" path="res://assets/imports/Button atlas.jpg" id="2_flqon"]
 [ext_resource type="MeshLibrary" uid="uid://o0cyi1eyon7h" path="res://new_mesh_lib.tres" id="3_bqqt6"]
+[ext_resource type="AudioStream" uid="uid://df3fpjyu8fjqf" path="res://assets/music/главтема_демка2.mp3" id="3_flqon"]
 [ext_resource type="Shader" uid="uid://cvgyuhtt27ehl" path="res://assets/shaders/pixelate.gdshader" id="3_wu84c"]
 [ext_resource type="PackedScene" uid="uid://cpkpu723k1j3g" path="res://scenes/blood_particles.tscn" id="5_8ln24"]
 [ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="6_oa1go"]
@@ -573,7 +573,7 @@ texture_pressed = SubResource("AtlasTexture_1ajci")
 texture_hover = SubResource("AtlasTexture_7b55j")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_ekxnf")
+stream = ExtResource("3_flqon")
 volume_db = -15.0
 autoplay = true
 
@@ -708,7 +708,7 @@ autoplay = "Action"
 transform = Transform3D(-0.535399, 0.110134, -0.0905626, 0.473801, 0.12029, -0.176763, -0.047183, -0.0417954, -0.747377, 13.7152, 3.03307, -19.352)
 
 [node name="Cube" type="MeshInstance3D" parent="Butt_1/Butt_1"]
-transform = Transform3D(-0.0269118, 0.696694, 0.369694, -0.0264776, -0.717285, 0.345914, 0.0221578, -0.0109524, 0.862363, -0.262794, 0.415932, -0.467409)
+transform = Transform3D(0.0250632, 0.773002, 0.273248, -0.0356861, 0.572241, 0.0892908, -0.0038234, -0.273877, 0.957791, -0.162725, 0.255181, -0.445818)
 mesh = SubResource("ArrayMesh_tbmy8")
 skeleton = NodePath("")
 
