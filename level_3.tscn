@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c4dubwj5ogkac"]
+[gd_scene load_steps=18 format=3 uid="uid://c4dubwj5ogkac"]
 
 [ext_resource type="MeshLibrary" uid="uid://o0cyi1eyon7h" path="res://new_mesh_lib.tres" id="1_1fhj5"]
 [ext_resource type="Script" uid="uid://bjq1y2wsxubh5" path="res://scripts/level.gd" id="1_j8bo8"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dxhjxvmexgun4" path="res://scenes/tiles/prop_bush_1.tscn" id="12_4hpui"]
 [ext_resource type="PackedScene" uid="uid://q8ebrtl3od2m" path="res://scenes/tiles/prop_flowers.tscn" id="13_g005c"]
 [ext_resource type="PackedScene" uid="uid://86ct388csnph" path="res://scenes/tiles/prop_flowers_1.tscn" id="14_dhf26"]
+[ext_resource type="PackedScene" uid="uid://duml6l6edul1v" path="res://scenes/tiles/Enemy.tscn" id="15_g0tlw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_j8bo8"]
 
@@ -84,3 +85,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 1, -10)
 
 [node name="Node3D13" parent="." instance=ExtResource("14_dhf26")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 1, -9)
+
+[node name="Node3D14" parent="." instance=ExtResource("15_g0tlw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39304, 1.31308, 13.5346)

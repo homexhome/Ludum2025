@@ -102,7 +102,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_035jp")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o5fjl"]
-size = Vector3(2.16406, 0.019, 2)
+size = Vector3(1.97803, 0.019, 2)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_buio6"]
 _surfaces = [{
@@ -203,8 +203,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_bu3gn")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2u6v2"]
-points = PackedVector3Array(0, 0, 0, -2, -1, 0, -2, -1, 2, 0, -1, 2)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_035jp"]
+points = PackedVector3Array(0, 1, 0, -4, -1, 0, -4, -1, 4, 0, -1, 4)
 
 [node name="Node3D" type="Node3D"]
 
@@ -236,7 +236,7 @@ skeleton = NodePath("")
 [node name="StaticBody3D" type="StaticBody3D" parent="Slope_1"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Slope_1/StaticBody3D"]
-transform = Transform3D(1, 1.04308e-06, 0, -1.04308e-06, 1, 0, 0, 0, 1, -0.00500496, 8.9407e-08, 0)
+transform = Transform3D(1, 1.04308e-06, 0, -1.04308e-06, 1, 0, 0, 0, 1, 0.000609949, 1.19209e-07, 0)
 shape = SubResource("BoxShape3D_o5fjl")
 
 [node name="Slope_2" type="MeshInstance3D" parent="."]
@@ -260,6 +260,7 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="3up/StaticBody3D"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1, 1, 1)
 shape = SubResource("ConvexPolygonShape3D_djw7k")
+debug_color = Color(0.963711, 1.05888e-06, 0.497098, 0.42)
 
 [node name="1up" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1, 0)
@@ -267,7 +268,8 @@ mesh = SubResource("ArrayMesh_djw7k")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="1up"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="1up/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1)
-shape = SubResource("ConvexPolygonShape3D_2u6v2")
+shape = SubResource("ConvexPolygonShape3D_035jp")

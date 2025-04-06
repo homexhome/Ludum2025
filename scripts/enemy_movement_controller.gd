@@ -53,7 +53,10 @@ func _physics_process(delta: float) -> void:
 	character.velocity = velocity
 	var _transofrm = character.global_transform.looking_at(target.global_position)
 	character.global_transform = lerp(character.global_transform,_transofrm,delta * 3)
+	character.wish_dir = (character.transform.basis * Vector3(character.velocity.x, 0, character.velocity.y)).normalized()
+	character.stair_step_up()
 	character.move_and_slide()
+	character.stair_step_down()
 	if health == null: return
 	if health.is_alive() == false : return
 	if animation_player != null:
@@ -73,9 +76,10 @@ func dead():
 	var timer : float = 0
 
 	while timer < 5:
-		character.velocity.y = character.velocity.y - character.get_gravity().y * get_physics_process_delta_time()
+		character.velocity.y = character.velocity.y - character.get_gravity().y * get_physics_process_delta_time() * 2
 		timer += get_physics_process_delta_time()
 		await get_tree().physics_frame
+	queue_free()
 
 func update_position():
 	if Session.get_if_paused(): return
