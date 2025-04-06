@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://ce6jq3diahs42"]
 
-[ext_resource type="Script" path="res://scenes/tiles/visibility_range.gd" id="1_avf6f"]
+[ext_resource type="Script" uid="uid://c5gpo58jfat4o" path="res://scenes/tiles/visibility_range.gd" id="1_avf6f"]
 [ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="1_jt6s7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x25fb"]
