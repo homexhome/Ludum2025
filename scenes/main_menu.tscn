@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://bob4cono2210x"]
+[gd_scene load_steps=30 format=4 uid="uid://bob4cono2210x"]
 
 [ext_resource type="Script" uid="uid://buyxwg18seq7k" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="AudioStream" uid="uid://rfypht13otg3" path="res://assets/music/theme.mp3" id="2_ekxnf"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://cxtpcm3xnpdxr" path="res://assets/grass_texture.jpg" id="7_tbmy8"]
 [ext_resource type="PackedScene" uid="uid://bkj0bo25nmbqj" path="res://scenes/tiles/prop_flowers.tscn" id="9_jk1qb"]
 [ext_resource type="PackedScene" uid="uid://bhfrtsb4njtdq" path="res://scenes/tiles/2x2_tree.tscn" id="10_5dd4i"]
-[ext_resource type="PackedScene" path="res://scenes/tiles/prop_tree_1.tscn" id="11_lgwnu"]
 
 [sub_resource type="Curve3D" id="Curve3D_bqqt6"]
 closed = true
@@ -605,7 +604,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 2, 0)
 
 [node name="GPUParticles3D" parent="Node3D" instance=ExtResource("5_8ln24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.4327, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -53.3009, -0.999161)
 emitting = true
 one_shot = false
 visibility_aabb = AABB(-9.665, -4, -4, 20, 20, 20)
@@ -663,9 +662,6 @@ autoplay = "Action"
 [node name="Butt_1" type="Node3D" parent="."]
 transform = Transform3D(0.160027, 0, 0, 0, 0.210089, 0, 0, 0, 0.114533, -1.34653, 0, 0)
 
-[node name="Node3D6" parent="Butt_1" instance=ExtResource("11_lgwnu")]
-transform = Transform3D(6.24893, 0, 0, 0, 4.75987, 0, 0, 0, 8.73112, 25.9318, -2.89062, 27.7648)
-
 [node name="Node3D3" parent="Butt_1" instance=ExtResource("9_jk1qb")]
 transform = Transform3D(-0.307205, 0, -0.468031, 0, 0.439106, 0, 0.515619, 0, -0.27859, 17.9491, -2.2922, 16.5446)
 
@@ -705,5 +701,8 @@ autoplay = "Action"
 
 [node name="Node3D5" parent="Butt_1" instance=ExtResource("10_5dd4i")]
 transform = Transform3D(6.24893, 0, 0, 0, 4.75988, 0, 0, 0, 8.73113, -10.597, -3.9928, -27.8815)
+
+[node name="Node3D6" parent="Butt_1" instance=ExtResource("10_5dd4i")]
+transform = Transform3D(8.204, -3.80422e-07, -9.99708e-22, 6.55668e-07, 4.76, -1.42374e-21, 5.12056e-22, 4.23113e-22, 16.017, 27.5366, -2.73825, 26.3878)
 
 [connection signal="pressed" from="Control/Button" to="." method="start_game"]
