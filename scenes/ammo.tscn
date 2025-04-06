@@ -1,6 +1,13 @@
-[gd_scene load_steps=4 format=4 uid="uid://d3aiwdky5ljjx"]
+[gd_scene load_steps=5 format=4 uid="uid://d3aiwdky5ljjx"]
 
 [ext_resource type="Material" uid="uid://ca4qpc5t6tp4p" path="res://assets/gun_mat.tres" id="1_8affh"]
+
+[sub_resource type="GDScript" id="GDScript_8affh"]
+script/source = "extends Node3D
+
+func _ready() -> void:
+	rotation_degrees.y = randf_range(0,360)
+"
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_oosrp"]
 resource_name = "Gun_Cylinder_008"
@@ -50,6 +57,7 @@ metadata/extras = {
 
 [node name="Ammo" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0372491, 0)
+script = SubResource("GDScript_8affh")
 
 [node name="Патрон_Л" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.768563, 0, -0.639774, 0, 1, 0, 0.639774, 0, 0.768563, 0, 0, 0.286341)

@@ -28,7 +28,7 @@ func start_game():
 
 	await Session.fog_on
 	await get_tree().create_timer(1.0).timeout
-	
+	$Start.play()
 	player.give_gun()
 	player.died.connect(go_back_to_menu)
 
@@ -39,6 +39,7 @@ func end_game():
 	var cam = player.camera
 	var needed_transfrom = cam.global_transform.looking_at(god.look_pos.global_position)
 	var time : float = 0.0
+	$End.play()
 	while cam.global_transform.is_equal_approx(needed_transfrom) == false:
 		cam.global_transform = lerp(cam.global_transform,needed_transfrom,get_process_delta_time() * 3)
 		time += get_process_delta_time()

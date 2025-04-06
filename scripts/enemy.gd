@@ -14,7 +14,7 @@ var enemy_state : STATE = STATE.NOT_ACTIVE
 
 @export var MAX_STEP_UP := 0.5			# Maximum height in meters the player can step up.
 @export var MAX_STEP_DOWN := -0.5	
-
+@export var hit_impulse_power := 5.0
 
 # Function: Handle walking down stairs
 func stair_step_down():

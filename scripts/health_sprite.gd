@@ -10,10 +10,20 @@ extends TextureRect
 
 var atlas
 
+var time_from_show : float = 0.0
+
 func _ready() -> void:
 	player.health_changed.connect(change_state)
 
+func _physics_process(delta: float) -> void:
+	if time_from_show > 0.0:
+		time_from_show -= delta
+		if time_from_show <= 0:
+			hide()
+
 func change_state():
+	show()
+	time_from_show = 5.0
 	var rect = texture.region
 	match player.health:
 		5:
@@ -27,4 +37,6 @@ func change_state():
 		1:
 			rect.position.x = first_x
 	texture.set_region(rect)
+	$AnimationPlayer.play("new_animation")
 	var _rect = texture.region
+	

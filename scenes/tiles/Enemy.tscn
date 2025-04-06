@@ -555,12 +555,19 @@ autostart = true
 [node name="FarSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("11_x24w0")
 unit_size = 5.0
+max_db = 0.0
 autoplay = true
+max_distance = 20.0
 
 [node name="CloseSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("12_t8150")
 unit_size = 5.0
+max_db = 0.0
 pitch_scale = 0.3
+max_distance = 10.0
+emission_angle_enabled = true
+emission_angle_degrees = 15.0
+emission_angle_filter_attenuation_db = -37.7
 
 [node name="DeathSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("13_iqg3s")

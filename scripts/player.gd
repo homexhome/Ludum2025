@@ -25,6 +25,7 @@ func _ready() -> void:
 func give_gun():
 	current_weapon = gun_scene.instantiate()
 	gun_place.add_child(current_weapon)
+	current_weapon._reload.connect(spawn_ammo)
 
 func is_alive():
 	return health > 0
@@ -55,6 +56,8 @@ func death():
 	died.emit()
 
 @export var empty_ammo : PackedScene
+@export var empty_ammo_signle : PackedScene
+
 func spawn_ammo():
 	var pos = global_position
 	var query = PhysicsRayQueryParameters3D.create(global_position + Vector3.UP, global_position - Vector3.DOWN * 100, 1, [get_rid()])
@@ -64,5 +67,17 @@ func spawn_ammo():
 		pos = result["position"]
 	
 	var _ammo = empty_ammo.instantiate()
+	get_parent().add_child(_ammo)
+	_ammo.global_position = pos
+	
+func spawn_ammo_single():
+	var pos = global_position
+	var query = PhysicsRayQueryParameters3D.create(global_position + Vector3.UP, global_position - Vector3.DOWN * 100, 1, [get_rid()])
+	var dir_space = get_world_3d().direct_space_state
+	var result = dir_space.intersect_ray(query)
+	if result.has("position"):
+		pos = result["position"]
+	
+	var _ammo = empty_ammo_signle.instantiate()
 	get_parent().add_child(_ammo)
 	_ammo.global_position = pos

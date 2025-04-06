@@ -31,6 +31,9 @@ func take_damage(damage : float, hit_position : Vector3):
 	else:
 		damaged.emit()
 		Session.change_depth(Session.damage_amound)
+		var _par = get_parent()
+		var dir = ((_par.global_position + Vector3.UP * 0.2) - Vector3(_par.global_position)).normalized()
+		_par.velocity = dir * _par.hit_impulse_power
 
 func is_alive():
 	return current_health > 0 
