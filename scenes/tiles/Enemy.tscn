@@ -501,7 +501,7 @@ bones/16/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
 bones/16/scale = Vector3(1, 1, 1)
 
 [node name="olen_001" type="BoneAttachment3D" parent="olen_Ran/Armature/Skeleton3D"]
-transform = Transform3D(0.986129, -0.0745061, -0.148319, 0.165082, 0.533115, 0.829778, 0.0172475, -0.842754, 0.538022, 0.314192, 1.06125, 2.1635)
+transform = Transform3D(0.986129, -0.0745061, -0.148319, 0.165082, 0.533116, 0.829778, 0.0172476, -0.842754, 0.538022, 0.314192, 1.06125, 2.1635)
 bone_name = "olen.001"
 bone_idx = 3
 

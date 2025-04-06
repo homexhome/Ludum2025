@@ -138,7 +138,7 @@ data = {
 image = SubResource("Image_gaipb")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o5fjl"]
-size = Vector3(1.97803, 0.019, 2)
+size = Vector3(1.978, 0.004, 2)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_buio6"]
 _surfaces = [{
@@ -299,7 +299,7 @@ item/2/name = "Slope_1"
 item/2/mesh = SubResource("ArrayMesh_q3t0u")
 item/2/mesh_transform = Transform3D(1.00963, 0.452895, 0, -0.49818, 0.917856, 0, 0, 0, 1, 0.000280611, -0.497415, 0)
 item/2/mesh_cast_shadow = 1
-item/2/shapes = [SubResource("BoxShape3D_o5fjl"), Transform3D(1.00963, 0.452896, 0, -0.498181, 0.917855, 0, 0, 0, 1, 0.000896488, -0.497719, 0)]
+item/2/shapes = [SubResource("BoxShape3D_o5fjl"), Transform3D(1.00963, 0.452896, 0, -0.498181, 0.917855, 0, 0, 0, 1, 0.000896478, -0.508383, 0)]
 item/2/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/2/navigation_layers = 1
 item/2/preview = SubResource("ImageTexture_leula")
@@ -307,7 +307,7 @@ item/3/name = "Slope_2"
 item/3/mesh = SubResource("ArrayMesh_4g7y3")
 item/3/mesh_transform = Transform3D(1.00963, 0.452895, 0, -0.49818, 0.917856, 0, 0, 0, 1, 0.000280611, -0.497415, 0)
 item/3/mesh_cast_shadow = 1
-item/3/shapes = [SubResource("BoxShape3D_o5fjl"), Transform3D(1.00963, 0.452896, 0, -0.498181, 0.917855, 0, 0, 0, 1, -0.00477251, -0.494922, 0)]
+item/3/shapes = [SubResource("BoxShape3D_o5fjl"), Transform3D(1.00963, 0.452896, 0, -0.498181, 0.917855, 0, 0, 0, 1, 0.00276975, -0.502464, 0)]
 item/3/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/3/navigation_layers = 1
 item/3/preview = SubResource("ImageTexture_khysh")
