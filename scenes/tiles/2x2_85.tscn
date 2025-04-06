@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=4 uid="uid://dmiibhy7kbdxc"]
 
-[ext_resource type="Script" path="res://scenes/tiles/visibility_range.gd" id="1_eql7l"]
+[ext_resource type="Script" uid="uid://c5gpo58jfat4o" path="res://scenes/tiles/visibility_range.gd" id="1_eql7l"]
 [ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="2_15d6x"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_i2vs4"]
