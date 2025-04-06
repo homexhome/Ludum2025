@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://cpupwhky1dhdp" path="res://assets/imports/Button atlas.jpg" id="2_flqon"]
 [ext_resource type="Texture2D" uid="uid://bie4sefrojm5b" path="res://assets/Постеризация 1.png" id="2_rcqid"]
 [ext_resource type="MeshLibrary" uid="uid://o0cyi1eyon7h" path="res://new_mesh_lib.tres" id="3_bqqt6"]
-[ext_resource type="AudioStream" uid="uid://df3fpjyu8fjqf" path="res://assets/music/главтема_демка2.mp3" id="3_flqon"]
 [ext_resource type="Shader" uid="uid://cvgyuhtt27ehl" path="res://assets/shaders/pixelate.gdshader" id="3_wu84c"]
 [ext_resource type="PackedScene" uid="uid://cpkpu723k1j3g" path="res://scenes/blood_particles.tscn" id="5_8ln24"]
 [ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="6_oa1go"]
@@ -12,19 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://cxtpcm3xnpdxr" path="res://assets/grass_texture.jpg" id="7_tbmy8"]
 [ext_resource type="PackedScene" uid="uid://bkj0bo25nmbqj" path="res://scenes/tiles/prop_flowers.tscn" id="9_jk1qb"]
 [ext_resource type="PackedScene" uid="uid://bhfrtsb4njtdq" path="res://scenes/tiles/2x2_tree.tscn" id="10_5dd4i"]
-[ext_resource type="PackedScene" uid="uid://cjd26gw0064g1" path="res://scenes/tiles/prop_tree_1.tscn" id="11_lgwnu"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rcqid"]
-atlas = ExtResource("2_flqon")
-region = Rect2(662, 0, 330, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1ajci"]
-atlas = ExtResource("2_flqon")
-region = Rect2(0, 0, 330, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7b55j"]
-atlas = ExtResource("2_flqon")
-region = Rect2(331, 0, 330, 0)
 
 [sub_resource type="Curve3D" id="Curve3D_bqqt6"]
 closed = true
@@ -569,7 +555,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="Button" type="TextureButton" parent="Control"]
+[node name="Button" type="Button" parent="Control"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 1
 anchors_preset = 8
@@ -583,12 +569,10 @@ offset_right = 165.0
 offset_bottom = 323.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = SubResource("AtlasTexture_rcqid")
-texture_pressed = SubResource("AtlasTexture_1ajci")
-texture_hover = SubResource("AtlasTexture_7b55j")
+text = "New Game"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_flqon")
+stream = ExtResource("2_ekxnf")
 volume_db = -15.0
 autoplay = true
 
@@ -635,7 +619,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 2, 0)
 
 [node name="GPUParticles3D" parent="Node3D" instance=ExtResource("5_8ln24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.4327, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -53.3009, -0.999161)
 emitting = true
 one_shot = false
 visibility_aabb = AABB(-9.665, -4, -4, 20, 20, 20)
@@ -693,9 +677,6 @@ autoplay = "Action"
 [node name="Butt_1" type="Node3D" parent="."]
 transform = Transform3D(0.160027, 0, 0, 0, 0.210089, 0, 0, 0, 0.114533, -1.34653, 0, 0)
 
-[node name="Node3D6" parent="Butt_1" instance=ExtResource("11_lgwnu")]
-transform = Transform3D(6.24893, 0, 0, 0, 4.75987, 0, 0, 0, 8.73112, 25.9318, -2.89062, 27.7648)
-
 [node name="Node3D3" parent="Butt_1" instance=ExtResource("9_jk1qb")]
 transform = Transform3D(-0.307205, 0, -0.468031, 0, 0.439106, 0, 0.515619, 0, -0.27859, 17.9491, -2.2922, 16.5446)
 
@@ -723,7 +704,7 @@ autoplay = "Action"
 transform = Transform3D(-0.535399, 0.110134, -0.0905626, 0.473801, 0.12029, -0.176763, -0.047183, -0.0417954, -0.747377, 13.7152, 3.03307, -19.352)
 
 [node name="Cube" type="MeshInstance3D" parent="Butt_1/Butt_1"]
-transform = Transform3D(0.0250632, 0.773002, 0.273248, -0.0356861, 0.572241, 0.0892908, -0.0038234, -0.273877, 0.957791, -0.162725, 0.255181, -0.445818)
+transform = Transform3D(-0.0269118, 0.696694, 0.369694, -0.0264776, -0.717285, 0.345914, 0.0221578, -0.0109524, 0.862363, -0.262794, 0.415932, -0.467409)
 mesh = SubResource("ArrayMesh_tbmy8")
 skeleton = NodePath("")
 
@@ -735,5 +716,8 @@ autoplay = "Action"
 
 [node name="Node3D5" parent="Butt_1" instance=ExtResource("10_5dd4i")]
 transform = Transform3D(6.24893, 0, 0, 0, 4.75988, 0, 0, 0, 8.73113, -10.597, -3.9928, -27.8815)
+
+[node name="Node3D6" parent="Butt_1" instance=ExtResource("10_5dd4i")]
+transform = Transform3D(8.204, -3.80422e-07, -9.99708e-22, 6.55668e-07, 4.76, -1.42374e-21, 5.12056e-22, 4.23113e-22, 16.017, 27.5366, -2.73825, 26.3878)
 
 [connection signal="pressed" from="Control/Button" to="." method="start_game"]
