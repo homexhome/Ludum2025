@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://q8ebrtl3od2m"]
+[gd_scene load_steps=5 format=4 uid="uid://bkj0bo25nmbqj"]
 
 [ext_resource type="Script" uid="uid://c5gpo58jfat4o" path="res://scenes/tiles/visibility_range.gd" id="1_e4fg6"]
 [ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="2_gxn3q"]
