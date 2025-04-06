@@ -26,7 +26,7 @@ func start_fog():
 	while environment.environment.fog_depth_end > max_depth:
 		environment.environment.fog_depth_end -= 1
 		if environment.environment.fog_depth_begin > 0:
-			environment.environment.fog_depth_begin = clampf(environment.environment.fog_depth_begin - 0.1, 0.0, 100)
+			environment.environment.fog_depth_begin = clampf(environment.environment.fog_depth_begin - 0.3, 0.0, 100)
 
 		print(environment.environment.fog_depth_end, " ", environment.environment.fog_depth_begin)
 		await get_tree().process_frame

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://duml6l6edul1v"]
+[gd_scene load_steps=28 format=4 uid="uid://duml6l6edul1v"]
 
 [ext_resource type="Script" uid="uid://cktunc4elmclu" path="res://scripts/enemy.gd" id="1_j5las"]
 [ext_resource type="Script" uid="uid://c2qsex0ibsyl2" path="res://scripts/entity_resource.gd" id="2_ghrgm"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://v45bam6vf1hl" path="res://assets/music/monster_far2.ogg" id="11_x24w0"]
 [ext_resource type="AudioStream" uid="uid://byi643f5tem7j" path="res://assets/music/monster_attack3.ogg" id="12_t8150"]
 [ext_resource type="AudioStream" uid="uid://bg1tbqku27w5h" path="res://assets/music/monster_death_scream1.ogg" id="13_iqg3s"]
+[ext_resource type="PackedScene" uid="uid://1w5xp2t1omqv" path="res://shade.tscn" id="14_73cr2"]
 
 [sub_resource type="Resource" id="Resource_edx6k"]
 script = ExtResource("2_ghrgm")
@@ -356,7 +357,6 @@ floor_max_angle = 3.14159
 safe_margin = 0.1
 script = ExtResource("1_j5las")
 entity_resource = SubResource("Resource_edx6k")
-STEP_UP_DEBUG = true
 MAX_STEP_UP = 1.0
 MAX_STEP_DOWN = -1.0
 
@@ -556,6 +556,9 @@ unit_size = 5.0
 [node name="DeathSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("13_iqg3s")
 unit_size = 5.0
+
+[node name="shade2" parent="." instance=ExtResource("14_73cr2")]
+transform = Transform3D(0.445, 0, 0, 0, 0.445, 0, 0, 0, 0.445, 0, 0.0472044, 0)
 
 [connection signal="dead" from="Area3D" to="MovementController" method="dead"]
 [connection signal="timeout" from="Timer" to="MovementController" method="update_position"]

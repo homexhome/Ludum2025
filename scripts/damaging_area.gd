@@ -6,6 +6,9 @@ var on_cooldown : bool = false
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
+	on_cooldown = true
+	await get_tree().create_timer(2.0).timeout
+	on_cooldown = false
 
 func deal_damage(body):
 	body.take_damage()
@@ -13,6 +16,7 @@ func deal_damage(body):
 
 func _on_body_entered(body: Node3D) -> void:
 	if !health.is_alive(): return
+	if get_parent().visible == false: return
 	if on_cooldown: return
 	if body.is_in_group("PlayerGroup"):
 		deal_damage(body)

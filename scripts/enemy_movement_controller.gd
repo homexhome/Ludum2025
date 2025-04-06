@@ -21,7 +21,7 @@ func _ready() -> void:
 		player = get_tree().get_first_node_in_group("PlayerGroup")
 		await get_tree().process_frame
 	target = player
-
+	get_parent().hide()
 var time_to_check : float = 1
 
 func _physics_process(delta: float) -> void:
@@ -32,6 +32,9 @@ func _physics_process(delta: float) -> void:
 	if Session.fog == Session.FOG_STATE.STOP : return
 	
 	if target == null: return
+	if get_parent().visible == false:
+		get_parent().show()
+		
 	if time_to_check <= 0:
 		if character.enemy_state != Enemy.STATE.ACTIVE:
 			if target.global_position.distance_to(character.global_position) <= Session.max_depth:
