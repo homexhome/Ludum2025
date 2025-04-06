@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=4 uid="uid://b1bij7n722qk8"]
+
+[ext_resource type="Script" uid="uid://c5gpo58jfat4o" path="res://scenes/tiles/visibility_range.gd" id="1_2pck6"]
+[ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="2_02m34"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1805k"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAAADAAEAAwAEAAIABAAAAAIAAAAEAAMA"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 5,
+"vertex_data": PackedByteArray("/38AAAAAAAD//wAA/38AAP9/////fwAA/38AAP//AAAAAAAA/38AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2pck6"]
+resource_name = "bush_1_Cone_012"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("OhOcxCsqjds6E43bK2GN2zpKfvI6So3bdUZrz3VGMu9YVk/fkjZP3zpKfvJIM43bOkqN20gzjds6SpzEOkqN2w=="),
+"format": 34896613399,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgABgAJAAcACgALAAwADQAOAA8A"),
+"material": ExtResource("2_02m34"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("/38AAAAAGOP//wAA/38Y4/9/////fxjj//8AAP9/i7f/fwAA//+Lt/9/////f4u3/38AAAAA/z//fwAA////P///AAD/f/8/AAAAAP9//z//fwAA//+LtwAAAAD/f4u3/3////9/i7cAAAAA/38Y4/9/AAAAABjj/3////9/GOOPwz1Wj8M9Vo/DPVapqqBlqaqgZamqoGUAAP9/AAD/fwAA/38AAP9/oOVV1aDlVdWg5VXVPNZuvDzWbrw81m68")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_1805k")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2pck6"]
+size = Vector3(1.33691, 1.43018, 1.53937)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_2pck6")
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="Cone" type="MeshInstance3D" parent="Visuals"]
+transform = Transform3D(1, 0, 0, 0, 0.751661, 0, 0, 0, 1, 0, 0.750669, 0)
+mesh = SubResource("ArrayMesh_2pck6")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0324715, 0.715967, -0.14798)
+shape = SubResource("BoxShape3D_2pck6")

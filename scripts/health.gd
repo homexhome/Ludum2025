@@ -22,6 +22,7 @@ func take_damage(damage : float, hit_position : Vector3):
 		add_child(particle)
 		particle.global_position = hit_position
 		particle.set_emitting(true)
+		particle.finished.connect(particle.queue_free)
 	
 	if !is_alive():
 		print(get_parent(), " died!")

@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bkj64qj1n7eqc" path="res://assets/texture.jpg" id="1_v8602"]
 
 [resource]
+cull_mode = 2
 shading_mode = 0
 disable_ambient_light = true
 vertex_color_use_as_albedo = true
