@@ -1,19 +1,16 @@
-[gd_scene load_steps=17 format=3 uid="uid://c4dubwj5ogkac"]
+[gd_scene load_steps=14 format=3 uid="uid://c4dubwj5ogkac"]
 
 [ext_resource type="MeshLibrary" uid="uid://o0cyi1eyon7h" path="res://new_mesh_lib.tres" id="1_1fhj5"]
-[ext_resource type="Script" uid="uid://bjq1y2wsxubh5" path="res://scripts/level.gd" id="1_j8bo8"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_j8bo8"]
 [ext_resource type="PackedScene" uid="uid://bw7rvlv40o23f" path="res://scenes/tiles/Enemy_long.tscn" id="3_j8bo8"]
-[ext_resource type="PackedScene" uid="uid://d0dkew4aosjuh" path="res://scenes/tiles/prop_stone_new_0.tscn" id="4_jvy75"]
-[ext_resource type="PackedScene" uid="uid://4mcl4jv6c3dq" path="res://scenes/tiles/prop_stone_new.tscn" id="5_g0tlw"]
-[ext_resource type="PackedScene" uid="uid://b8vcorp4ikyvk" path="res://scenes/tiles/prop_stone_new_1.tscn" id="6_keufu"]
-[ext_resource type="PackedScene" uid="uid://cmo2v4h40mbic" path="res://scenes/tiles/prop_trees.tscn" id="7_joegk"]
-[ext_resource type="PackedScene" uid="uid://rh7tvyvddawa" path="res://scenes/tiles/prop_tree_0.tscn" id="8_m8gss"]
-[ext_resource type="PackedScene" uid="uid://cjd26gw0064g1" path="res://scenes/tiles/prop_tree_1.tscn" id="9_wnq0t"]
-[ext_resource type="PackedScene" uid="uid://cbdacr6k0rpe" path="res://scenes/tiles/prop_watertank.tscn" id="10_ra6nl"]
-[ext_resource type="PackedScene" uid="uid://b1bij7n722qk8" path="res://scenes/tiles/prop_bush_0.tscn" id="11_gxey3"]
-[ext_resource type="PackedScene" uid="uid://dxhjxvmexgun4" path="res://scenes/tiles/prop_bush_1.tscn" id="12_4hpui"]
-[ext_resource type="PackedScene" uid="uid://q8ebrtl3od2m" path="res://scenes/tiles/prop_flowers.tscn" id="13_g005c"]
-[ext_resource type="PackedScene" uid="uid://86ct388csnph" path="res://scenes/tiles/prop_flowers_1.tscn" id="14_dhf26"]
+[ext_resource type="PackedScene" path="res://scenes/tiles/prop_trees.tscn" id="7_joegk"]
+[ext_resource type="PackedScene" path="res://scenes/tiles/prop_tree_0.tscn" id="8_m8gss"]
+[ext_resource type="PackedScene" path="res://scenes/tiles/prop_tree_1.tscn" id="9_wnq0t"]
+[ext_resource type="PackedScene" path="res://scenes/tiles/prop_watertank.tscn" id="10_ra6nl"]
+[ext_resource type="PackedScene" path="res://scenes/tiles/prop_bush_0.tscn" id="11_gxey3"]
+[ext_resource type="PackedScene" path="res://scenes/tiles/prop_bush_1.tscn" id="12_4hpui"]
+[ext_resource type="PackedScene" path="res://scenes/tiles/prop_flowers.tscn" id="13_g005c"]
+[ext_resource type="PackedScene" path="res://scenes/tiles/prop_flowers_1.tscn" id="14_dhf26"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_j8bo8"]
 
@@ -52,14 +49,44 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
-[node name="Node3D3" parent="." instance=ExtResource("4_jvy75")]
+[node name="Node3D3" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 12)
+script = null
 
-[node name="Node3D4" parent="." instance=ExtResource("5_g0tlw")]
+[node name="Node3D4" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 11)
+script = null
 
-[node name="Node3D5" parent="." instance=ExtResource("6_keufu")]
+[node name="Node3D5" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 9)
+script = null
 
 [node name="Node3D6" parent="." instance=ExtResource("7_joegk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 11)

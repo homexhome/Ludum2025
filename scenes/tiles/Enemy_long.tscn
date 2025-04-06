@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://bw7rvlv40o23f"]
+[gd_scene load_steps=24 format=4 uid="uid://bw7rvlv40o23f"]
 
 [ext_resource type="Script" uid="uid://cktunc4elmclu" path="res://scripts/enemy.gd" id="1_he2j3"]
 [ext_resource type="Script" uid="uid://c2qsex0ibsyl2" path="res://scripts/entity_resource.gd" id="2_pqdpk"]
@@ -11,6 +11,7 @@
 [ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="10_y3c3e"]
 [ext_resource type="Animation" uid="uid://dly6kioovw2cf" path="res://assets/imports/ArmatureAction.res" id="11_xofv6"]
 [ext_resource type="AudioStream" uid="uid://dyseoku1y3pkj" path="res://assets/music/monster_death_scream3.ogg" id="11_y3c3e"]
+[ext_resource type="PackedScene" uid="uid://t1u5tycvb8ey" path="res://scenes/shade.glb" id="12_xofv6"]
 
 [sub_resource type="Resource" id="Resource_edx6k"]
 script = ExtResource("2_pqdpk")
@@ -314,7 +315,7 @@ stream = ExtResource("11_y3c3e")
 unit_size = 5.0
 
 [node name="dlini_olen" type="Node3D" parent="."]
-transform = Transform3D(0.27, 0, 0, 0, 0.27, 0, 0, 0, 0.27, -1.96695e-06, -0.0544158, 0.446172)
+transform = Transform3D(0.27, 0, 0, 0, 0.27, 0, 0, 0, 0.27, -1.96695e-06, 0.00999775, 0.446172)
 
 [node name="Armature" type="Node3D" parent="dlini_olen"]
 
@@ -449,5 +450,8 @@ skin = SubResource("Skin_qdpea")
 libraries = {
 &"": SubResource("AnimationLibrary_2evnx")
 }
+
+[node name="shade" parent="." instance=ExtResource("12_xofv6")]
+transform = Transform3D(0.600645, 0, 0, 0, 1, 0, 0, 0, 0.788592, -0.0260859, -0.0406586, -0.0923944)
 
 [connection signal="timeout" from="Timer" to="MovementController" method="update_position"]
