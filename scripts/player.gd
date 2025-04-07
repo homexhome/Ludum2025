@@ -73,7 +73,7 @@ func spawn_ammo():
 	
 func spawn_ammo_single():
 	var pos = global_position
-	var query = PhysicsRayQueryParameters3D.create(global_position + Vector3.UP, global_position - Vector3.DOWN * 100, 1, [get_rid()])
+	var query = PhysicsRayQueryParameters3D.create(global_position + Vector3.UP, (global_position + Vector3.UP) - Vector3.DOWN * 100, 1, [get_rid()])
 	var dir_space = get_world_3d().direct_space_state
 	var result = dir_space.intersect_ray(query)
 	if result.has("position"):

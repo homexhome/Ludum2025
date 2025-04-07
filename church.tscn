@@ -1,25 +1,6 @@
-[gd_scene load_steps=9 format=4 uid="uid://ccs1dwfwd6b0l"]
+[gd_scene load_steps=5 format=4 uid="uid://ccs1dwfwd6b0l"]
 
 [ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="1_yyuqe"]
-[ext_resource type="Texture2D" uid="uid://cx3g2t8tp3krw" path="res://Chrunch_texture.jpg" id="2_qx4ao"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47wvm"]
-resource_name = "Material.002"
-cull_mode = 2
-albedo_texture = ExtResource("2_qx4ao")
-roughness = 0.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odsuv"]
-resource_name = "Material.001"
-cull_mode = 2
-albedo_texture = ExtResource("2_qx4ao")
-roughness = 0.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1n248"]
-resource_name = "Material.008"
-cull_mode = 2
-albedo_texture = ExtResource("2_qx4ao")
-roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_asujx"]
 _surfaces = [{
@@ -56,7 +37,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_ce1d6"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_1kxs5"]
 resource_name = "Chrunch_Cube_011"
 _surfaces = [{
 "aabb": AABB(-5.31177, 0.284905, -0.847888, 0.0986366, 3.34377, 1.63999),
@@ -64,7 +45,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 108,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUA"),
-"material": SubResource("StandardMaterial3D_47wvm"),
+"material": ExtResource("1_yyuqe"),
 "name": "Material.002",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -77,7 +58,7 @@ _surfaces = [{
 "index_count": 312,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKABqACoAKABrAGoAbABtAG4AbABvAG0AcABxAHIAcABzAHEAdAB1AHYAdAB3AHUAKQB4AHkAKQB6AHgAewArAHwAewAsACsAfQB+AH8AfQCAAH4AgQAuAIIAgQAtAC4AgwCEAIUAgwCGAIQAhwAxAIgAiQAxAIcAMQCKAIsAMQCMAIoAMQCJAIwAigCMADMAjACJAI0AjQCJAI4AjACNADIAjwCQAJEAjwCSAJAAkwAwAJQAkwAvADAAlQCWADQAlwCWAJUAlgCYAJkAlgCaAJgAlgCXAJoAmACaADYAmgCXAJsAmwCXADcAmgCbADUAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUASABJAEoASABLAEkATABNAE4ATABPAE0AnACdAJ4AnACfAJ0AoAChAKIAoACjAKEAUACkAFEAUAClAKQApgBVAKcApgBUAFUAqACpAKoAqACrAKkArABXAK0ArABWAFcAWABZAFoAWABbAFkArgBTAK8ArgBSAFMAXABdAF4AXABfAF0AYgCwALEAYACwAGIAsABgALIAsgBgAGMAsACyALMAswCyAGQAsACzAGEAaQC0ALUAtgC0AGkAtAC2ALcAtwC2AGYAtAC3AGUAZQC3AGcAtABlAGgA"),
 "lods": [0.350637, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKQArACoAKQAsACsALAAtACsALQAuACsALQAvAC4ALwAwAC4AMQAyADMANAA1ADYANQA0ADcAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUASABJAEoASABLAEkATABNAE4ATABPAE0AUABRAFIAUgBTAFAAUABUAFEAVABVAFEAVABWAFUAVgBXAFUAWABZAFoAWABbAFkAXABdAF4AXABfAF0AYABhAGIAYQBgAGMAYQBjAGQAZQBmAGcAaABmAGUAaABpAGYA")],
-"material": SubResource("StandardMaterial3D_odsuv"),
+"material": ExtResource("1_yyuqe"),
 "name": "Material.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -89,7 +70,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 426,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFwAYABkAGgAbABwAHQAeAB8AIAAhACIAIwAkACUAJgAnACgAKQAqACsALAAtAC4ALwAwADEAMgAzADQAMgA1ADMANgA3ADgAOQA6ADsAPAA9AD4APwBAAEEAQgBDAEQAQgBFAEMARgBHAEgASQBKAEsATABNAE4ATwBQAFEAUgBTAFQAVQBWAFcAWABZAFoAWwBcAF0AXgBfAGAAYQBiAF8AYwBkAGUAZgBnAGgAaQBqAGsAaQBsAGoAbQBuAG8AcABxAHIAcwB0AHUAcwB1AHYAdwB4AHkAdwB5AHoAewB8AH0AewB9AH4AfwCAAIEAggCDAIQAhQCGAIcAiACJAIoAiwCMAI0AiwCNAI4AjwCQAJEAkgCTAJQAlQCWAJcAmACZAJoAmwCcAJ0AmwCdAJ4AnwCgAKEAnwChAKIAowCkAKUApgCnAKgAqQCqAKsArACtAK4ArwCwALEArwCyALMAtAC1ALYAtAC2ALcAuAC5ALoAuAC6ALsAvAC9AL4AvwDAAMEAwgDDAMQAwgDEAMUAxgDHAMgAxgDIAMkAygDLAMwAzQDOAM8A0ADRANIA0ADSANMA1ADVANYA1ADWANcA2ADZANoA2wDcAN0A3gDfAOAA3gDgAOEA4gDjAOQA5QDmAOcA6ADpAOoA6ADrAOwA7QDuAO8A7QDvAPAA8QDyAPMA8QDzAPQA9QD2APcA+AD5APoA+wD8AP0A/gD/AAABAQECAQMBAQEDAQQBBQEGAQcBCAEJAQoBCwEMAQ0BCwENAQ4BDwEQAREBDwERARIBEwEUARUBFgEXARgBGQEaARsBHAEdAR4BHwEgASEBHwEiASMBJAElASYBJAEnASUBKAEpASoBKwEsAS0BLgEvATABLgEwATEBMgEzATQBMgE0ATUBNgE3ATgBOQE6ATsBPAE9AT4BPAE+AT8BQAFBAUIBQwFEAUUBRgFHAUgBRgFJAUcBSgFLAUwBSgFMAU0BTgFPAVABTgFQAVEBUgFTAVQBUgFUAVUBVgFXAVgBWQFaAVsBXAFdAV4BXwFgAWEB"),
-"material": SubResource("StandardMaterial3D_1n248"),
+"material": ExtResource("1_yyuqe"),
 "name": "Material.008",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -99,20 +80,20 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_asujx")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_m8tyq"]
-size = Vector3(1.11656, 2.99426, 2.11636)
+[sub_resource type="BoxShape3D" id="BoxShape3D_1kxs5"]
+size = Vector3(5.31267, 2.99426, 2.11636)
 
 [node name="Church" type="Node3D"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
 [node name="Cube_005" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_yyuqe")
-mesh = SubResource("ArrayMesh_ce1d6")
+mesh = SubResource("ArrayMesh_1kxs5")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_005"]
-transform = Transform3D(4.94884, 0, 0, 0, 1, 0, 0, 0, 1, 0.0205396, -6.35783e-07, 0.019392)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0205396, -6.35783e-07, 0.019392)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_005/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.521688, 1.49801, -0.0481108)
-shape = SubResource("BoxShape3D_m8tyq")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.61975, 1.49801, -0.0481108)
+shape = SubResource("BoxShape3D_1kxs5")

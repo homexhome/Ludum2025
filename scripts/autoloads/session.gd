@@ -7,7 +7,7 @@ var depth_perception : float = 7 :
 	set(value):
 		depth_perception = clampf(value,min_depth,max_depth)
 		
-var speed_of_depth : float = 4
+var speed_of_depth : float = 10
 var player : CharacterBody3D
 
 var environment : WorldEnvironment
@@ -21,9 +21,9 @@ enum FOG_STATE {OK, STOP}
 var fog : FOG_STATE = FOG_STATE.STOP
 
 
-var shot_amount : int = 2
-var damage_amound : int = 4
-var kill_amount : int = 8
+var shot_amount : int = 10
+var damage_amound : int = 15
+var kill_amount : int = 20
 
 signal fog_on
 signal end_game
@@ -33,9 +33,9 @@ signal end_pause
 
 func start_fog():
 	while environment.environment.fog_depth_end > max_depth:
-		environment.environment.fog_depth_end -= 0.7
+		environment.environment.fog_depth_end -= 1
 		if environment.environment.fog_depth_begin > 0:
-			environment.environment.fog_depth_begin = clampf(environment.environment.fog_depth_begin - 0.1, 0.0, 100)
+			environment.environment.fog_depth_begin = clampf(environment.environment.fog_depth_begin - 0.2, 0.0, 100)
 		await get_tree().process_frame
 	fog = FOG_STATE.OK
 	fog_on.emit()

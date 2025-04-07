@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://b1bij7n722qk8"]
+[gd_scene load_steps=5 format=4 uid="uid://b1bij7n722qk8"]
 
 [ext_resource type="Script" uid="uid://c5gpo58jfat4o" path="res://scenes/tiles/visibility_range.gd" id="1_2pck6"]
 [ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="2_02m34"]
@@ -35,9 +35,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_1805k")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_2pck6"]
-size = Vector3(1.33691, 1.43018, 1.53937)
-
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_2pck6")
 
@@ -47,9 +44,3 @@ script = ExtResource("1_2pck6")
 transform = Transform3D(1, 0, 0, 0, 0.751661, 0, 0, 0, 1, 0, 0.750669, 0)
 mesh = SubResource("ArrayMesh_2pck6")
 skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0324715, 0.715967, -0.14798)
-shape = SubResource("BoxShape3D_2pck6")

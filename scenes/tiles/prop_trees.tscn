@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=4 uid="uid://cmo2v4h40mbic"]
+[gd_scene load_steps=5 format=4 uid="uid://cmo2v4h40mbic"]
 
-[ext_resource type="Script" uid="uid://c5gpo58jfat4o" path="res://scenes/tiles/visibility_range.gd" id="1_u5cg3"]
 [ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="2_u5cg3"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_u5cg3"]
@@ -85,7 +84,6 @@ shadow_mesh = SubResource("ArrayMesh_u5cg3")
 size = Vector3(2.885, 2.81131, 4.4702)
 
 [node name="Node3D" type="Node3D"]
-script = ExtResource("1_u5cg3")
 
 [node name="Visuals" type="Node3D" parent="."]
 
