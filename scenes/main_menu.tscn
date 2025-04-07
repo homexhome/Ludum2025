@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://bob4cono2210x"]
+[gd_scene load_steps=70 format=4 uid="uid://bob4cono2210x"]
 
 [ext_resource type="Script" uid="uid://buyxwg18seq7k" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://cpupwhky1dhdp" path="res://assets/imports/Button atlas.jpg" id="2_flqon"]
@@ -6,6 +6,7 @@
 [ext_resource type="MeshLibrary" uid="uid://o0cyi1eyon7h" path="res://new_mesh_lib.tres" id="3_bqqt6"]
 [ext_resource type="AudioStream" uid="uid://df3fpjyu8fjqf" path="res://assets/music/главтема_демка2.mp3" id="3_flqon"]
 [ext_resource type="Shader" uid="uid://cvgyuhtt27ehl" path="res://assets/shaders/pixelate.gdshader" id="3_wu84c"]
+[ext_resource type="Texture2D" uid="uid://bkwxureqs2k61" path="res://assets/UI/Set_Atlas.png" id="4_3wgol"]
 [ext_resource type="PackedScene" uid="uid://cpkpu723k1j3g" path="res://scenes/blood_particles.tscn" id="5_8ln24"]
 [ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="6_oa1go"]
 [ext_resource type="Texture2D" uid="uid://cg2lfyv26n6fm" path="res://assets/main_texture.jpg" id="6_rtw2f"]
@@ -14,6 +15,16 @@
 [ext_resource type="PackedScene" uid="uid://bhfrtsb4njtdq" path="res://scenes/tiles/2x2_tree.tscn" id="10_5dd4i"]
 [ext_resource type="PackedScene" uid="uid://cjd26gw0064g1" path="res://scenes/tiles/prop_tree_1.tscn" id="11_lgwnu"]
 [ext_resource type="Material" uid="uid://ca4qpc5t6tp4p" path="res://assets/gun_mat.tres" id="14_1ajci"]
+[ext_resource type="Texture2D" uid="uid://d07t6iaiukw7w" path="res://assets/PlaceHolder.png" id="15_3wgol"]
+[ext_resource type="Texture2D" uid="uid://b3bkdm34m3u14" path="res://assets/UI/Menu C__Menu.png" id="17_vr8o3"]
+[ext_resource type="Texture2D" uid="uid://ciw4roggxar6a" path="res://assets/UI/Men Click.png" id="18_1a85y"]
+[ext_resource type="Texture2D" uid="uid://crcoesecvd84q" path="res://assets/UI/Menu B__Menu.png" id="19_hl5e0"]
+[ext_resource type="Texture2D" uid="uid://c0h0wo3gfvqgr" path="res://assets/UI/Slider.png" id="20_engjn"]
+[ext_resource type="Texture2D" uid="uid://cu78dcnvok0e7" path="res://assets/UI/palochka.png" id="21_6h3lr"]
+[ext_resource type="Texture2D" uid="uid://c580mtngvpwmt" path="res://assets/UI/Прямоугольник 6.png" id="22_dj67d"]
+[ext_resource type="Texture2D" uid="uid://bb0oh6jj3y0g" path="res://assets/UI/Прямоугольник 5.png" id="23_6vcge"]
+[ext_resource type="Texture2D" uid="uid://ddvb16i6espsi" path="res://assets/UI/VSYNC_.png" id="24_ip0br"]
+[ext_resource type="Texture2D" uid="uid://dvtt0tfvicabl" path="res://assets/UI/VOLUME (2).png" id="25_xyero"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rcqid"]
 atlas = ExtResource("2_flqon")
@@ -26,6 +37,74 @@ region = Rect2(0, 0, 330, 0)
 [sub_resource type="AtlasTexture" id="AtlasTexture_7b55j"]
 atlas = ExtResource("2_flqon")
 region = Rect2(331, 0, 330, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1acrt"]
+atlas = ExtResource("4_3wgol")
+region = Rect2(662, 0, 330, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vr8o3"]
+atlas = ExtResource("4_3wgol")
+region = Rect2(0, 0, 330, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1a85y"]
+atlas = ExtResource("4_3wgol")
+region = Rect2(331, 0, 330, 0)
+
+[sub_resource type="GDScript" id="GDScript_qywvv"]
+script/source = "extends Control
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed(\"esc\"):
+		set_pause_status()
+
+func go_to_menu():
+	get_tree().paused = false
+	set_pause_status()
+
+func set_pause_status():
+	var status = !visible
+	visible = status
+"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tcusk"]
+texture = ExtResource("21_6h3lr")
+texture_margin_top = 19.0
+
+[sub_resource type="GDScript" id="GDScript_4puye"]
+script/source = "extends HSlider
+@export var bus_id : int = 0
+
+func _ready():
+	value_changed.connect(_on_value_changed)
+	value = db_to_linear(AudioServer.get_bus_volume_db(bus_id))
+	
+func _restore_slider():
+	value = db_to_linear(0)
+	
+func _on_value_changed(_value : float):
+	if _value == 0:
+		AudioServer.set_bus_mute(bus_id, true)
+	else:
+		if AudioServer.is_bus_mute(bus_id):
+			AudioServer.set_bus_mute(bus_id, false)
+		AudioServer.set_bus_volume_db(bus_id, linear_to_db(_value))
+		print(AudioServer.get_bus_volume_db(bus_id), \" bus db\")
+"
+
+[sub_resource type="GDScript" id="GDScript_q13xq"]
+script/source = "extends CheckBox
+
+
+func _ready() -> void:
+	set_pressed_no_signal(DisplayServer.window_get_vsync_mode())
+	
+
+func _on_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+	else:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+"
 
 [sub_resource type="Curve3D" id="Curve3D_bqqt6"]
 closed = true
@@ -840,9 +919,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -165.0
+offset_left = -351.0
 offset_top = 184.0
-offset_right = 165.0
+offset_right = -21.0
 offset_bottom = 323.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -850,10 +929,94 @@ texture_normal = SubResource("AtlasTexture_rcqid")
 texture_pressed = SubResource("AtlasTexture_1ajci")
 texture_hover = SubResource("AtlasTexture_7b55j")
 
+[node name="Button2" type="TextureButton" parent="Control"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_top = 184.0
+offset_right = 394.0
+offset_bottom = 323.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("AtlasTexture_1acrt")
+texture_pressed = SubResource("AtlasTexture_vr8o3")
+texture_hover = SubResource("AtlasTexture_1a85y")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("3_flqon")
 volume_db = -15.0
 autoplay = true
+
+[node name="Pause" type="TextureRect" parent="."]
+process_mode = 3
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("15_3wgol")
+script = SubResource("GDScript_qywvv")
+
+[node name="Button" type="TextureButton" parent="Pause"]
+z_as_relative = false
+layout_mode = 1
+offset_left = 292.0
+offset_top = 399.0
+offset_right = 481.0
+offset_bottom = 444.0
+texture_normal = ExtResource("17_vr8o3")
+texture_pressed = ExtResource("18_1a85y")
+texture_hover = ExtResource("19_hl5e0")
+
+[node name="HSlider" type="HSlider" parent="Pause"]
+layout_mode = 1
+offset_left = 196.0
+offset_top = 288.5
+offset_right = 589.0
+offset_bottom = 331.5
+theme_override_icons/grabber = ExtResource("20_engjn")
+theme_override_icons/grabber_highlight = ExtResource("20_engjn")
+theme_override_styles/slider = SubResource("StyleBoxTexture_tcusk")
+max_value = 1.0
+step = 0.1
+value = 1.0
+script = SubResource("GDScript_4puye")
+
+[node name="CheckBox" type="CheckBox" parent="Pause"]
+layout_mode = 1
+offset_left = 373.0
+offset_top = 170.0
+offset_right = 402.0
+offset_bottom = 201.0
+theme_override_icons/checked = ExtResource("22_dj67d")
+theme_override_icons/unchecked = ExtResource("23_6vcge")
+script = SubResource("GDScript_q13xq")
+
+[node name="TextureRect" type="TextureRect" parent="Pause"]
+layout_mode = 0
+offset_left = 263.0
+offset_top = 161.0
+offset_right = 352.0
+offset_bottom = 209.0
+texture = ExtResource("24_ip0br")
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Pause"]
+layout_mode = 0
+offset_left = 333.0
+offset_top = 268.0
+offset_right = 441.0
+offset_bottom = 284.0
+texture = ExtResource("25_xyero")
+stretch_mode = 1
 
 [node name="Node3D" type="Node3D" parent="."]
 
@@ -1050,3 +1213,6 @@ mesh = SubResource("ArrayMesh_1dfpl")
 skeleton = NodePath("")
 
 [connection signal="pressed" from="Control/Button" to="." method="start_game"]
+[connection signal="pressed" from="Control/Button2" to="Pause" method="set_pause_status"]
+[connection signal="pressed" from="Pause/Button" to="Pause" method="go_to_menu"]
+[connection signal="toggled" from="Pause/CheckBox" to="Pause/CheckBox" method="_on_toggled"]

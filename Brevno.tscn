@@ -1,13 +1,6 @@
-[gd_scene load_steps=7 format=4 uid="uid://kasmqmobnq2y"]
+[gd_scene load_steps=5 format=4 uid="uid://kasmqmobnq2y"]
 
 [ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="1_tx7bf"]
-[ext_resource type="Texture2D" uid="uid://dt05lsrp25qqf" path="res://assets/imports/Brevno_texture.jpg" id="1_x3340"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nmwai"]
-resource_name = "Material.002"
-cull_mode = 2
-albedo_texture = ExtResource("1_x3340")
-roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_blf0a"]
 _surfaces = [{
@@ -23,7 +16,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_tx7bf"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_x3340"]
 resource_name = "Brevno_Cylinder_007"
 _surfaces = [{
 "aabb": AABB(-0.951057, -1, -1, 2.40802, 2, 1.80902),
@@ -31,7 +24,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 126,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADQAMAA8ADQAPABAAEQASABMAEQAUABIAFQAWABcAFQAYABYAGQAaABsAGgAZABwAGgAcAB0AHgAfACAAHgAhAB8AIgAjACQAIgAlACMAJgAnACgAJgApACcAKgArACwAKgAtACsALgAvADAALgAxAC8AMgAzADQAMgA1ADMANgA3ADgANwA2ADkANwA5ADoAOwA8AD0APAA7AD4APAA+AD8AQABBAEIAQABDAEEARABFAEYARABHAEUASABJAEoASABLAEkATABNAE4ATABPAE0A"),
-"material": SubResource("StandardMaterial3D_nmwai"),
+"material": ExtResource("1_tx7bf"),
 "name": "Material.002",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -41,21 +34,20 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_blf0a")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_fo6il"]
-size = Vector3(2.07048, 2.03322, 2.52258)
+[sub_resource type="BoxShape3D" id="BoxShape3D_tx7bf"]
+size = Vector3(2.07048, 2.03322, 7.91014)
 
 [node name="Node3D2" type="Node3D"]
 transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 0, 0, 0)
 
 [node name="Cylinder2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.404657, 2.85421e-07, -0.937959, 0.936879, -4.4839e-07, -0.405124, -1.40148e-07, -3.82156, -2.25195e-08, 1.33698, 0.848306, 0.00787419)
-material_override = ExtResource("1_tx7bf")
-mesh = SubResource("ArrayMesh_tx7bf")
+mesh = SubResource("ArrayMesh_x3340")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(-0.404657, 2.85421e-07, -0.937959, 0.936879, -4.4839e-07, -0.405124, -1.40148e-07, -3.82156, -2.25195e-08, 1.33697, 0.848332, 0.0082596)
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 1.33697, 0.848332, 0.0082596)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(0.922162, 0.00738351, 0.386735, -0.00536926, 0.999976, -0.00628803, -0.386766, 0.00372271, 0.922172, 0.162596, -0.0023645, 0.17353)
-shape = SubResource("BoxShape3D_fo6il")
+transform = Transform3D(0.964256, 0.00684337, 0.264893, -0.00536926, 0.999966, -0.00628857, -0.264926, 0.00464151, 0.964261, -0.143601, -0.000136197, -0.110911)
+shape = SubResource("BoxShape3D_tx7bf")

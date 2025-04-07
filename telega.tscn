@@ -1,14 +1,6 @@
-[gd_scene load_steps=13 format=4 uid="uid://cdwmqghtww1rt"]
+[gd_scene load_steps=7 format=4 uid="uid://cdwmqghtww1rt"]
 
 [ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="1_2up2m"]
-[ext_resource type="Texture2D" uid="uid://bex61otgtv7ch" path="res://assets/imports/telega_texture.jpg" id="2_m1d4g"]
-[ext_resource type="Texture2D" uid="uid://c2230mn0eityb" path="res://assets/imports/Apple_texture.jpg" id="2_tdm3v"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s7hsa"]
-resource_name = "Material.001"
-cull_mode = 2
-albedo_texture = ExtResource("2_tdm3v")
-roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xs8kd"]
 _surfaces = [{
@@ -24,7 +16,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_utbqx"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_t0wch"]
 resource_name = "Apple_Icosphere"
 _surfaces = [{
 "aabb": AABB(-0.894425, -1, -0.749894, 1.78885, 2.41988, 1.49979),
@@ -32,7 +24,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 108,
 "index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4ADwAQABEAEgATABQAFQAWABcAGAAZABoAGwAcAB0AHgAfACAAIQAiACMAJAAlACYAJwAoACkAKgArACwALQAuAC8AMAAxADIAMwA0ADUANgA3ADgAOQA6ADsAPAA9AD4APAA/AD0AQABBAEIAQwBEAEUARgBHAEgARgBJAEcASgBLAEwASgBNAEsATgBPAFAATgBRAE8AUgBTAFQAVQBWAFcAWABZAFoAWABbAFkAXABdAF4AXABfAF0A"),
-"material": SubResource("StandardMaterial3D_s7hsa"),
+"material": ExtResource("1_2up2m"),
 "name": "Material.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -41,24 +33,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xs8kd")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47ahk"]
-resource_name = "Material.003"
-cull_mode = 2
-albedo_texture = ExtResource("2_m1d4g")
-roughness = 0.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4aqfs"]
-resource_name = "Material.001"
-cull_mode = 2
-albedo_texture = ExtResource("2_m1d4g")
-roughness = 0.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jrawq"]
-resource_name = "Material.002"
-cull_mode = 2
-albedo_texture = ExtResource("2_m1d4g")
-roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_4bbti"]
 _surfaces = [{
@@ -95,7 +69,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_m1d4g"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_2up2m"]
 resource_name = "telega_Cylinder_005"
 _surfaces = [{
 "aabb": AABB(-0.866025, -1, -1.25475, 1.73205, 2, 2.48601),
@@ -104,7 +78,7 @@ _surfaces = [{
 "index_count": 180,
 "index_data": PackedByteArray("AAA6AAIAAAA7ADoAPAA9AD4APAA/AD0AQAADACIAQAABAAMABABBAAYABABCAEEAJAAjAEMAIwAkAEQARAAkACUAIwBEAEUARgBHAEgARgBJAEcASgAFAEsASgAHAAUATABNAE4ATQBMAE8ATwBMAFAATQBPAFEACAAmAAoACAAnACYAUgBTAFQAUgBVAFMACQAMAAsACQANAAwADgAoABAADgAPACgAFAATACsAEwAUACwALAAUABUAEwAsAC0AVgBXAFgAVgBZAFcAKgARACkAKgASABEALgAvABcALwAuABYAFgAuABgALwAWABkAGgAwABwAGgBaADAAWwBcAF0AWwBeAFwAMQAdADIAMQAbAB0AHgBfACAAHgBgAF8AMwA0ADUANAAzAGEAYQAzADYANABhAGIAYwBkAGUAYwBmAGQAZwAfAGgAZwAhAB8AaQBqADkAagBpADcANwBpAGsAagA3ADgA"),
 "lods": [0.179465, PackedByteArray("AAAiAAIAAAADACIAAAABAAMAIwAkACUABAAFAAYABAAHAAUACAAmAAoACAAnACYAJwALACYAJwAJAAsACQAMAAsACQANAAwADgAoABAADgAPACgADwApACgADwAqACkAKgARACkAKgASABEAFAATACsAEwAUACwALAAUABUAEwAsAC0ALgAvABcALwAuABYAFgAuABgALwAWABkAGgAwABwAGgAxADAAMQAyADAAMQAdADIAMQAbAB0AMwA0ADUANAAzADYAHgAfACAAHgAhAB8ANwA4ADkA"), 0.399448, PackedByteArray("AAABAAIAAQADAAIABAAFAAYABAAHAAUACAAJAAoACQALAAoACQAMAAsACQANAAwADgAPABAADwARABAADwASABEAEwAUABUAFgAXABgAGQAXABYAGgAbABwAGwAdABwAHgAfACAAHgAhAB8A")],
-"material": SubResource("StandardMaterial3D_47ahk"),
+"material": ExtResource("1_2up2m"),
 "name": "Material.003",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -116,7 +90,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 216,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEQAQABMAEwAQABQAEQATABUAFgAXABgAFgAZABcAGgAbABwAGgAdABsAHgAfACAAHwAeACEAIQAeACIAHwAhACMAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOgA5ADsAOAA8ADkAPQA8ADgAPQA+ADwAOgA7AD8APwA7AEAAPwBAAEEAQgBDAEQAQgBFAEMARgBHAEgARgBJAEcASgBLAEwASgBNAEsATgBPAFAATgBRAE8AUgBTAFQAUgBVAFMAVgBXAFgAVgBZAFcAWgBbAFwAWgBdAFsAXgBfAGAAXgBhAF8AYgBjAGQAYgBlAGMAZgBnAGgAZgBpAGcAagBrAGwAagBtAGsAbgBvAHAAbgBxAG8AcgBzAHQAcgB1AHMAdgB3AHgAdgB5AHcAegB7AHwAegB9AHsAfgB/AIAAgQCCAIMAgQCEAIIAhQCGAIcA"),
-"material": SubResource("StandardMaterial3D_4aqfs"),
+"material": ExtResource("1_2up2m"),
 "name": "Material.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -128,7 +102,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 24,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACwAMAA0ACwAOAAwADwAQABEA"),
-"material": SubResource("StandardMaterial3D_jrawq"),
+"material": ExtResource("1_2up2m"),
 "name": "Material.002",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -145,32 +119,27 @@ size = Vector3(4.06732, 2.22585, 2.52258)
 
 [node name="Icosphere4" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1952, -1.16348e-08, 0, 1.10575e-08, 0.185514, 0.060725, -3.61949e-09, -0.060725, 0.185514, 1.43236, 0.0599287, 0.141228)
-material_override = ExtResource("1_2up2m")
-mesh = SubResource("ArrayMesh_utbqx")
+mesh = SubResource("ArrayMesh_t0wch")
 skeleton = NodePath("")
 
 [node name="Icosphere5" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.266875, -1.42941e-08, 4.8016e-09, 9.27712e-09, 0.222638, 0.147154, -1.18874e-08, -0.147154, 0.222638, 0.25516, 0.742271, -0.341513)
-material_override = ExtResource("1_2up2m")
-mesh = SubResource("ArrayMesh_utbqx")
+mesh = SubResource("ArrayMesh_t0wch")
 skeleton = NodePath("")
 
 [node name="Icosphere2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.305, -9.08971e-09, 0, 9.08971e-09, 0.305, 0, 0, 0, 0.305, -0.351802, 0.775923, 0.108221)
-material_override = ExtResource("1_2up2m")
-mesh = SubResource("ArrayMesh_utbqx")
+mesh = SubResource("ArrayMesh_t0wch")
 skeleton = NodePath("")
 
 [node name="Icosphere3" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.305, -9.08971e-09, 0, 7.24636e-09, 0.243147, -0.184131, 5.48754e-09, 0.184131, 0.243147, 0.475146, 0.775923, 0.214308)
-material_override = ExtResource("1_2up2m")
-mesh = SubResource("ArrayMesh_utbqx")
+mesh = SubResource("ArrayMesh_t0wch")
 skeleton = NodePath("")
 
 [node name="Cylinder_005" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.632681, 0.169526, 0, -0.169526, 0.632681, 0, 0, 0, 0.655, 0, 0.641, 0)
-material_override = ExtResource("1_2up2m")
-mesh = SubResource("ArrayMesh_m1d4g")
+mesh = SubResource("ArrayMesh_2up2m")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cylinder_005"]

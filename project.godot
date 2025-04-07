@@ -13,7 +13,9 @@ config_version=5
 config/name="Ludum2025"
 run/main_scene="uid://bob4cono2210x"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/image="uid://dj84x6omsn5is"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=1000
 
 [autoload]
 
