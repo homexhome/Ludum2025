@@ -16,6 +16,7 @@ func _ready() -> void:
 		_mesh.visible = true
 
 func _physics_process(_delta: float) -> void:
+	return
 	#if Session.get_depth_perceprion() != visibility_range_end:
 	_mesh.set_visibility_range_end(snappedf(Session.get_depth_perceprion(),0.1))
 	

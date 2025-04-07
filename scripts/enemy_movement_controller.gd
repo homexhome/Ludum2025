@@ -77,7 +77,8 @@ func dead():
 	if anim_name_death != "":
 		animation_player.play(anim_name_death)
 	var timer : float = 0
-
+	character.collision_layer = 0
+	character.collision_mask = 0
 	while timer < 5:
 		character.velocity.y = character.velocity.y - character.get_gravity().y * get_physics_process_delta_time() * 2
 		timer += get_physics_process_delta_time()

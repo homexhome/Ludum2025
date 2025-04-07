@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://cpupwhky1dhdp" path="res://assets/imports/Button atlas.jpg" id="2_flqon"]
 [ext_resource type="Texture2D" uid="uid://bie4sefrojm5b" path="res://assets/Постеризация 1.png" id="2_rcqid"]
 [ext_resource type="MeshLibrary" uid="uid://o0cyi1eyon7h" path="res://new_mesh_lib.tres" id="3_bqqt6"]
-[ext_resource type="AudioStream" uid="uid://df3fpjyu8fjqf" path="res://assets/music/главтема_демка2.mp3" id="3_flqon"]
 [ext_resource type="Shader" uid="uid://cvgyuhtt27ehl" path="res://assets/shaders/pixelate.gdshader" id="3_wu84c"]
 [ext_resource type="Texture2D" uid="uid://bkwxureqs2k61" path="res://assets/UI/Set_Atlas.png" id="4_3wgol"]
+[ext_resource type="AudioStream" uid="uid://ck0e3su0vtjpi" path="res://assets/music/главтема_демка_финал1.ogg" id="5_3wgol"]
 [ext_resource type="PackedScene" uid="uid://cpkpu723k1j3g" path="res://scenes/blood_particles.tscn" id="5_8ln24"]
 [ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="6_oa1go"]
 [ext_resource type="Texture2D" uid="uid://cg2lfyv26n6fm" path="res://assets/main_texture.jpg" id="6_rtw2f"]
@@ -949,7 +949,7 @@ texture_hover = SubResource("AtlasTexture_1a85y")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("3_flqon")
+stream = ExtResource("5_3wgol")
 volume_db = -15.0
 autoplay = true
 

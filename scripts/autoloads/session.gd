@@ -16,6 +16,7 @@ enum STATE {PAUSE, PLAY}
 var session_state : STATE = STATE.PAUSE
 
 var gold : int = 0
+var max_gold : int = 5
 
 enum FOG_STATE {OK, STOP}
 var fog : FOG_STATE = FOG_STATE.STOP
@@ -88,7 +89,7 @@ func get_environment() -> WorldEnvironment:
 
 func add_gold():
 	gold += 1
-	if gold >= 5:
+	if gold >= max_gold:
 		pause_player()
 		stop_fog()
 		while environment.environment.fog_depth_end < max_depth * 3:
