@@ -28,8 +28,8 @@ func start_game():
 	Session.start_fog()
 
 	await Session.fog_on
-	#await get_tree().create_timer(1.0).timeout
 	$Start.play()
+	#await get_tree().create_timer(1.0).timeout
 	player.give_gun()
 	player.died.connect(go_back_to_menu)
 

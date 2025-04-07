@@ -10,11 +10,13 @@ config_version=5
 
 [application]
 
-config/name="Ludum2025"
+config/name="Death Perception"
+config/version="1.0"
 run/main_scene="uid://bob4cono2210x"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="uid://dj84x6omsn5is"
-config/icon="res://icon.svg"
+config/icon="uid://jyhoo0tlq8b3"
+config/windows_native_icon="res://assets/imports/icon.ico"
 boot_splash/minimum_display_time=1000
 
 [autoload]
