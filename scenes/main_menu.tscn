@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cxtpcm3xnpdxr" path="res://assets/grass_texture.jpg" id="7_tbmy8"]
 [ext_resource type="PackedScene" uid="uid://bkj0bo25nmbqj" path="res://scenes/tiles/prop_flowers.tscn" id="9_jk1qb"]
 [ext_resource type="PackedScene" uid="uid://bhfrtsb4njtdq" path="res://scenes/tiles/2x2_tree.tscn" id="10_5dd4i"]
-[ext_resource type="PackedScene" path="res://scenes/tiles/prop_tree_1.tscn" id="11_lgwnu"]
+[ext_resource type="PackedScene" uid="uid://cjd26gw0064g1" path="res://scenes/tiles/prop_tree_1.tscn" id="11_lgwnu"]
 [ext_resource type="Material" uid="uid://ca4qpc5t6tp4p" path="res://assets/gun_mat.tres" id="14_1ajci"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rcqid"]
