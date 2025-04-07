@@ -1,14 +1,63 @@
-[gd_scene load_steps=10 format=3 uid="uid://b1wtx7bgy33k7"]
+[gd_scene load_steps=17 format=3 uid="uid://b1wtx7bgy33k7"]
 
 [ext_resource type="Script" uid="uid://bg363lyt3gcdc" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://c4dubwj5ogkac" path="res://level_3.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://b0wqe48ctiv16" path="res://scenes/player.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://bpo4x3o1g1u24" path="res://scenes/world_environment.tscn" id="4_lbhrr"]
+[ext_resource type="Script" uid="uid://377qeqb16e31" path="res://scripts/pause.gd" id="4_vtaks"]
 [ext_resource type="AudioStream" uid="uid://c5805xqshp2v7" path="res://assets/music/ambient1.ogg" id="5_iywne"]
+[ext_resource type="Texture2D" uid="uid://cpupwhky1dhdp" path="res://assets/imports/Button atlas.jpg" id="5_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://wuxi16vfjtwu" path="res://scenes/god.tscn" id="5_p57ef"]
 [ext_resource type="Texture2D" uid="uid://d0qc8hyokxe71" path="res://assets/imports/kill god.png" id="7_u5sy4"]
 [ext_resource type="AudioStream" uid="uid://dr1xhv0rr43l" path="res://assets/music/startsting2.ogg" id="8_gee14"]
 [ext_resource type="AudioStream" uid="uid://yv7y7dkbieji" path="res://assets/music/DANGER.ogg" id="9_0tnpc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dinhu"]
+atlas = ExtResource("5_kvpfn")
+region = Rect2(662, 0, 330, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvuet"]
+atlas = ExtResource("5_kvpfn")
+region = Rect2(0, 0, 330, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trtic"]
+atlas = ExtResource("5_kvpfn")
+region = Rect2(331, 0, 330, 0)
+
+[sub_resource type="GDScript" id="GDScript_kvpfn"]
+script/source = "extends HSlider
+@export var bus_id : int = 0
+
+func _ready():
+	value_changed.connect(_on_value_changed)
+	
+func _restore_slider():
+	value = db_to_linear(0)
+	
+func _on_value_changed(_value : float):
+	if _value == 0:
+		AudioServer.set_bus_mute(bus_id, true)
+	else:
+		if AudioServer.is_bus_mute(bus_id):
+			AudioServer.set_bus_mute(bus_id, false)
+		AudioServer.set_bus_volume_db(bus_id, linear_to_db(_value))
+		print(AudioServer.get_bus_volume_db(bus_id), \" bus db\")
+"
+
+[sub_resource type="GDScript" id="GDScript_dinhu"]
+script/source = "extends CheckBox
+
+
+func _ready() -> void:
+	set_pressed_no_signal(DisplayServer.window_get_vsync_mode())
+	
+
+func _on_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+	else:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+"
 
 [node name="Game" type="Node" node_paths=PackedStringArray("loader_place", "god")]
 script = ExtResource("1_uwrxv")
@@ -17,9 +66,75 @@ level_scene = ExtResource("2_yqjtg")
 player_scene = ExtResource("3_lnu2h")
 god = NodePath("God")
 
+[node name="Pause" type="ColorRect" parent="."]
+process_mode = 3
+visible = false
+z_index = 5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.207843)
+script = ExtResource("4_vtaks")
+
+[node name="Button" type="TextureButton" parent="Pause"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = 99.0
+offset_right = 165.0
+offset_bottom = 238.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("AtlasTexture_dinhu")
+texture_pressed = SubResource("AtlasTexture_kvuet")
+texture_hover = SubResource("AtlasTexture_trtic")
+
+[node name="HSlider" type="HSlider" parent="Pause"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = -8.0
+offset_right = 197.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.1
+value = 1.0
+script = SubResource("GDScript_kvpfn")
+
+[node name="CheckBox" type="CheckBox" parent="Pause"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -116.5
+offset_right = 36.0
+offset_bottom = -85.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "VSYNC"
+script = SubResource("GDScript_dinhu")
+
 [node name="LoaderPlace" type="Node3D" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("5_iywne")
 volume_db = -22.0
 autoplay = true
@@ -46,3 +161,5 @@ pitch_scale = 0.83
 
 [node name="End" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_0tnpc")
+
+[connection signal="toggled" from="Pause/CheckBox" to="Pause/CheckBox" method="_on_toggled"]

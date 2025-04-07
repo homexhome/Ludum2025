@@ -21,13 +21,14 @@ func start_game():
 	player = player_scene.instantiate()
 	level.add_child(player)
 	player.global_position = level.get_player_spawn()
+	player.camera.rotation_degrees.y = -180
 	Session.resume_player()
 
 	await get_tree().create_timer(8.0).timeout
 	Session.start_fog()
 
 	await Session.fog_on
-	await get_tree().create_timer(1.0).timeout
+	#await get_tree().create_timer(1.0).timeout
 	$Start.play()
 	player.give_gun()
 	player.died.connect(go_back_to_menu)
@@ -53,7 +54,10 @@ func end_game():
 	god.health.monitoring = true
 	god.health.monitorable = true
 
+var ending : bool = false
 func really_end_game():
+	if ending: return
+	ending = true
 	await get_tree().create_timer(1.0).timeout
 	if is_inside_tree():
 		get_tree().call_deferred("change_scene_to_file","res://scenes/main_menu.tscn")

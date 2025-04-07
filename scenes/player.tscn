@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b0wqe48ctiv16"]
+[gd_scene load_steps=26 format=3 uid="uid://b0wqe48ctiv16"]
 
 [ext_resource type="Script" uid="uid://c2x87b7s57ykp" path="res://scripts/player_movement_controller.gd" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://c7r5f43wpq8f7" path="res://scripts/player.gd" id="1_qlg0r"]
@@ -11,6 +11,8 @@
 [ext_resource type="Shader" uid="uid://cvgyuhtt27ehl" path="res://assets/shaders/pixelate.gdshader" id="6_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://c38scv4txnty2" path="res://assets/music/step2.ogg" id="7_fjrip"]
 [ext_resource type="AudioStream" uid="uid://bblmiv31vprgn" path="res://assets/music/hero_death_scream2.ogg" id="8_smehm"]
+[ext_resource type="Texture2D" uid="uid://dffg8gpbasigp" path="res://assets/imports/coin.png" id="10_f1ej7"]
+[ext_resource type="Script" uid="uid://nrxlhdxlurxr" path="res://scenes/gold_sprite.gd" id="10_jej6c"]
 [ext_resource type="Texture2D" uid="uid://wvbf6amjvra3" path="res://assets/health.png" id="10_y4r1p"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
@@ -76,10 +78,39 @@ tracks/1/keys = {
 "values": [Vector2(1, 1), Vector2(1.13, 1.13), Vector2(1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_oprun"]
+resource_name = "new_animation_2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.233333, 0.366667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(1, 1), Vector2(0.95, 0.95), Vector2(1.155, 1.155), Vector2(0.84, 0.84), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1019, 495)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jej6c"]
 _data = {
 &"RESET": SubResource("Animation_3v2ag"),
-&"new_animation": SubResource("Animation_d2wvv")
+&"new_animation": SubResource("Animation_d2wvv"),
+&"new_animation_2": SubResource("Animation_oprun")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fjrip"]
@@ -435,6 +466,7 @@ offset_right = -476.0
 offset_bottom = 323.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = SubResource("AtlasTexture_ur7pv")
 expand_mode = 1
 script = ExtResource("5_d2wvv")
@@ -446,6 +478,29 @@ fourth_x = 888.0
 fifth_x = 1193.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/Health"]
+libraries = {
+&"": SubResource("AnimationLibrary_jej6c")
+}
+
+[node name="Gold" type="TextureRect" parent="Camera3D"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -601.0
+offset_top = 135.0
+offset_right = -379.0
+offset_bottom = 323.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("10_f1ej7")
+expand_mode = 1
+script = ExtResource("10_jej6c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/Gold"]
 libraries = {
 &"": SubResource("AnimationLibrary_jej6c")
 }
@@ -462,7 +517,7 @@ offset_right = 5.0
 offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 
 [node name="ColorRect2" type="ColorRect" parent="Camera3D"]
 visible = false
@@ -472,7 +527,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 
 [node name="ColorRect3" type="ColorRect" parent="Camera3D"]
 material = SubResource("ShaderMaterial_ur7pv")
@@ -481,7 +536,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 20.0

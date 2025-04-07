@@ -20,6 +20,7 @@ func _ready() -> void:
 	if is_instance_valid(current_weapon): 
 		current_weapon.queue_free()
 	Session.set_player(self)
+	Session.gold_added.connect(regenerate)
 	
 
 func give_gun():
@@ -51,7 +52,7 @@ func death():
 	$DeathSound.pitch_scale = 1.5
 	$DeathSound.play()
 	while rotation_degrees.x <= 90:
-		rotation_degrees.x += get_process_delta_time() * 10
+		rotation_degrees.x += get_process_delta_time() * 30
 		await get_tree().process_frame
 	died.emit()
 

@@ -17,6 +17,8 @@ func _ready() -> void:
 func take_damage(damage : float, hit_position : Vector3):
 	if override_take_damage: dead.emit()
 	if !is_alive(): return
+	if get_parent() is CharacterBody3D and get_parent().is_on_floor() == false:
+		damage *= 2
 	current_health -= damage
 	
 	if damaged_particle != null:

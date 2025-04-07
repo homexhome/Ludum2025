@@ -18,8 +18,6 @@ func _input(event):
 	if Session.get_if_paused(): return
 	
 	if event is InputEventMouseMotion :
-		if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		if active:
 			var delta = event.relative * mouse_sensitivity
 			rotation_degrees.y -= delta.x
@@ -28,13 +26,12 @@ func _input(event):
 			rotation_degrees.x -= delta.y
 			rotation_degrees.x = clampf(rotation_degrees.x, -90, 70)
 			
-	#if event.is_action_pressed("esc"):
-		#set_active_status(!active)
-			
 func set_active_status(status : bool):
 	active = status
 	if active:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		Session.end_pause.emit()
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		Session.end_pause.emit()
 		

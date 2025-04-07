@@ -15,7 +15,7 @@ var environment : WorldEnvironment
 enum STATE {PAUSE, PLAY}
 var session_state : STATE = STATE.PAUSE
 
-var gold : int = 4
+var gold : int = 0
 
 enum FOG_STATE {OK, STOP}
 var fog : FOG_STATE = FOG_STATE.STOP
@@ -27,16 +27,22 @@ var kill_amount : int = 8
 
 signal fog_on
 signal end_game
+signal gold_added
+signal start_pause
+signal end_pause
 
 func start_fog():
 	while environment.environment.fog_depth_end > max_depth:
-		environment.environment.fog_depth_end -= 1
+		environment.environment.fog_depth_end -= 0.7
 		if environment.environment.fog_depth_begin > 0:
-			environment.environment.fog_depth_begin = clampf(environment.environment.fog_depth_begin - 0.15, 0.0, 100)
+			environment.environment.fog_depth_begin = clampf(environment.environment.fog_depth_begin - 0.1, 0.0, 100)
 		await get_tree().process_frame
 	fog = FOG_STATE.OK
 	fog_on.emit()
-	environment.environment.fog_depth_begin = 0
+
+	while environment.environment.fog_depth_begin > 0:
+		environment.environment.fog_depth_begin = clampf(environment.environment.fog_depth_begin - 0.05, 0.0, 100)
+		await get_tree().process_frame
 
 func stop_fog():
 	fog = FOG_STATE.STOP
@@ -91,3 +97,5 @@ func add_gold():
 			print(environment.environment.fog_depth_end, " ", environment.environment.fog_depth_begin)
 			await get_tree().process_frame
 		end_game.emit()
+	else:
+		gold_added.emit()
