@@ -5,16 +5,19 @@ var pitch_limit = 30.0
 
 var active : bool = false
 var set_status : bool = false
+var start_time_active: bool = true
 
 func _ready() -> void:
 	set_active_status(true)
-	
+	await get_tree().create_timer(0.5).timeout
+	start_time_active = false
 #func _unhandled_input(_event: InputEvent) -> void:
 	#if set_status == false:
 		#set_active_status(true)
 		#set_status = true
 
 func _input(event):
+	if start_time_active: return
 	if Session.get_if_paused(): return
 	
 	if event is InputEventMouseMotion :
