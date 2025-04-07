@@ -210,11 +210,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159, 0.6, -115)
 [node name="Node3D48" parent="NavigationRegion3D" groups=["navigation_mesh_source_group"] instance=ExtResource("10_ra6nl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 0.6, 73)
 
-[node name="Church" parent="NavigationRegion3D" instance=ExtResource("6_g005c")]
-transform = Transform3D(-0.190232, 0, 0.709956, 0, 0.735, 0, -0.709956, 0, -0.190232, -7.75339, 0.365605, -81.0556)
-
 [node name="Church2" parent="NavigationRegion3D" instance=ExtResource("6_g005c")]
-transform = Transform3D(-0.26528, 0, -0.685458, 0, 0.735, 0, 0.685458, 0, -0.26528, -3.8613, 1.36782, 23.4832)
+transform = Transform3D(-0.26528, 0, -0.685458, 0, 0.735, 0, 0.685458, 0, -0.26528, -4.43938, 1.36782, 23.4832)
 
 [node name="Home" parent="NavigationRegion3D" groups=["navigation_mesh_source_group"] instance=ExtResource("15_joegk")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2, 2.5, 38)
@@ -307,7 +304,7 @@ transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819
 transform = Transform3D(-0.776457, 0, -2.89778, 0, 3, 0, 2.89778, 0, -0.776457, 7, 2.28667, 72)
 
 [node name="Node3D24" parent="NavigationRegion3D" instance=ExtResource("16_wnq0t")]
-transform = Transform3D(-0.776457, 0, -2.89778, 0, 3, 0, 2.89778, 0, -0.776457, -9.66249, 2.13892, 68)
+transform = Transform3D(-2.15088, 0, -2.09135, 0, 3, 0, 2.09135, 0, -2.15088, -9.4588, 2.13892, 66.8087)
 
 [node name="Coin" parent="NavigationRegion3D" instance=ExtResource("17_ra6nl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2.6, 70)
@@ -476,6 +473,9 @@ transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 53, -0.1, 
 
 [node name="Home9" parent="NavigationRegion3D" instance=ExtResource("16_m8gss")]
 transform = Transform3D(-1.06066, 0, 1.06066, 0, 1.5, 0, -1.06066, 0, -1.06066, 144, 0.4, 89)
+
+[node name="Home17" parent="NavigationRegion3D" instance=ExtResource("16_m8gss")]
+transform = Transform3D(2.04605, 0, -0.936059, 0.213146, 2.19089, 0.465895, 0.911469, -0.512337, 1.9923, -117.182, -0.562805, -182.983)
 
 [node name="Home10" parent="NavigationRegion3D" instance=ExtResource("16_m8gss")]
 transform = Transform3D(1.44889, 0, -0.388228, 0, 1.5, 0, 0.388228, 0, 1.44889, 144, 0.4, 72)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cmo2v4h40mbic"]
+[gd_scene load_steps=11 format=4 uid="uid://cmo2v4h40mbic"]
 
 [ext_resource type="Material" uid="uid://lf8uhiy1sssu" path="res://assets/main_material.tres" id="2_u5cg3"]
 [ext_resource type="Texture2D" uid="uid://cpte5eopw8uh6" path="res://assets/imports/treess_texture.jpg" id="3_g5ytl"]
